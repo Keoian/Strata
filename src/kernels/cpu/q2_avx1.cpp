@@ -139,7 +139,7 @@ void rows(const uint8_t* w, size_t row_bytes, int nblocks, const ActQ* const* a,
 // the lanes of the 128-bit form side by side, so each lane takes the same operations in the same order and the
 // bytes are the 128-bit form's - q2_avx1_parity checks it).  The integer part is exact; the float summation order is
 // this kernel's own (the same statement as for the AVX-2 one), and every row reduces with the same tree alone or in a
-// group (#152).  Half the float instructions of the 128-bit form: on an i7-3770, 0.81 -> 0.7x ms per 3-token expert.
+// group (#152).  Half the float instructions of the 128-bit form: on an i7-3770, 0.81 -> 0.66 ms per 3-token expert (0.60 with h2f_scale).
 template <int NT>
 inline void row_bp_acc(const uint8_t* row, const ActQ* const* a, int npairs, __m256* acc) {
     for (int t = 0; t < NT; ++t) acc[t] = _mm256_setzero_ps();
