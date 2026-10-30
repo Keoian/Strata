@@ -4394,9 +4394,13 @@ int main(int argc, char** argv) {
             return 1;
         }
         if (native_pack) skip.insert("token_embd.weight");
-        // STRATA_HC_Q8=1 (single GPU): the layers' hyper-connection down / up projections live only as Q8_0 (NativeDense
-        // quantizes them from the pack file), so their bf16 copy is not loaded
-        if (!o.native_dense_gguf.empty() && !multi_gpu && strata::core::NativeDense::hc_q8_requested())
+        // STRATA_HC_Q8=1: the layers' hyper-connection down / up projections live only as Q8_0 (NativeDense quantizes
+        // them from the pack file), so their bf16 copy is not loaded.  A layer split too (STRATA_HC_Q8_SPLIT_BF16=1 keeps
+        // the earlier split rule, a bf16 copy beside the Q8_0 one): each stage's NativeDense quantizes its own layers
+        // (set_layer_range) and allocates its own dequantization scratch, so the copy only took VRAM - on 2x RX 5700 XT
+        // 8 GB, ~600 expert slots
+        static const bool keep_split_bf16 = std::getenv("STRATA_HC_Q8_SPLIT_BF16") != nullptr;
+        if (!o.native_dense_gguf.empty() && (!multi_gpu || !keep_split_bf16) && strata::core::NativeDense::hc_q8_requested())
             strata::core::NativeDense::add_hc_skip(o.pack, skip);
     }
     // Layer split: every GPU holds only the dense weights of ITS layers (the PLE tensors stay everywhere).
