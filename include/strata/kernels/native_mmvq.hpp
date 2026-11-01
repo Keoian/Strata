@@ -120,6 +120,13 @@ bool native_q8_0_sm60_pack_quiet(const void* weights, int n_in, int n_out, const
 /// native_q8_0_sm60_pack makes. Either way native_q8_0_sm60_release must run before the caller frees the matrix.
 bool native_q8_0_sm60_pack_in_place(void* weights, int n_in, int n_out, const char* what);
 void native_q8_0_sm60_release(const void* weights);
+/// STRATA_Q8_SM60_GGUF=1 (opt-in, with STRATA_Q8_SM60=1): a matrix of 2048+ inputs (n_in % 256 == 0, 16-byte aligned)
+/// is read by the Pascal kernel straight from its GGUF blocks, staged through shared memory - no packed copy, bitwise
+/// the packed kernel's output.  native_q8_0_sm60_gguf_register keys it like a packed matrix (unregister / release as
+/// those); native_q8_0_sm60_pack takes this path by itself for an eligible matrix.
+bool native_q8_0_sm60_gguf_on();
+bool native_q8_0_sm60_gguf_eligible(const void* gguf_weights, int n_in, int n_out);
+void native_q8_0_sm60_gguf_register(const void* gguf_weights, int n_in, int n_out);
 
 /// STRATA_Q6_PACKED=1 (opt-in): a packed copy of a Q6_K matrix (the output heads) - the same bytes as ql / qh /
 /// scales / d planes - that native_q6_k_mmvq calls on `weights` read instead (bitwise equal outputs). The copy is

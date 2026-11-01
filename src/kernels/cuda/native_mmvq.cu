@@ -2478,6 +2478,20 @@ bool q8_sm60_on() {
 }
 #if !defined(__HIPCC__)
 #include "q8_sm60.cuh"
+// STRATA_Q8_SM60_GGUF (with STRATA_Q8_SM60=1): 1 = q8sm60g (staged, bitwise the packed kernel), 2 = q8sm60g2 (aligned
+// loads, rounding level), else 0 (the packed copies)
+int q8_sm60_gguf_mode() {
+    static const int m = [] {
+        const char* v = std::getenv("STRATA_Q8_SM60_GGUF");
+        const int n = (v != nullptr && (v[0] == '1' || v[0] == '2') && v[1] == '\0') ? v[0] - '0' : 0;
+        const int on = q8_sm60_on() ? n : 0;
+        if (on) std::fprintf(stderr, "strata q8 sm60: matrices of 2048+ inputs are read from their GGUF blocks, with no "
+                                     "packed copy (STRATA_Q8_SM60_GGUF=%d: %s)\n", on,
+                             on == 2 ? "aligned loads, rounding level" : "staged, bitwise the packed kernel");
+        return on;
+    }();
+    return m;
+}
 #endif
 
 // ============================ STRATA_Q8_PACKED=1: the packed Q8_0 decode layout (opt-in) ============================
@@ -2561,7 +2575,7 @@ __global__ void native_q8_0_packed_kernel(const int8_t* __restrict__ qs, const h
     }
 }
 
-struct Q8Packed { const int8_t* qs; const half* d; int n_in, n_out; };
+struct Q8Packed { const int8_t* qs; const half* d; int n_in, n_out; const void* gguf = nullptr; };   // gguf: STRATA_Q8_SM60_GGUF
 std::unordered_map<const void*, Q8Packed>& q8_packed_registry() {
     static std::unordered_map<const void*, Q8Packed> registry;
     return registry;
@@ -2593,6 +2607,23 @@ bool q8_packed_mmvq(const void* weights, const void* x_q8_1, float* y, int n_in,
             validate_pointer(x_q8_1);
             validate_pointer(y);
             validate_stream(stream);
+            if (found->second.gguf != nullptr) {   // STRATA_Q8_SM60_GGUF: no packed planes; the GGUF blocks (1: staged,
+                                                    // bitwise; 2: aligned loads, rounding level)
+                // where q8sm60::kernel would decline a pass (its planes do not fit: 6144 inputs at 8 columns), the
+                // GGUF-layout kernels run, as they do for a packed matrix there - the same bits as without the switch
+                for (int j = 0; j < ncols; j += q8sm60::MAX_COLS) {
+                    const int nj = ncols - j < q8sm60::MAX_COLS ? ncols - j : q8sm60::MAX_COLS;
+                    if (q8sm60::smem_bytes(nj, n_in) > q8sm60::MAX_SMEM) return false;
+                }
+                const auto* xq = static_cast<const Q81Block*>(x_q8_1);
+                const auto st = static_cast<cudaStream_t>(stream);
+                const bool ok = q8_sm60_gguf_mode() == 2 ? q8sm60g2::launch(found->second.gguf, xq, y, n_in, n_out, ncols, st)
+                                                         : q8sm60g::launch(found->second.gguf, xq, y, n_in, n_out, ncols, st);
+                if (!ok)
+                    throw std::runtime_error("strata q8 sm60 gguf: a registered matrix the kernel declines");
+                launch_check();
+                return true;
+            }
             // (the kernel takes at most q8sm60::MAX_COLS columns; a 9..16-row window is run in passes, each column bitwise
             // the one-column result, as native_mmvq does for more than MAX_NCOLS)
             bool all = true;
@@ -2799,6 +2830,32 @@ bool native_q8_0_packed_enabled() {
     return enabled || q8_sm60_on();
 }
 
+// STRATA_Q8_SM60_GGUF=1 (opt-in, with STRATA_Q8_SM60=1): the Pascal kernel reads eligible matrices straight from their
+// GGUF blocks (q8sm60g in q8_sm60.cuh, bitwise q8sm60::kernel), so they get no packed copy
+bool native_q8_0_sm60_gguf_on() {
+#if defined(__HIPCC__)
+    return false;
+#else
+    return q8_sm60_gguf_mode() != 0;
+#endif
+}
+bool native_q8_0_sm60_gguf_eligible(const void* gguf_weights, int n_in, int n_out) {
+#if defined(__HIPCC__)
+    (void) gguf_weights; (void) n_in; (void) n_out;
+    return false;
+#else
+    return native_q8_0_sm60_gguf_on() && (q8_sm60_gguf_mode() == 2 ? q8sm60g2::eligible(gguf_weights, n_in, n_out)
+                                                                   : q8sm60g::eligible(gguf_weights, n_in, n_out));
+#endif
+}
+void native_q8_0_sm60_gguf_register(const void* gguf_weights, int n_in, int n_out) {
+    validate_pointer(gguf_weights);
+    if (!native_q8_0_sm60_gguf_eligible(gguf_weights, n_in, n_out)) throw std::invalid_argument("Q8_0 gguf: ineligible");
+    Q8Packed e{nullptr, nullptr, n_in, n_out};
+    e.gguf = gguf_weights;
+    q8_packed_registry()[gguf_weights] = e;
+}
+
 bool native_q8_0_packed_eligible(int n_in, int n_out) {
     if (q8_sm60_on()) return n_in >= 128 && n_in % 32 == 0 && n_out > 0;   // the Pascal kernel takes any of them
     return q8_packed_shape(n_in, n_out);
@@ -2828,6 +2885,17 @@ bool q8_sm60_pack_impl(const void* weights, int n_in, int n_out, const char* wha
 #else
     if (!q8_sm60_on() || !weights || !native_q8_0_packed_eligible(n_in, n_out)) return false;
     if (q8_packed_registry().count(weights)) return true;
+    // STRATA_Q8_SM60_GGUF: the blocks as they are - for the head (the one caller here) only with STRATA_Q8_SM60_GGUF_HEAD=1:
+    // its 248320 rows are where the GGUF read is furthest behind the packed one at one token
+    static const bool gguf_head = [] { const char* v = std::getenv("STRATA_Q8_SM60_GGUF_HEAD"); return v && v[0] == '1'; }();
+    if (gguf_head && native_q8_0_sm60_gguf_eligible(weights, n_in, n_out)) {
+        native_q8_0_sm60_gguf_register(weights, n_in, n_out);
+        q8_sm60_owned()[weights] = nullptr;
+        if (!quiet)
+            std::fprintf(stderr, "strata q8 sm60: the %s (%d x %d) is read from its GGUF blocks, no packed copy\n", what,
+                         n_out, n_in);
+        return true;
+    }
     const std::size_t count = std::size_t(n_in / 32) * std::size_t(n_out);
     const std::size_t bytes = count * 34;
     void* packed = nullptr;

@@ -62,6 +62,9 @@ int main(int argc, char** argv) {
     if (std::getenv("STRATA_GR_V3") == nullptr) setenv("STRATA_GR_V3", "0", 1);
 #endif
     setvbuf(stdout, nullptr, _IONBF, 0);
+    // STRATA_BENCH_CHECK=1: pick the card's read as the engine does (fused_gr_check: the staged read on a P100, and
+    // STRATA_HC_KSPLIT's scratch) instead of the plain read
+    if (const char* c = std::getenv("STRATA_BENCH_CHECK"); c != nullptr && c[0] == '1') K::fused_gr_check();
     const int iters = argc > 1 ? std::atoi(argv[1]) : 500;
     const int t_lo = argc > 2 ? std::atoi(argv[2]) : 1, t_hi = argc > 3 ? std::atoi(argv[3]) : 6;
     const int cold_sets = argc > 4 ? std::atoi(argv[4]) : 0;

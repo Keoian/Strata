@@ -172,6 +172,7 @@ struct Pending {
     uint64_t bytes;
     DevicePtr data;
     DevicePtr packed;   // STRATA_Q8_PACKED=1 copy, or null
+    bool gguf = false;  // STRATA_Q8_SM60_GGUF=1: the Pascal kernel reads the GGUF blocks, no copy
 };
 }
 
@@ -377,7 +378,11 @@ bool NativeDense::load(const std::vector<std::string>& shards, WeightTable& tabl
                 // STRATA_Q8_PACKED=1: a second, packed copy of an eligible Q8_0 matrix for the decode MMVQ (the GGUF
                 // copy stays: the prompt path's GEMMs read it).
                 DevicePtr packed;
+                bool gguf_read = false;
                 if (tensor.type == 8 && tensor.name != "blk.1.ple_key.weight" &&   // the PLE has its own kernel
+                    strata::kernels::native_q8_0_sm60_gguf_eligible(data.get(), (int) ref.ne0, (int) ref.ne1)) {
+                    gguf_read = true;   // STRATA_Q8_SM60_GGUF: registered below, no second copy
+                } else if (tensor.type == 8 && tensor.name != "blk.1.ple_key.weight" &&   // the PLE has its own kernel
                     strata::kernels::native_q8_0_packed_enabled() &&
                     strata::kernels::native_q8_0_packed_eligible((int) ref.ne0, (int) ref.ne1)) {
                     std::vector<uint8_t> host(bytes);
@@ -393,7 +398,7 @@ bool NativeDense::load(const std::vector<std::string>& shards, WeightTable& tabl
                         return false;
                     }
                 }
-                pending.push_back(Pending{&ref, (int) tensor.type, bytes, std::move(data), std::move(packed)});
+                pending.push_back(Pending{&ref, (int) tensor.type, bytes, std::move(data), std::move(packed), gguf_read});
             }
             if (hc_q8_env())
                 for (const auto& tensor : gguf.tensors()) {
@@ -485,12 +490,18 @@ bool NativeDense::load(const std::vector<std::string>& shards, WeightTable& tabl
         if (status != cudaSuccess) { err = std::string("native dense scratch: ") + cudaGetErrorString(status); return false; }
         // All checks and allocations finish before publishing any reference.
         weights_.reserve(pending.size());
-        uint64_t packed_bytes = 0;
-        size_t packed_count = 0;
+        uint64_t packed_bytes = 0, gguf_bytes = 0;
+        size_t packed_count = 0, gguf_count = 0;
         for (auto& item : pending) {
             item.ref->native_data = item.data.get();
             item.ref->native_type = item.type;
             item.ref->native_q8_1 = scratch.get();
+            if (item.gguf) {
+                strata::kernels::native_q8_0_sm60_gguf_register(item.data.get(), (int) item.ref->ne0, (int) item.ref->ne1);
+                packed_keys_.push_back(item.data.get());
+                gguf_bytes += item.bytes;
+                ++gguf_count;
+            }
             if (item.packed) {
                 strata::kernels::native_q8_0_packed_register(item.data.get(), item.packed.get(), (int) item.ref->ne0,
                                                              (int) item.ref->ne1);
@@ -504,6 +515,9 @@ bool NativeDense::load(const std::vector<std::string>& shards, WeightTable& tabl
         if (packed_count)
             std::fprintf(stderr, "native dense: STRATA_Q8_PACKED=1 packed %zu Q8_0 matrices for decode (+%.1f MiB)\n",
                          packed_count, packed_bytes / 1048576.0);
+        if (gguf_count)
+            std::fprintf(stderr, "native dense: STRATA_Q8_SM60_GGUF=1: %zu Q8_0 matrices read from their GGUF blocks "
+                                 "(%.1f MiB not copied)\n", gguf_count, gguf_bytes / 1048576.0);
         scratch_ = scratch.release();
         bytes_ = total + hc_q8_bytes;
         allocated_ = allocated;

@@ -1,7 +1,9 @@
 # Qwen3.8-Flash-Next on two Tesla P100s
 
 The setup and settings that serve Qwen3.8-Flash-Next with Strata on two Tesla P100-PCIE-16GB cards, and the tools used to
-tune them. Strata itself is unchanged (v0.2.8, engine 0.1.54, commit 870aedd); everything here is configuration.
+tune them. The production configs run stock Strata (v0.2.8, engine 0.1.54, commit 870aedd) and are configuration
+only. This branch also adds two opt-in engine kernels for the P100 ([below](#opt-in-engine-kernels-2026-10-31)); with
+their switches off the engine computes exactly what stock does.
 
 | Machine | |
 | --- | --- |
@@ -56,6 +58,70 @@ Tried and dropped: `--pipeline-windows 2`, alone and with `STRATA_MTP_STAGE0=1` 
 Draft depth 2 or 5, and confidence bars 0.3, 0.5 and 0.85 (all slower). Reserving VRAM for layer-major prefill
 (`--vram-reserve-mib 1800`): long prompts were no faster (351 tok/s at 36K, against 358 at 32K without it).
 
+## Opt-in engine kernels (2026-10-31)
+
+Two kernels for the P100, each behind its own environment switch, plus Strata's own `--aux-cpus auto`. IQ3_XXS,
+production settings otherwise:
+
+| | Stock engine | With the three |
+| --- | ---: | ---: |
+| Decode, 6 prompts x 256 tokens (two ABAB pairs, 3 rounds each) | 42.1 tok/s | **43.95 tok/s (+4.4%)** |
+| Time per verify window (`STRATA_DECODE_TIMING=1`) | 46.7 ms | 45.0 ms (-3.6%) |
+| 4.5K-token prompt | 222-225 tok/s | **261 tok/s (+16%)** |
+| 16K / 32K prompt (`tools/strata_bench.py --long`) | 232 / 239 tok/s | **366 / 418 tok/s (+57% / +75%)** |
+| Expert cache, card 1 / card 2 | 5,228 / 4,127 slots | 6,437 / 5,041 slots |
+| Agent session decode / first token of a turn | 46.8 tok/s / 13.5 s | 48.0 tok/s / 11.9 s |
+
+1. **`STRATA_Q8_SM60_GGUF=1`** (with `STRATA_Q8_SM60=1`): the Pascal Q8_0 kernel reads the dense weights straight from
+   their GGUF blocks (`q8sm60g` in `src/kernels/cuda/q8_sm60.cuh`), staged through shared memory with aligned 16-byte
+   loads, instead of from a packed second copy. The copy was 2.9 GiB over the two cards; the freed VRAM holds 23% more
+   experts, which cuts the experts each 8K prompt chunk has to stream (the second card over its x4 link). Every output
+   is bitwise the packed kernel's. The output head stays on its packed copy (`STRATA_Q8_SM60_GGUF_HEAD=1` moves it too;
+   its 248,320 rows are where the GGUF read is furthest behind).
+2. **`STRATA_GR_DOWN_RPF=1`**: the hyper-connection down kernel prefetches its next activation tile into registers
+   (`gr_down_rpf_kernel` in `src/kernels/cuda/fused_gr.cu`). Below sm_80 Strata's async copy is a plain load and store,
+   so each of the 8 tiles waited for its data. The read at 2 tokens: 65.4 -> 58.3 us. Byte-identical end to end.
+3. **`--aux-cpus auto`** (Strata): helper threads on the spare cores.
+
+To run it: `start-flashnext.sh iq3_xxs-opt` (`configs/strata-prod-iq3_xxs-opt.json`: the IQ3_XXS config plus the three,
+with the engine built from this branch and copied to its own folder so a later build cannot change it):
+
+```
+cmake -S . -B build-opt -G Ninja -DCMAKE_BUILD_TYPE=Release -DSTRATA_ENABLE_CUDA=ON -DSTRATA_EXPERIMENTAL_SM60=ON \
+    -DCMAKE_CUDA_ARCHITECTURES=60 -DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DCMAKE_CUDA_COMPILER_LAUNCHER=ccache
+ninja -C build-opt strata
+mkdir -p /work/flashnext/engine-opt && cp build-opt/strata build-opt/libstrata_kq.so /work/flashnext/engine-opt/
+```
+
+The build needs about 3 GB of free RAM for its largest file (`native_mmvq.cu`), more than this machine has while
+Flash-Next is serving: build with the server stopped (6 minutes at -j4 with a warm ccache).
+
+Quality, Strata's yardstick (`tools/quant_quality.py` with `--resident-experts` kept, 5 x 999 positions): the stock
+engine is deterministic run to run. With the switches off, or with `STRATA_GR_DOWN_RPF=1` alone, results are
+byte-identical to stock. `STRATA_Q8_SM60_GGUF=1` changes where experts run, not how: more VRAM puts more experts on the
+GPU, and Strata's GPU and CPU expert paths round differently. Stock against stock with a different cache size differs by
+the same amount (top-1 95.6%, mean KL 0.019); perplexity on the yardstick falls as more experts run on the GPU (stock
+3,000 slots 4.152, stock auto 4.139, the three 4.132). Prompt mode (20 prompts of 256-1,000 tokens): top-1 20/20, mean
+KL 0.0002. Needles at 32K, 64K and 123K tokens were found (read at 407, 439, 484 tok/s).
+
+Tried and not used (measured on IQ3_XXS; run-to-run noise about +-1-2%, bar 2%):
+
+| Idea | Decode | Prompt | |
+| --- | ---: | ---: | --- |
+| `STRATA_Q8_SM60_GGUF=2` (`q8sm60g2`: aligned loads, no staging; rounding level) | -3% | +9% | slower kernel |
+| `STRATA_HC_KSPLIT=2/4/8` (down projection split along K) | worse | - | fails the engine's bitwise self-test, which falls back to a slower read |
+| `STRATA_PCIE_FRAC_STAGES=0.6,0.27` / `0.75,0.2` (per-card PCIe share of missed experts) | +0.2% / -2% | - | noise / worse |
+| The 27B fork's PRMT+XMAD dot-product emulation | +0.1% | +2% | not bit-identical inside Strata (KL 2e-4); not committed |
+| `--adapt-async 1` | +0.5-1% | -8% | |
+| `STRATA_PCIE_AUTO_SPLIT=1`, `STRATA_SPLIT_OVERLAP=1`, `STRATA_GR_V3`, `GR_UP_WIDE`, `GR_NORM_FAST` | 0 to +0.6% | 0 | |
+| `STRATA_HC_Q8=1` (8-bit hyper-connection weights; lossy) | -2.1% | -9% | |
+| CPU workers on the hyperthreads / 4 workers | -2% / 0 | - | |
+| Draft depth 4 at 0.7 | +0.4% | - | depth 3 stays |
+
+Why decode moves so little: of a ~45 ms verify window, the expert kernels take ~9 ms, the hyper-connection reads ~7 ms,
+waiting for experts that are not in VRAM ~7.5 ms (each miss is a ~188 us CPU round trip on this i7), the dense 8-bit
+matrices ~6 ms (already at 450-530 of ~550 GB/s) and the draft 3 ms. The two cards run one after the other.
+
 ## Accuracy
 
 - Strata's default `STRATA_ROUTE_TAIL_SKIP=7` skips an expert that missed the GPU cache when every token in the window
@@ -69,10 +135,12 @@ Draft depth 2 or 5, and confidence bars 0.3, 0.5 and 0.85 (all slower). Reservin
 
 | Path | What |
 | --- | --- |
+| `configs/strata-prod-iq3_xxs-opt.json` | the IQ3_XXS config with the opt-in kernels and `--aux-cpus auto` (engine from this branch) |
 | `configs/strata-prod-q2_0.json`, `configs/strata-prod-iq3_xxs.json` | the tuned server configs (port 8090, all interfaces, key from `STRATA_API_KEY`, alias `qwen3.8-27b`, thinking off by default, pictures on the CPU reader) |
-| `start-flashnext.sh [iq3_xxs\|q2_0]` | starts the server in its own process group, reading the key from a file outside the repo; the default is iq3_xxs |
+| `start-flashnext.sh [iq3_xxs\|q2_0\|iq3_xxs-opt]` | starts the server in its own process group, reading the key from a file outside the repo; the default is iq3_xxs |
 | `stop-flashnext.sh` | stops that process group and waits for the GPUs to empty |
 | `bench/dbench.py URL LABEL [ROUNDS] [KEY]` | the decode benchmark above; appends a row to a results file |
+| `bench/sbench.py URL LABEL [ROUNDS] [KEY]` | the same with the server's default sampling instead of greedy |
 | `bench/pbench.py URL N_WORDS` | one fresh prompt of N random words, prints prompt tok/s |
 | `bench/variant.py BASE.json NAME [--args ...] [--env K=V ...] [--set k=json ...]` | writes `strata-NAME.json` next to BASE, with extra engine args, env or keys |
 | `bench/restart.sh CONFIG.json [PORT]` | restarts a test server; waits for empty GPUs and cards under 60 C |

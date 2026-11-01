@@ -2238,6 +2238,27 @@ double pcie_frac_for_gbps(double gbps, double base) {
     return gbps <= 0.0 ? base : base * std::min(1.0, gbps / 20.0);
 }
 
+// p100 (opt-in STRATA_PCIE_FRAC_STAGES=f0,f1,...): each layer-split stage's PCIe share of the missed experts, in stage
+// order (the first card's, then each later card's), over the probe's rule.  A negative or missing entry keeps the
+// probe's value.  The share only moves an expert's product between the CPU pool and the GPU (their rounding differs at
+// the level of the engine's own CPU-vs-GPU split).  On 2x P100 (x16 + x4) the CPU pool takes ~188 us per missed IQ3_XXS
+// expert and the x16 link ~114 us, the x4 link ~500 us, so the balanced shares are about 0.6 and 0.27.  Measured
+// (IQ3_XXS): 0.6,0.27 within noise, 0.75,0.2 -2% decode: not used.
+double pcie_frac_stage_override(size_t stage) {
+    const char* e = std::getenv("STRATA_PCIE_FRAC_STAGES");
+    if (e == nullptr || *e == '\0') return -1.0;
+    size_t k = 0;
+    for (const char* p = e; *p != '\0'; ++k) {
+        char* end = nullptr;
+        const double v = std::strtod(p, &end);
+        if (end == p) return -1.0;
+        if (k == stage) return v >= 0.0 && v <= 1.0 ? v : -1.0;
+        p = *end == ',' ? end + 1 : end;
+        if (*end != ',') break;
+    }
+    return -1.0;
+}
+
 // --pool-affinity measure: `all` against `p-cores` on a hybrid CPU, timed on this pack's own experts.
 //
 // The pool's default layout puts a worker on every physical core, and a layer's experts are done when the slowest
@@ -4201,6 +4222,11 @@ int main(int argc, char** argv) {
             std::fprintf(stderr, "strata generate: PCIe probe failed -> pcie_frac default %.2f\n", base);
         }
     }
+    if (const double f0 = pcie_frac_stage_override(0); f0 >= 0.0 && !pcie_given) {   // p100: STRATA_PCIE_FRAC_STAGES
+        std::fprintf(stderr, "strata generate: STRATA_PCIE_FRAC_STAGES: CUDA0 pcie_frac %.2f (was %.2f)\n", f0, o.pcie_frac);
+        o.pcie_frac = f0;
+        o.pcie_frac_auto = false;
+    }
     // STRATA_PCIE_BALANCE=1 (opt-in): each verify layer's PCIe count from measured costs (Verifier::set_pcie_balance)
     // instead of the probe's fixed share above - the CPU's speed sets the right share as much as the link's.  IQ2_XS,
     // one AVX2 pool worker (emulated on an RTX 5090 + 9950X3D): 16.8-17.2 -> 12.8-13.0 ms a round; the 9950X3D's own
@@ -5062,6 +5088,11 @@ int main(int argc, char** argv) {
             st.link_gbps = bw;
             std::fprintf(stderr, "strata generate: layer split: CUDA%d PCIe probe %.1f GB/s (best of %s) -> pcie_frac "
                                  "%.2f\n", st.dev, bw, bursts.c_str(), st.pcie_frac);
+        }
+        if (const double fk = pcie_frac_stage_override(i + 1); fk >= 0.0 && !pcie_given) {   // p100: STRATA_PCIE_FRAC_STAGES
+            std::fprintf(stderr, "strata generate: STRATA_PCIE_FRAC_STAGES: CUDA%d pcie_frac %.2f (was %.2f)\n", st.dev, fk,
+                         st.pcie_frac);
+            st.pcie_frac = fk;
         }
         if (!late_weights) {
             size_t fb = 0, tb = 0;
