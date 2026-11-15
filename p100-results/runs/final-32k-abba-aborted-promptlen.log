@@ -1,0 +1,38 @@
+[A1] loaded in 178 s
+[A1] code   prompt 70 (reused 0) pp    40.3 tok/s  decode 512 tok  37.71 tok/s  accepted 356/441  finish length
+[A1] edit   prompt 4513 (reused 0) pp   273.5 tok/s  decode 107 tok  35.75 tok/s  accepted 82/84  finish stop
+[A1] prose  prompt 60 (reused 0) pp    33.9 tok/s  decode 512 tok  29.40 tok/s  accepted 245/449  finish length
+[A1] chat   prompt 57 (reused 0) pp    32.8 tok/s  decode 66 tok  26.52 tok/s  accepted 35/70  finish stop
+[A1] tool   prompt 320 (reused 0) pp    59.5 tok/s  decode 41 tok  24.74 tok/s  accepted 28/33  finish tool_calls
+[A1] think  prompt 80 (reused 0) pp    30.7 tok/s  decode 336 tok  32.86 tok/s  accepted 227/297  finish stop
+[A1] L8k    prompt 15415 (reused 0) pp   407.7 tok/s  decode 256 tok  34.66 tok/s  accepted 174/223  finish length
+Traceback (most recent call last):
+  File "/home/user/projects/strata/p100-results/tools/p100_bench.py", line 302, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/user/projects/strata/p100-results/tools/p100_bench.py", line 290, in main
+    rows += run_block(letter, plan["arms"][letter], base, plan["cases"], seen[letter], out, plan.get("port", 8090),
+            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                      plan.get("request_extra"))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/strata/p100-results/tools/p100_bench.py", line 233, in run_block
+    r = stream(url, body)
+  File "/home/user/projects/strata/p100-results/tools/p100_bench.py", line 119, in stream
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 187, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 493, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.14/urllib/request.py", line 602, in http_response
+    response = self.parent.error(
+        'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.14/urllib/request.py", line 531, in error
+    return self._call_chain(*args)
+           ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 464, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request

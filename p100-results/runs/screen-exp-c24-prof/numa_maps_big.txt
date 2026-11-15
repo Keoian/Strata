@@ -1,0 +1,1 @@
+714597400000 default anon=16640775 dirty=16640775 active=0 N0=8780169 N1=7860606 kernelpagesize_kB=4

@@ -1,0 +1,518 @@
+{
+ "seed": 1107,
+ "started": "2026-11-07 06:44:37",
+ "cases": {
+  "s1": {
+   "code": "AE3L6P",
+   "requests": [
+    {
+     "label": "A picture, cancelled at 5 s",
+     "sent": 1.32,
+     "cancel_after": 5,
+     "cancelled_at": 6.32,
+     "exception": "RemoteDisconnected: Remote end closed connection without response",
+     "took": 5.0,
+     "answered": 6.32
+    },
+    {
+     "label": "B text",
+     "sent": 6.82,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 0.0,
+     "text": "OK",
+     "took": 73.16,
+     "answered": 79.98
+    },
+    {
+     "label": "C follow-up about A's picture",
+     "sent": 79.99,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 0.05,
+     "text": "AE3L6P",
+     "took": 15.03,
+     "answered": 95.02
+    }
+   ],
+   "C_reads_code": true,
+   "status_after": {
+    "in_flight": 0,
+    "requests": 20,
+    "vision": {
+     "enabled": true,
+     "available": true,
+     "error": null
+    }
+   },
+   "journal": [
+    "[strata] done: 2 tokens in 1 s (18.2 tok/s) (stop, cancel=False), expert cache 31.3% hit",
+    "[strata] reading the prompt: 3,657 tokens, 10 s so far",
+    "[strata] reading the prompt: 3,626 of 3,657 tokens, 14 s so far",
+    "[strata] reading the prompt: 3,656 of 3,657 tokens, 15 s so far",
+    "[strata] done: 6 tokens in 15 s (31.6 tok/s) (stop, cancel=False), expert cache 21.3% hit"
+   ],
+   "doc": "Cancel during a big picture's encode; a text request 0.5 s later; then the follow-up about the picture."
+  },
+  "s2": {
+   "code": "7JP6D7",
+   "requests": [
+    {
+     "label": "A picture, cancelled at 5 s",
+     "sent": 97.84,
+     "cancel_after": 5,
+     "cancelled_at": 102.84,
+     "exception": "RemoteDisconnected: Remote end closed connection without response",
+     "took": 5.0,
+     "answered": 102.84
+    },
+    {
+     "label": "B follow-up about A's picture",
+     "sent": 107.84,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 68.29,
+     "text": "7JP6D7",
+     "took": 83.4,
+     "answered": 191.24
+    }
+   ],
+   "B_reads_code": true,
+   "status_after": {
+    "in_flight": 0,
+    "requests": 21,
+    "vision": {
+     "enabled": true,
+     "available": true,
+     "error": null
+    }
+   },
+   "journal": [
+    "[strata] reading the prompt: 3,657 tokens, 10 s so far",
+    "[strata] reading the prompt: 3,626 of 3,657 tokens, 14 s so far",
+    "[strata] reading the prompt: 3,656 of 3,657 tokens, 15 s so far",
+    "[strata] done: 6 tokens in 15 s (32.6 tok/s) (stop, cancel=False), expert cache 25.1% hit"
+   ],
+   "doc": "Cancel during a big picture's encode; the follow-up about it 5 s later (while the cancelled encode runs)."
+  },
+  "s3": {
+   "code": "H9H6RK",
+   "requests": [
+    {
+     "label": "A picture, cancelled at 3 s",
+     "sent": 194.06,
+     "cancel_after": 3,
+     "cancelled_at": 197.06,
+     "exception": "RemoteDisconnected: Remote end closed connection without response",
+     "took": 3.0,
+     "answered": 197.06
+    },
+    {
+     "label": "B A's picture again, cancelled after 4 s",
+     "sent": 198.06,
+     "cancel_after": 4,
+     "cancelled_at": 202.06,
+     "exception": "RemoteDisconnected: Remote end closed connection without response",
+     "took": 4.0,
+     "answered": 202.06
+    },
+    {
+     "label": "C text",
+     "sent": 203.06,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 0.0,
+     "text": "OK",
+     "took": 69.34,
+     "answered": 272.4
+    }
+   ],
+   "status_after": {
+    "in_flight": 0,
+    "requests": 22,
+    "vision": {
+     "enabled": true,
+     "available": true,
+     "error": null
+    }
+   },
+   "journal": [
+    "[strata] done: 2 tokens in 1 s (19.2 tok/s) (stop, cancel=False), expert cache 45.2% hit"
+   ],
+   "doc": "Stop, resend, stop again: A cancelled at 3 s, B (A's picture again) sent at 4 s and cancelled 4 s later, C text at 9 s."
+  },
+  "s4": {
+   "code": "AKM9VD",
+   "requests": [
+    {
+     "label": "A picture (not cancelled)",
+     "sent": 1.23,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 17.73,
+     "text": "AKM9VD",
+     "took": 26.96,
+     "answered": 28.19
+    },
+    {
+     "label": "B text, cancelled at 3 s while queued",
+     "sent": 3.23,
+     "cancel_after": 3,
+     "status": 200,
+     "first_token": 0.0,
+     "cancelled_at": 6.23,
+     "text": "",
+     "took": 3.0,
+     "answered": 6.23
+    },
+    {
+     "label": "C text",
+     "sent": 6.23,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 0.0,
+     "text": "OK",
+     "took": 13.1,
+     "answered": 19.33
+    }
+   ],
+   "A_reads_code": true,
+   "status_after": {
+    "in_flight": 0,
+    "requests": 38,
+    "vision": {
+     "enabled": true,
+     "available": true,
+     "error": null
+    }
+   },
+   "journal": [
+    "[strata] done: 2 tokens in 0 s (20.3 tok/s) (stop, cancel=False), expert cache 50.1% hit",
+    "[strata] reading the prompt: 1,426 of 1,433 tokens, 8 s so far",
+    "[strata] done: 5 tokens in 9 s (34.0 tok/s) (stop, cancel=False), expert cache 44.9% hit"
+   ],
+   "doc": "A text request queued behind a medium picture's encode is cancelled; the picture's request must be unaffected."
+  },
+  "s5": {
+   "code": "F3PTLH",
+   "requests": [
+    {
+     "label": "W the picture, in full (encodes it)",
+     "sent": 30.91,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 17.61,
+     "text": "F3PTLH",
+     "took": 26.61,
+     "answered": 57.52
+    },
+    {
+     "label": "A the picture, new question, cancelled 1.5 s in (reading the prompt)",
+     "sent": 57.52,
+     "cancel_after": 1.5,
+     "status": 200,
+     "first_token": 0.01,
+     "cancelled_at": 59.02,
+     "text": "",
+     "took": 1.5,
+     "answered": 59.02
+    },
+    {
+     "label": "B text",
+     "sent": 59.52,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 0.0,
+     "text": "OK",
+     "took": 7.07,
+     "answered": 66.59
+    },
+    {
+     "label": "C A's request in full",
+     "sent": 66.59,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 0.01,
+     "text": "F3PTLH",
+     "took": 0.44,
+     "answered": 67.03
+    }
+   ],
+   "W_reads_code": true,
+   "C_reads_code": true,
+   "status_after": {
+    "in_flight": 0,
+    "requests": 42,
+    "vision": {
+     "enabled": true,
+     "available": true,
+     "error": null
+    }
+   },
+   "journal": [
+    "[strata] reading the prompt: 1,426 of 1,433 tokens, 8 s so far",
+    "[strata] done: 6 tokens in 9 s (36.6 tok/s) (stop, cancel=False), expert cache 45.4% hit",
+    "[strata] done: 0 tokens in 9 s (no speed) (cancel, cancel=True)",
+    "[strata] done: 2 tokens in 0 s (21.6 tok/s) (stop, cancel=False), expert cache 58.8% hit",
+    "[strata] done: 6 tokens in 0 s (37.8 tok/s) (stop, cancel=False), expert cache 49.2% hit"
+   ],
+   "doc": "Cancel while the engine reads a picture prompt (the encode is cached), then text, then the same request in full."
+  },
+  "s6": {
+   "code": "4KWFWA",
+   "requests": [
+    {
+     "label": "A long answer, cancelled at 32 s (encode ~17 s + reading ~9 s)",
+     "sent": 1.22,
+     "cancel_after": 32,
+     "status": 200,
+     "first_token": 26.31,
+     "cancelled_at": 33.22,
+     "text": "This image is a digital graphic composed of two main visual layers: a vibrant, abstract background and a central text box.\n\n---\n\n**Background:**\n\n- **Colors**: The background features a dense, chaotic mosaic of small to medium-sized squares in a wide variety of colors. These include bright greens, blues, purples, reds, oranges, yellows, pinks, teals, browns, and grays \u2014 many with high saturation. Some squares are solid, while others appear slightly translucent or layered, creating subtle overlaps and depth.\n  \n- **Shapes**: All shapes are perfect squares of varying sizes (from tiny pixels to larger blocks). They are scattered randomly across the canvas without any discernible pattern, grid, or alignment. This gives the impression of digital noise, pixel art, or a \u201cglitch\u201d aesthetic.\n\n- **Base Color**: Underlying all the colored squares is a uniform muted purple-gray background that provides contrast and allows the colorful squares to stand out.\n\n---\n\n**Central White Box:**\n\n- Positioned horizontally in the center of the image is a clean, rectangular white box with sharp edges.\n  \n- Inside this box, centered both vertically and horizontally, is the text:\n\n> **4KWFWA**\n\n- The",
+     "took": 32.0,
+     "answered": 33.22
+    },
+    {
+     "label": "B the code question about the same picture",
+     "sent": 33.23,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 21.53,
+     "text": "4KWFWA",
+     "took": 21.65,
+     "answered": 54.87
+    },
+    {
+     "label": "C A's request in full",
+     "sent": 33.23,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 0.38,
+     "text": "This image is a digital graphic with a vibrant, abstract background and a central text element. Here\u2019s a detailed breakdown:\n\n---\n\n**Overall Composition:**\n\n- The image features a solid **muted purple or lavender-gray background**.\n- Scattered across this background are dozens of small to medium-sized **squares and rectangles**, varying in size, color, and opacity.\n- These shapes appear randomly placed, creating a confetti-like or pixel-art effect \u2014 reminiscent of a digital mosaic or glitch art.\n- In the center of the image is a clean, white rectangular box containing black text.\n\n---\n\n**Colors:**\n\nThe background squares use a wide spectrum of colors, including but not limited to:\n\n- **Greens**: lime green, forest green, teal, mint\n- **Blues**: sky blue, navy, cyan, royal blue\n- **Purples & Magentas**: violet, magenta, plum, lavender\n- **Reds & Pinks**: crimson, coral, hot pink, salmon\n- **Yellows & Oranges**: mustard, gold, burnt orange, peach\n- **Browns & Earth Tones**: olive, tan, chocolate brown\n- **Neutrals**: black, white, gray, beige\n\nSome squares are semi-transparent, allowing the purple background to show through slightly, adding depth. Others are fully opaque and bold.\n\n---\n\n**Shapes:**\n\n- All shapes are **axis-aligned rectangles or squares** \u2014 no circles, triangles, or irregular forms.\n- Sizes vary from tiny dots (a few pixels) to larger blocks that dominate their local area.\n- They overlap each other in places, suggesting layering without strict z-ordering.\n- No discernible pattern or symmetry \u2014 the arrangement feels random and chaotic, yet visually balanced due to color distribution.\n\n---\n\n**White Box & Code:**\n\n- Centered horizontally and vertically is a **crisp white rectangle** with sharp edges.\n- Inside it, in large, bold, sans-serif black font, is the text:  \n  > **4KWFWA**\n\nThis appears to be an alphanumeric code \u2014 possibly a CAPTCHA, product key, session ID, or placeholder text. It has no obvious meaning as a word or acronym and seems intentionally random for identification or verification purposes.\n\n---\n\n**Style & Mood:**\n\n- The overall aesthetic is playful, modern, and digital.\n- The contrast between the busy, colorful background and the clean, minimalist white box draws immediate attention to the code.\n- It could be used as a CAPTCHA challenge, a game interface element, or a stylized graphic for tech-related content.\n\n---\n\n**Summary:**\n\n> A dynamic, multicolored field of scattered squares on a muted purple backdrop frames a central white rectangle displaying the black alphanumeric code \u201c4KWFWA\u201d in bold typeface. The composition balances chaos and clarity, using",
+     "took": 12.7,
+     "answered": 45.92
+    }
+   ],
+   "B_reads_code": true,
+   "C_reads_code": true,
+   "status_after": {
+    "in_flight": 0,
+    "requests": 48,
+    "vision": {
+     "enabled": true,
+     "available": true,
+     "error": null
+    }
+   },
+   "journal": [
+    "[strata] reading the prompt: 1,427 of 1,434 tokens, 8 s so far",
+    "[strata] answering: 18 of max 600 tokens, 37.9 tok/s, 9 s",
+    "[strata] answering: 65 of max 600 tokens, 43.9 tok/s, 10 s",
+    "[strata] answering: 110 of max 600 tokens, 44.1 tok/s, 11 s",
+    "[strata] answering: 158 of max 600 tokens, 45.1 tok/s, 12 s",
+    "[strata] answering: 207 of max 600 tokens, 45.4 tok/s, 13 s",
+    "[strata] answering: 253 of max 600 tokens, 45.3 tok/s, 14 s",
+    "[strata] done: 260 tokens in 14 s (45.7 tok/s) (disconnect, cancel=True), expert cache 88.4% hit",
+    "[strata] answering: 30 of max 600 tokens, 45.0 tok/s, 1 s",
+    "[strata] answering: 81 of max 600 tokens, 48.0 tok/s, 2 s",
+    "[strata] answering: 133 of max 600 tokens, 48.9 tok/s, 3 s",
+    "[strata] answering: 184 of max 600 tokens, 49.2 tok/s, 4 s",
+    "[strata] answering: 233 of max 600 tokens, 48.9 tok/s, 5 s",
+    "[strata] answering: 285 of max 600 tokens, 49.2 tok/s, 6 s",
+    "[strata] answering: 331 of max 600 tokens, 48.6 tok/s, 7 s",
+    "[strata] answering: 381 of max 600 tokens, 48.6 tok/s, 8 s",
+    "[strata] answering: 430 of max 600 tokens, 48.5 tok/s, 9 s",
+    "[strata] answering: 478 of max 600 tokens, 48.2 tok/s, 10 s",
+    "[strata] answering: 535 of max 600 tokens, 49.0 tok/s, 11 s",
+    "[strata] answering: 581 of max 600 tokens, 48.6 tok/s, 12 s",
+    "[strata] done: 600 tokens in 13 s (48.6 tok/s) (length, cancel=False), expert cache 88.2% hit",
+    "[strata] reading the prompt: 1,426 of 1,433 tokens, 8 s so far",
+    "[strata] done: 5 tokens in 9 s (34.6 tok/s) (stop, cancel=False), expert cache 45.1% hit"
+   ],
+   "doc": "Cancel while a picture's answer is written, then the same request in full."
+  },
+  "s7": {
+   "codes": [
+    "TTU9UL",
+    "LUXVNY"
+   ],
+   "requests": [
+    {
+     "label": "A two pictures, cancelled at 4 s",
+     "sent": 412.37,
+     "cancel_after": 4,
+     "cancelled_at": 416.37,
+     "exception": "RemoteDisconnected: Remote end closed connection without response",
+     "took": 4.0,
+     "answered": 416.37
+    },
+    {
+     "label": "B text",
+     "sent": 416.87,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 0.0,
+     "text": "OK",
+     "took": 13.68,
+     "answered": 430.55
+    }
+   ],
+   "status_after": {
+    "in_flight": 0,
+    "requests": 34,
+    "vision": {
+     "enabled": true,
+     "available": true,
+     "error": null
+    }
+   },
+   "journal": [
+    "[strata] done: 2 tokens in 0 s (18.6 tok/s) (stop, cancel=False), expert cache 28.5% hit"
+   ],
+   "doc": "Two medium pictures in one request, cancelled during the first; a text request 0.5 s later."
+  },
+  "s8": {
+   "code": "DML4LW",
+   "requests": [
+    {
+     "label": "A picture, not streamed, cancelled at 4 s",
+     "sent": 433.27,
+     "cancel_after": 4,
+     "cancelled_at": 437.27,
+     "exception": "RemoteDisconnected: Remote end closed connection without response",
+     "took": 4.0,
+     "answered": 437.27
+    },
+    {
+     "label": "B text",
+     "sent": 437.77,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 0.0,
+     "text": "OK",
+     "took": 13.58,
+     "answered": 451.35
+    }
+   ],
+   "status_after": {
+    "in_flight": 0,
+    "requests": 35,
+    "vision": {
+     "enabled": true,
+     "available": true,
+     "error": null
+    }
+   },
+   "journal": [
+    "[strata] done: 2 tokens in 0 s (20.0 tok/s) (stop, cancel=False), expert cache 41.8% hit"
+   ],
+   "doc": "Not streamed (stream false) and cancelled during a medium picture's encode; a text request 0.5 s later."
+  },
+  "s9": {
+   "code": "RU4J79",
+   "requests": [
+    {
+     "label": "A picture via /v1/messages, cancelled at 4 s",
+     "sent": 454.05,
+     "cancel_after": 4,
+     "cancelled_at": 458.05,
+     "exception": "RemoteDisconnected: Remote end closed connection without response",
+     "took": 4.0,
+     "answered": 458.05
+    },
+    {
+     "label": "B text",
+     "sent": 458.55,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 0.0,
+     "text": "OK",
+     "took": 13.45,
+     "answered": 471.99
+    }
+   ],
+   "status_after": {
+    "in_flight": 0,
+    "requests": 36,
+    "vision": {
+     "enabled": true,
+     "available": true,
+     "error": null
+    }
+   },
+   "journal": [
+    "[strata] done: 2 tokens in 0 s (19.2 tok/s) (stop, cancel=False), expert cache 41.8% hit"
+   ],
+   "doc": "The Anthropic endpoint (/v1/messages), cancelled during a medium picture's encode; a text request 0.5 s later."
+  },
+  "s10": {
+   "requests": [
+    {
+     "label": "A long text prompt, cancelled at 6 s",
+     "sent": 57.52,
+     "cancel_after": 6,
+     "status": 200,
+     "cancelled_at": 63.52,
+     "text": "",
+     "took": 6.0,
+     "answered": 63.52
+    },
+    {
+     "label": "B text",
+     "sent": 64.02,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 18.1,
+     "text": "OK",
+     "took": 18.17,
+     "answered": 82.19
+    }
+   ],
+   "status_after": {
+    "in_flight": 0,
+    "requests": 50,
+    "vision": {
+     "enabled": true,
+     "available": true,
+     "error": null
+    }
+   },
+   "journal": [
+    "[strata] done: 0 tokens in 24 s (no speed) (cancel, cancel=True)",
+    "[strata] done: 2 tokens in 0 s (19.3 tok/s) (stop, cancel=False), expert cache 39.0% hit"
+   ],
+   "doc": "A long text prompt (~24K tokens, nothing cached) cancelled 6 s into its read; a text request 0.5 s later."
+  }
+ },
+ "note": "Server before the fix (HEAD ef6412a2). s4, s5, s6 of the first run (seed 1107) never cancelled (a harness bug: http.client drops conn.sock once the response headers are in); they are replaced by the run with seed 2107 (s4, s5) and seed 3107 (s6, cancelled at 32 s; s10).",
+ "runs": [
+  {
+   "seed": 1107,
+   "started": "2026-11-07 06:44:37",
+   "cases": [
+    "s1",
+    "s2",
+    "s3",
+    "s7",
+    "s8",
+    "s9"
+   ]
+  },
+  {
+   "seed": 2107,
+   "started": "2026-11-07 06:55:02",
+   "cases": [
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "seed": 3107,
+   "started": "2026-11-07 06:58:06",
+   "cases": [
+    "s6",
+    "s10"
+   ]
+  }
+ ]
+}

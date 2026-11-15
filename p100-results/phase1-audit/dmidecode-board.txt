@@ -1,0 +1,105 @@
+# dmidecode 3.6
+Getting SMBIOS data from sysfs.
+SMBIOS 3.0.0 present.
+
+Handle 0x0000, DMI type 0, 24 bytes
+BIOS Information
+	Vendor: American Megatrends Inc.
+	Version: 5.11
+	Release Date: 05/08/2026
+	Address: 0xF0000
+	Runtime Size: 64 kB
+	ROM Size: 8 MB
+	Characteristics:
+		PCI is supported
+		BIOS is upgradeable
+		BIOS shadowing is allowed
+		Boot from CD is supported
+		Selectable boot is supported
+		BIOS ROM is socketed
+		EDD is supported
+		5.25"/1.2 MB floppy services are supported (int 13h)
+		3.5"/720 kB floppy services are supported (int 13h)
+		3.5"/2.88 MB floppy services are supported (int 13h)
+		Print screen service is supported (int 5h)
+		8042 keyboard services are supported (int 9h)
+		Serial services are supported (int 14h)
+		Printer services are supported (int 17h)
+		ACPI is supported
+		USB legacy is supported
+		BIOS boot specification is supported
+		Targeted content distribution is supported
+		UEFI is supported
+	BIOS Revision: 5.11
+
+Handle 0x0001, DMI type 1, 27 bytes
+System Information
+	Manufacturer:  
+	Product Name: X99
+	Version: Default string
+	Serial Number: [removed]
+	UUID: [removed]
+	Wake-up Type: Power Switch
+	SKU Number: Default string
+	Family: Default string
+
+Handle 0x0002, DMI type 2, 15 bytes
+Base Board Information
+	Manufacturer:  
+	Product Name: X99
+	Version: V2.0
+	Serial Number: [removed]
+	Asset Tag: [removed]
+	Features:
+		Board is a hosting board
+		Board is replaceable
+	Location In Chassis: Default string
+	Chassis Handle: 0x0003
+	Type: Motherboard
+	Contained Object Handles: 0
+
+Handle 0x0024, DMI type 10, 6 bytes
+On Board Device Information
+	Type: Video
+	Status: Enabled
+	Description:    To Be Filled By O.E.M.
+
+Handle 0x0026, DMI type 12, 5 bytes
+System Configuration Options
+	Option 1: Default string
+
+Handle 0x0027, DMI type 32, 20 bytes
+System Boot Information
+	Status: No errors detected
+
+Handle 0x0056, DMI type 41, 11 bytes
+Onboard Device
+	Reference Designation:  Onboard IGD
+	Type: Video
+	Status: Enabled
+	Type Instance: 1
+	Bus Address: 0000:00:02.0
+
+Handle 0x0057, DMI type 41, 11 bytes
+Onboard Device
+	Reference Designation:  Onboard LAN
+	Type: Ethernet
+	Status: Enabled
+	Type Instance: 1
+	Bus Address: 0000:00:19.0
+
+Handle 0x0058, DMI type 41, 11 bytes
+Onboard Device
+	Reference Designation:  Onboard 1394
+	Type: Other
+	Status: Enabled
+	Type Instance: 1
+	Bus Address: 0000:03:1c.2
+
+Handle 0x0089, DMI type 13, 22 bytes
+BIOS Language Information
+	Language Description Format: Long
+	Installable Languages: 1
+		en|US|iso8859-1
+	Currently Installed Language: en|US|iso8859-1
+

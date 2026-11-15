@@ -1,0 +1,138 @@
+== 18:15:19 stopping the service
+  [gpu before] 0, 150.00 W, 33.12 W, 1189 MHz, 42, 0x0000000000000000
+  [gpu before] 1, 150.00 W, 35.77 W, 1189 MHz, 47, 0x0000000000000000
+== 18:15:28 stock: starting
+   loaded in 182 s
+  [gpu stock] 0, 150.00 W, 33.36 W, 1189 MHz, 43, 0x0000000000000000
+  [gpu stock] 1, 150.00 W, 36.47 W, 1189 MHz, 47, 0x0000000000000000
+       M1: main agent: took 31.69 s, cache_n 0, prompt_n 9807
+       M2: main agent: took 11.7 s, cache_n 9802, prompt_n 2396
+       M3: main agent: took 13.07 s, cache_n 12193, prompt_n 2739
+       M4: main agent: took 11.19 s, cache_n 14935, prompt_n 2240
+       M5: main agent: took 11.68 s, cache_n 17178, prompt_n 2379
+       M6: main agent: took 11.12 s, cache_n 19560, prompt_n 2172
+       M7: main agent: took 14.44 s, cache_n 21727, prompt_n 3018
+       M8: main agent: took 12.26 s, cache_n 24748, prompt_n 2560
+       M9: main agent: took 11.2 s, cache_n 27311, prompt_n 2163
+       M10: main agent: took 13.72 s, cache_n 29477, prompt_n 2954
+       M11: main agent: took 12.29 s, cache_n 32434, prompt_n 2461
+       M12: main agent: took 14.14 s, cache_n 34890, prompt_n 2763
+       O1: unrelated chat: took 3.33 s, cache_n 0, prompt_n 78
+       S1: sub-agent 1 (the main agent's system prompt and tools): took 1.0 s, cache_n 9769, prompt_n 28
+       S2: sub-agent 1 (the main agent's system prompt and tools): took 12.88 s, cache_n 9792, prompt_n 2779
+       M13: main agent returns after sub-agent 1: took 49.71 s, cache_n 21727, prompt_n 18684
+       O2: unrelated chat again: took 1.42 s, cache_n 73, prompt_n 29
+       T1: sub-agent 2: took 0.86 s, cache_n 9769, prompt_n 30
+       T2: sub-agent 2: took 13.34 s, cache_n 9794, prompt_n 2832
+       M14: main agent returns after sub-agent 2: took 104.99 s, cache_n 9769, prompt_n 33317
+       S3: sub-agent 1 returns: took 15.5 s, cache_n 12566, prompt_n 2414
+       N: the main agent's two planted codes: took 22.26 s, cache_n 43089, prompt_n 2712
+   wrote /home/user/projects/strata/p100-results/split-borrow/stock.json
+  [gpu stock] 0, 150.00 W, 53.88 W, 1328 MHz, 72, 0x0000000000000000
+  [gpu stock] 1, 150.00 W, 54.58 W, 1290 MHz, 78, 0x0000000000000000
+   engine: strata serve: conversation cache: restored 9769 tokens (checkpoint) in 219.6 ms; parked=2 bytes=1803548720
+   engine: strata serve: conversation cache: restored 21727 tokens (checkpoint) in 164.5 ms; parked=2 bytes=1137011900
+   engine: strata serve: conversation cache: restored 73 tokens (checkpoint) in 69.3 ms; parked=2 bytes=1961917212
+   engine: strata serve: conversation cache: restored 9769 tokens (checkpoint) in 91.7 ms; parked=2 bytes=1490263392
+   engine: strata serve: conversation cache: restored 12566 tokens (checkpoint) in 117.2 ms; parked=3 bytes=2273208760
+   engine: strata serve: conversation cache: restored 43089 tokens (live) in 261.8 ms; parked=3 bytes=2302710500
+== 18:25:11 borrow: starting
+   loaded in 187 s
+  [gpu borrow] 0, 150.00 W, 36.98 W, 1189 MHz, 55, 0x0000000000000000
+  [gpu borrow] 1, 150.00 W, 41.06 W, 1189 MHz, 60, 0x0000000000000000
+       M1: main agent: took 32.47 s, cache_n 0, prompt_n 9807
+       M2: main agent: took 11.95 s, cache_n 9802, prompt_n 2396
+       M3: main agent: took 13.2 s, cache_n 12193, prompt_n 2739
+       M4: main agent: took 11.29 s, cache_n 14935, prompt_n 2240
+       M5: main agent: took 11.73 s, cache_n 17178, prompt_n 2379
+       M6: main agent: took 11.4 s, cache_n 19560, prompt_n 2172
+       M7: main agent: took 14.67 s, cache_n 21727, prompt_n 3018
+       M8: main agent: took 12.55 s, cache_n 24748, prompt_n 2560
+       M9: main agent: took 11.45 s, cache_n 27311, prompt_n 2163
+       M10: main agent: took 13.99 s, cache_n 29477, prompt_n 2954
+       M11: main agent: took 12.84 s, cache_n 32434, prompt_n 2461
+       M12: main agent: took 13.82 s, cache_n 34898, prompt_n 2755
+       O1: unrelated chat: took 3.36 s, cache_n 0, prompt_n 78
+       S1: sub-agent 1 (the main agent's system prompt and tools): ERROR {'type': 'invalid_request_error', 'message': "restoring a borrowed conversation prefix: conversation snapshot: a layer split's image restored as a single session"}
+       S2: sub-agent 1 (the main agent's system prompt and tools): ERROR {'type': 'server_error', 'message': 'the engine stopped unexpectedly (exit code 1); the next request restarts it'}
+       M13: main agent returns after sub-agent 1: took 266.09 s, cache_n 0, prompt_n 40411
+       O2: unrelated chat again: took 3.49 s, cache_n 0, prompt_n 102
+       T1: sub-agent 2: ERROR {'type': 'invalid_request_error', 'message': "restoring a borrowed conversation prefix: conversation snapshot: a layer split's image restored as a single session"}
+       T2: sub-agent 2: ERROR {'type': 'server_error', 'message': 'the engine stopped unexpectedly (exit code 1); the next request restarts it'}
+       M14: main agent returns after sub-agent 2: took 263.3 s, cache_n 0, prompt_n 43086
+       S3: sub-agent 1 returns: took 22.12 s, cache_n 9769, prompt_n 5211
+       N: the main agent's two planted codes: took 19.42 s, cache_n 43089, prompt_n 2712
+   wrote /home/user/projects/strata/p100-results/split-borrow/borrow.json
+  [gpu borrow] 0, 150.00 W, 52.69 W, 1328 MHz, 70, 0x0000000000000000
+  [gpu borrow] 1, 150.00 W, 57.05 W, 1328 MHz, 77, 0x0000000000000000
+   engine: strata serve: conversation cache: restored 43089 tokens (live) in 268.6 ms; parked=1 bytes=1075008948
+== 18:41:05 stock2: starting
+   loaded in 173 s
+  [gpu stock2] 0, 150.00 W, 36.49 W, 1189 MHz, 53, 0x0000000000000000
+  [gpu stock2] 1, 150.00 W, 40.33 W, 1189 MHz, 58, 0x0000000000000000
+       M1: main agent: took 32.23 s, cache_n 0, prompt_n 9807
+       M2: main agent: took 11.92 s, cache_n 9802, prompt_n 2396
+       M3: main agent: took 13.16 s, cache_n 12193, prompt_n 2739
+       M4: main agent: took 11.31 s, cache_n 14935, prompt_n 2240
+       M5: main agent: took 11.68 s, cache_n 17178, prompt_n 2379
+       M6: main agent: took 11.23 s, cache_n 19560, prompt_n 2172
+       M7: main agent: took 14.6 s, cache_n 21727, prompt_n 3018
+       M8: main agent: took 12.38 s, cache_n 24748, prompt_n 2560
+       M9: main agent: took 11.27 s, cache_n 27311, prompt_n 2163
+       M10: main agent: took 13.86 s, cache_n 29477, prompt_n 2954
+       M11: main agent: took 12.38 s, cache_n 32434, prompt_n 2461
+       M12: main agent: took 17.71 s, cache_n 34890, prompt_n 2763
+       O1: unrelated chat: took 3.5 s, cache_n 0, prompt_n 78
+       S1: sub-agent 1 (the main agent's system prompt and tools): took 0.87 s, cache_n 9769, prompt_n 28
+       S2: sub-agent 1 (the main agent's system prompt and tools): took 12.91 s, cache_n 9792, prompt_n 2779
+       M13: main agent returns after sub-agent 1: took 54.06 s, cache_n 21727, prompt_n 18684
+       O2: unrelated chat again: took 1.66 s, cache_n 73, prompt_n 29
+       T1: sub-agent 2: took 1.09 s, cache_n 9769, prompt_n 30
+       T2: sub-agent 2: took 14.34 s, cache_n 9794, prompt_n 2832
+       M14: main agent returns after sub-agent 2: took 109.86 s, cache_n 9769, prompt_n 33317
+       S3: sub-agent 1 returns: took 14.67 s, cache_n 12566, prompt_n 2414
+       N: the main agent's two planted codes: took 25.6 s, cache_n 43089, prompt_n 2712
+   wrote /home/user/projects/strata/p100-results/split-borrow/stock2.json
+  [gpu stock2] 0, 150.00 W, 53.40 W, 1328 MHz, 71, 0x0000000000000000
+  [gpu stock2] 1, 150.00 W, 49.54 W, 1189 MHz, 76, 0x0000000000000000
+   engine: strata serve: conversation cache: restored 9769 tokens (checkpoint) in 107.7 ms; parked=2 bytes=1803548720
+   engine: strata serve: conversation cache: restored 21727 tokens (checkpoint) in 173.8 ms; parked=2 bytes=1137011900
+   engine: strata serve: conversation cache: restored 73 tokens (checkpoint) in 73.7 ms; parked=2 bytes=1961917212
+   engine: strata serve: conversation cache: restored 9769 tokens (checkpoint) in 264.1 ms; parked=2 bytes=1490263392
+   engine: strata serve: conversation cache: restored 12566 tokens (checkpoint) in 120.5 ms; parked=3 bytes=2273208760
+   engine: strata serve: conversation cache: restored 43089 tokens (live) in 332.5 ms; parked=3 bytes=2302710500
+== 18:50:58 starting the service again
+   service loaded in 155 s
+  [gpu after] 0, 150.00 W, 37.22 W, 1189 MHz, 55, 0x0000000000000000
+  [gpu after] 1, 150.00 W, 41.30 W, 1189 MHz, 60, 0x0000000000000000
+!! borrow: 18 engine prompt lines for 22 requests
+| request | prompt tokens | stock: reused / read, s | borrow: reused / read, s | stock2: reused / read, s |
+|---|---|---|---|---|
+| M1: main agent | 9,807 | 0 / 9,807, 31.4 | 0 / 9,807, 32.2 | 0 / 9,807, 32.0 |
+| M2: main agent | 12,198 | 9,802 / 2,396, 11.5 | 9,802 / 2,396, 11.8 | 9,802 / 2,396, 11.7 |
+| M3: main agent | 14,932 | 12,193 / 2,739, 12.9 | 12,193 / 2,739, 13.0 | 12,193 / 2,739, 13.0 |
+| M4: main agent | 17,175 | 14,935 / 2,240, 11.0 | 14,935 / 2,240, 11.1 | 14,935 / 2,240, 11.1 |
+| M5: main agent | 19,557 | 17,178 / 2,379, 11.5 | 17,178 / 2,379, 11.6 | 17,178 / 2,379, 11.5 |
+| M6: main agent | 21,732 | 19,560 / 2,172, 11.0 | 19,560 / 2,172, 11.2 | 19,560 / 2,172, 11.0 |
+| M7: main agent | 24,745 | 21,727 / 3,018, 14.3 | 21,727 / 3,018, 14.5 | 21,727 / 3,018, 14.4 |
+| M8: main agent | 27,308 | 24,748 / 2,560, 12.1 | 24,748 / 2,560, 12.4 | 24,748 / 2,560, 12.2 |
+| M9: main agent | 29,474 | 27,311 / 2,163, 11.0 | 27,311 / 2,163, 11.3 | 27,311 / 2,163, 11.1 |
+| M10: main agent | 32,431 | 29,477 / 2,954, 13.6 | 29,477 / 2,954, 13.8 | 29,477 / 2,954, 13.7 |
+| M11: main agent | 34,895 | 32,434 / 2,461, 12.1 | 32,434 / 2,461, 12.7 | 32,434 / 2,461, 12.2 |
+| M12: main agent | 37,653 | 34,890 / 2,763, 14.0 | 34,898 / 2,755, 13.7 | 34,890 / 2,763, 17.4 |
+| O1: unrelated chat | 78 | 0 / 78, 3.2 | 0 / 78, 3.2 | 0 / 78, 3.4 |
+| S1: sub-agent 1 (the main agent's system prompt and tools) | 9,797 | 9,769 / 28, 0.9 | 0 / 40,411, 101.3 | 9,769 / 28, 0.7 |
+| S2: sub-agent 1 (the main agent's system prompt and tools) | 12,571 | 9,792 / 2,779, 12.7 | 0 / 102, 3.4 | 9,792 / 2,779, 12.8 |
+| M13: main agent returns after sub-agent 1 | 40,411 | 21,727 / 18,684, 49.6 | 0 / 43,086, 106.9 | 21,727 / 18,684, 53.9 |
+| O2: unrelated chat again | 102 | 73 / 29, 1.3 | 9,769 / 5,211, 22.0 | 73 / 29, 1.6 |
+| T1: sub-agent 2 | 9,799 | 9,769 / 30, 0.7 | 43,089 / 2,712, 14.8 | 9,769 / 30, 1.0 |
+Traceback (most recent call last):
+  File "/home/user/projects/strata/p100-results/tools/agent_cache_ab.py", line 243, in <module>
+    main()
+    ~~~~^^
+  File "/home/user/projects/strata/p100-results/tools/agent_cache_ab.py", line 236, in main
+    return table(a.table, a.engine_logs)
+  File "/home/user/projects/strata/p100-results/tools/agent_cache_ab.py", line 199, in table
+    size, reused, fresh, ms = e[i]
+                              ~^^^
+IndexError: list index out of range

@@ -1,0 +1,28 @@
+# /etc/systemd/system/strata-bitlamas.service - start-on-boot for the tuned bitlamas server (RUNBOOK.md, section 8).
+# Enabled 2026-11-06. Serves the LAN (0.0.0.0:8080) with an API key from ~/.config/strata/bitlamas.env (mode 600,
+# one line STRATA_API_KEY=...). Local only again: --host 127.0.0.1.
+[Unit]
+Description=Strata server: bitlamas Qwen3.8-Flash-Next Q4_K_XL-IQ4NL on 2x Tesla P100 (256K context, LAN, port 8080, API key)
+# the 150 W cap must be in force before any GPU work
+Requires=p100-power-cap.service
+After=p100-power-cap.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=user
+Group=user
+WorkingDirectory=/home/user/projects/strata
+ExecStart=/home/user/projects/strata/.venv/bin/python serve/server.py --engine strata --config /home/user/projects/strata/p100-configs/strata-bitlamas-p100-best-256k-k8v4.json --host 0.0.0.0 --port 8080
+# the key: server.py reads $STRATA_API_KEY (Authorization: Bearer <key> or x-api-key on /v1/*)
+EnvironmentFile=/home/user/.config/strata/bitlamas.env
+# the engine locks the 26.8 GiB PLE table when the limit allows (neutral in speed here, it keeps the pages resident)
+LimitMEMLOCK=infinity
+Restart=on-failure
+RestartSec=30
+TimeoutStartSec=600
+TimeoutStopSec=180
+KillSignal=SIGTERM
+
+[Install]
+WantedBy=multi-user.target

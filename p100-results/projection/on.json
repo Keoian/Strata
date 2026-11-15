@@ -1,0 +1,1216 @@
+{
+ "seed": 8107,
+ "codes": [],
+ "requests": [
+  {
+   "label": "C1: short chat",
+   "took": 1.61,
+   "text": null,
+   "reasoning": "We need answer user: \"Is it",
+   "tool_calls": null,
+   "finish": "length",
+   "usage": {
+    "prompt_tokens": 65,
+    "completion_tokens": 8,
+    "total_tokens": 73,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    }
+   },
+   "cache_n": 0,
+   "prompt_n": 65,
+   "timings": {
+    "cache_n": 0,
+    "prompt_n": 65,
+    "prompt_ms": 1425.7,
+    "prompt_per_token_ms": 21.934,
+    "prompt_per_second": 45.6,
+    "predicted_n": 8,
+    "predicted_ms": 177.5,
+    "predicted_per_token_ms": 22.188,
+    "predicted_per_second": 45.1,
+    "draft_n": 6,
+    "draft_n_accepted": 6
+   },
+   "logprobs": [
+    [
+     "We",
+     -0.034628,
+     [
+      [
+       "We",
+       -0.034628
+      ],
+      [
+       "User",
+       -3.481949
+      ],
+      [
+       "Need",
+       -6.691189
+      ],
+      [
+       "The",
+       -6.815224
+      ],
+      [
+       "Here",
+       -8.526688
+      ]
+     ]
+    ],
+    [
+     " need",
+     -0.000125,
+     [
+      [
+       " need",
+       -0.000125
+      ],
+      [
+       " are",
+       -9.784348
+      ],
+      [
+       " have",
+       -11.020097
+      ],
+      [
+       " did",
+       -11.544993
+      ],
+      [
+       " already",
+       -11.59224
+      ]
+     ]
+    ],
+    [
+     " answer",
+     -0.088163,
+     [
+      [
+       " answer",
+       -0.088163
+      ],
+      [
+       " to",
+       -2.498876
+      ],
+      [
+       " respond",
+       -6.368013
+      ],
+      [
+       " user",
+       -8.325361
+      ],
+      [
+       " analyze",
+       -10.503869
+      ]
+     ]
+    ],
+    [
+     " user",
+     -0.002791,
+     [
+      [
+       " user",
+       -0.002791
+      ],
+      [
+       " question",
+       -6.162838
+      ],
+      [
+       " simple",
+       -8.329834
+      ],
+      [
+       " in",
+       -9.084475
+      ],
+      [
+       " to",
+       -9.137217
+      ]
+     ]
+    ],
+    [
+     ":",
+     -0.291173,
+     [
+      [
+       ":",
+       -0.291173
+      ],
+      [
+       "'s",
+       -1.4504
+      ],
+      [
+       " asks",
+       -4.118243
+      ],
+      [
+       " question",
+       -7.476847
+      ],
+      [
+       " asking",
+       -7.843821
+      ]
+     ]
+    ],
+    [
+     " \"",
+     -0.002318,
+     [
+      [
+       " \"",
+       -0.002318
+      ],
+      [
+       " Is",
+       -6.251588
+      ],
+      [
+       " '",
+       -10.313742
+      ],
+      [
+       " asks",
+       -10.453267
+      ],
+      [
+       " question",
+       -10.633054
+      ]
+     ]
+    ],
+    [
+     "Is",
+     -6.3e-05,
+     [
+      [
+       "Is",
+       -6.3e-05
+      ],
+      [
+       "Good",
+       -11.589335
+      ],
+      [
+       "Are",
+       -12.042276
+      ],
+      [
+       "_Is",
+       -12.796645
+      ],
+      [
+       "User",
+       -12.917019
+      ]
+     ]
+    ],
+    [
+     " it",
+     -0.000114,
+     [
+      [
+       " it",
+       -0.000114
+      ],
+      [
+       " a",
+       -10.221848
+      ],
+      [
+       " It",
+       -10.498898
+      ],
+      [
+       " water",
+       -11.054138
+      ],
+      [
+       "It",
+       -12.191619
+      ]
+     ]
+    ]
+   ]
+  },
+  {
+   "label": "C2: short chat",
+   "took": 1.3,
+   "text": null,
+   "reasoning": "We need to respond to user: \"",
+   "tool_calls": null,
+   "finish": "length",
+   "usage": {
+    "prompt_tokens": 63,
+    "completion_tokens": 8,
+    "total_tokens": 71,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    }
+   },
+   "cache_n": 0,
+   "prompt_n": 63,
+   "timings": {
+    "cache_n": 0,
+    "prompt_n": 63,
+    "prompt_ms": 1063.8,
+    "prompt_per_token_ms": 16.886,
+    "prompt_per_second": 59.2,
+    "predicted_n": 8,
+    "predicted_ms": 225.7,
+    "predicted_per_token_ms": 28.212,
+    "predicted_per_second": 35.4,
+    "draft_n": 9,
+    "draft_n_accepted": 7
+   },
+   "logprobs": [
+    [
+     "We",
+     -0.056654,
+     [
+      [
+       "We",
+       -0.056654
+      ],
+      [
+       "User",
+       -3.015271
+      ],
+      [
+       "The",
+       -5.811261
+      ],
+      [
+       "Thinking",
+       -6.42117
+      ],
+      [
+       "Need",
+       -7.083771
+      ]
+     ]
+    ],
+    [
+     " need",
+     -0.00012,
+     [
+      [
+       " need",
+       -0.00012
+      ],
+      [
+       " are",
+       -9.722069
+      ],
+      [
+       " can",
+       -11.457252
+      ],
+      [
+       " must",
+       -11.50985
+      ],
+      [
+       " have",
+       -11.554394
+      ]
+     ]
+    ],
+    [
+     " to",
+     -0.081718,
+     [
+      [
+       " to",
+       -0.081718
+      ],
+      [
+       " answer",
+       -2.987636
+      ],
+      [
+       " respond",
+       -3.585443
+      ],
+      [
+       " response",
+       -9.72701
+      ],
+      [
+       " user",
+       -10.12861
+      ]
+     ]
+    ],
+    [
+     " respond",
+     -0.226549,
+     [
+      [
+       " respond",
+       -0.226549
+      ],
+      [
+       " answer",
+       -1.620661
+      ],
+      [
+       " produce",
+       -6.207088
+      ],
+      [
+       " explain",
+       -6.735641
+      ],
+      [
+       " output",
+       -7.462261
+      ]
+     ]
+    ],
+    [
+     " to",
+     -0.008415,
+     [
+      [
+       " to",
+       -0.008415
+      ],
+      [
+       " user",
+       -5.291175
+      ],
+      [
+       " final",
+       -6.462837
+      ],
+      [
+       " in",
+       -7.431123
+      ],
+      [
+       " succinct",
+       -8.137243
+      ]
+     ]
+    ],
+    [
+     " user",
+     -0.000668,
+     [
+      [
+       " user",
+       -0.000668
+      ],
+      [
+       " \"",
+       -7.700623
+      ],
+      [
+       " the",
+       -9.803063
+      ],
+      [
+       " final",
+       -10.028463
+      ],
+      [
+       " simple",
+       -10.58261
+      ]
+     ]
+    ],
+    [
+     ":",
+     -0.003046,
+     [
+      [
+       ":",
+       -0.003046
+      ],
+      [
+       "'s",
+       -6.969847
+      ],
+      [
+       " \"",
+       -7.14822
+      ],
+      [
+       " asking",
+       -7.825539
+      ],
+      [
+       " with",
+       -8.148241
+      ]
+     ]
+    ],
+    [
+     " \"",
+     -0.000732,
+     [
+      [
+       " \"",
+       -0.000732
+      ],
+      [
+       " Explain",
+       -7.950517
+      ],
+      [
+       " explain",
+       -8.844236
+      ],
+      [
+       " simple",
+       -9.550228
+      ],
+      [
+       " \u201c",
+       -9.884349
+      ]
+     ]
+    ]
+   ]
+  },
+  {
+   "label": "C3: short chat",
+   "took": 1.25,
+   "text": null,
+   "reasoning": "We need answer user: \"Write a",
+   "tool_calls": null,
+   "finish": "length",
+   "usage": {
+    "prompt_tokens": 64,
+    "completion_tokens": 8,
+    "total_tokens": 72,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    }
+   },
+   "cache_n": 0,
+   "prompt_n": 64,
+   "timings": {
+    "cache_n": 0,
+    "prompt_n": 64,
+    "prompt_ms": 1066.2,
+    "prompt_per_token_ms": 16.659,
+    "prompt_per_second": 60.0,
+    "predicted_n": 8,
+    "predicted_ms": 169.3,
+    "predicted_per_token_ms": 21.163,
+    "predicted_per_second": 47.3,
+    "draft_n": 6,
+    "draft_n_accepted": 6
+   },
+   "logprobs": [
+    [
+     "We",
+     -0.004663,
+     [
+      [
+       "We",
+       -0.004663
+      ],
+      [
+       "User",
+       -5.915969
+      ],
+      [
+       "Need",
+       -6.963874
+      ],
+      [
+       "Now",
+       -8.095525
+      ],
+      [
+       "The",
+       -9.244318
+      ]
+     ]
+    ],
+    [
+     " need",
+     -0.000104,
+     [
+      [
+       " need",
+       -0.000104
+      ],
+      [
+       " are",
+       -10.039569
+      ],
+      [
+       " did",
+       -10.707189
+      ],
+      [
+       " already",
+       -11.494237
+      ],
+      [
+       " should",
+       -11.845679
+      ]
+     ]
+    ],
+    [
+     " answer",
+     -0.165034,
+     [
+      [
+       " answer",
+       -0.165034
+      ],
+      [
+       " respond",
+       -2.122235
+      ],
+      [
+       " to",
+       -3.467702
+      ],
+      [
+       " response",
+       -8.375415
+      ],
+      [
+       " user",
+       -8.39951
+      ]
+     ]
+    ],
+    [
+     " user",
+     -0.076923,
+     [
+      [
+       " user",
+       -0.076923
+      ],
+      [
+       " to",
+       -2.94475
+      ],
+      [
+       " simple",
+       -3.870733
+      ],
+      [
+       " straightforward",
+       -8.354483
+      ],
+      [
+       " simplest",
+       -9.708829
+      ]
+     ]
+    ],
+    [
+     ":",
+     -0.241739,
+     [
+      [
+       ":",
+       -0.241739
+      ],
+      [
+       "'s",
+       -2.00625
+      ],
+      [
+       " asks",
+       -2.711452
+      ],
+      [
+       " wants",
+       -5.169111
+      ],
+      [
+       " simple",
+       -5.340509
+      ]
+     ]
+    ],
+    [
+     " \"",
+     -0.012814,
+     [
+      [
+       " \"",
+       -0.012814
+      ],
+      [
+       " Write",
+       -4.448244
+      ],
+      [
+       " simple",
+       -7.836483
+      ],
+      [
+       " write",
+       -9.107403
+      ],
+      [
+       " Need",
+       -9.474571
+      ]
+     ]
+    ],
+    [
+     "Write",
+     -2.5e-05,
+     [
+      [
+       "Write",
+       -2.5e-05
+      ],
+      [
+       " Write",
+       -12.322142
+      ],
+      [
+       "Simple",
+       -13.320084
+      ],
+      [
+       "What",
+       -13.449693
+      ],
+      [
+       "You",
+       -13.626914
+      ]
+     ]
+    ],
+    [
+     " a",
+     -2.8e-05,
+     [
+      [
+       " a",
+       -2.8e-05
+      ],
+      [
+       " an",
+       -12.094066
+      ],
+      [
+       " Python",
+       -12.361368
+      ],
+      [
+       " to",
+       -13.384419
+      ],
+      [
+       " in",
+       -14.199539
+      ]
+     ]
+    ]
+   ]
+  },
+  {
+   "label": "G1: agent, first request",
+   "took": 31.91,
+   "text": null,
+   "reasoning": "Let me explore the repository to find conversation",
+   "tool_calls": null,
+   "finish": "length",
+   "usage": {
+    "prompt_tokens": 9806,
+    "completion_tokens": 8,
+    "total_tokens": 9814,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    }
+   },
+   "cache_n": 0,
+   "prompt_n": 9806,
+   "timings": {
+    "cache_n": 0,
+    "prompt_n": 9806,
+    "prompt_ms": 31691.3,
+    "prompt_per_token_ms": 3.232,
+    "prompt_per_second": 309.4,
+    "predicted_n": 8,
+    "predicted_ms": 197.0,
+    "predicted_per_token_ms": 24.625,
+    "predicted_per_second": 40.6,
+    "draft_n": 6,
+    "draft_n_accepted": 4
+   },
+   "logprobs": [
+    [
+     "Let",
+     -0.768978,
+     [
+      [
+       "Let",
+       -0.768978
+      ],
+      [
+       "The",
+       -0.778055
+      ],
+      [
+       "I",
+       -3.914975
+      ],
+      [
+       "Looking",
+       -4.648258
+      ],
+      [
+       "Fault",
+       -5.073141
+      ]
+     ]
+    ],
+    [
+     " me",
+     -0.007389,
+     [
+      [
+       " me",
+       -0.007389
+      ],
+      [
+       "'s",
+       -5.049754
+      ],
+      [
+       "\n",
+       -9.717359
+      ],
+      [
+       "'t",
+       -10.239183
+      ],
+      [
+       " explore",
+       -10.4991
+      ]
+     ]
+    ],
+    [
+     " explore",
+     -0.032024,
+     [
+      [
+       " explore",
+       -0.032024
+      ],
+      [
+       " look",
+       -3.755359
+      ],
+      [
+       " search",
+       -5.258833
+      ],
+      [
+       " find",
+       -6.503276
+      ],
+      [
+       " investigate",
+       -7.545915
+      ]
+     ]
+    ],
+    [
+     " the",
+     -0.000328,
+     [
+      [
+       " the",
+       -0.000328
+      ],
+      [
+       " repository",
+       -9.17195
+      ],
+      [
+       " this",
+       -9.662459
+      ],
+      [
+       " to",
+       -10.023867
+      ],
+      [
+       ".",
+       -10.743483
+      ]
+     ]
+    ],
+    [
+     " repository",
+     -0.019212,
+     [
+      [
+       " repository",
+       -0.019212
+      ],
+      [
+       " repo",
+       -3.971019
+      ],
+      [
+       " code",
+       -9.576432
+      ],
+      [
+       "repository",
+       -11.775802
+      ],
+      [
+       " file",
+       -12.065726
+      ]
+     ]
+    ],
+    [
+     " to",
+     -0.006509,
+     [
+      [
+       " to",
+       -0.006509
+      ],
+      [
+       ".",
+       -5.302141
+      ],
+      [
+       " for",
+       -6.564714
+      ],
+      [
+       ",",
+       -10.699153
+      ],
+      [
+       " and",
+       -10.788604
+      ]
+     ]
+    ],
+    [
+     " find",
+     -0.005221,
+     [
+      [
+       " find",
+       -0.005221
+      ],
+      [
+       " understand",
+       -5.275643
+      ],
+      [
+       " figure",
+       -10.469809
+      ],
+      [
+       " cache",
+       -11.395547
+      ],
+      [
+       " determine",
+       -12.078991
+      ]
+     ]
+    ],
+    [
+     " conversation",
+     -0.108384,
+     [
+      [
+       " conversation",
+       -0.108384
+      ],
+      [
+       " the",
+       -2.952851
+      ],
+      [
+       " cache",
+       -3.77607
+      ],
+      [
+       " checkpoint",
+       -4.524266
+      ],
+      [
+       " where",
+       -5.223317
+      ]
+     ]
+    ]
+   ]
+  },
+  {
+   "label": "G2: agent, next turn",
+   "took": 13.11,
+   "text": null,
+   "reasoning": "I need to look into this further.",
+   "tool_calls": null,
+   "finish": "length",
+   "usage": {
+    "prompt_tokens": 12602,
+    "completion_tokens": 8,
+    "total_tokens": 12610,
+    "prompt_tokens_details": {
+     "cached_tokens": 9801
+    }
+   },
+   "cache_n": 9801,
+   "prompt_n": 2801,
+   "timings": {
+    "cache_n": 9801,
+    "prompt_n": 2801,
+    "prompt_ms": 12893.6,
+    "prompt_per_token_ms": 4.603,
+    "prompt_per_second": 217.2,
+    "predicted_n": 8,
+    "predicted_ms": 188.9,
+    "predicted_per_token_ms": 23.613,
+    "predicted_per_second": 42.4,
+    "draft_n": 5,
+    "draft_n_accepted": 5
+   },
+   "logprobs": [
+    [
+     "I",
+     -0.731451,
+     [
+      [
+       "I",
+       -0.731451
+      ],
+      [
+       "Line",
+       -1.790758
+      ],
+      [
+       "Turn",
+       -2.533291
+      ],
+      [
+       "The",
+       -2.613129
+      ],
+      [
+       "Confirmed",
+       -3.640465
+      ]
+     ]
+    ],
+    [
+     " need",
+     -0.242178,
+     [
+      [
+       " need",
+       -0.242178
+      ],
+      [
+       " haven",
+       -2.868315
+      ],
+      [
+       " should",
+       -2.908102
+      ],
+      [
+       "'m",
+       -3.488941
+      ],
+      [
+       " have",
+       -3.768562
+      ]
+     ]
+    ],
+    [
+     " to",
+     -0.007328,
+     [
+      [
+       " to",
+       -0.007328
+      ],
+      [
+       " the",
+       -5.084751
+      ],
+      [
+       " more",
+       -7.512637
+      ],
+      [
+       " actual",
+       -9.408537
+      ],
+      [
+       " a",
+       -9.472159
+      ]
+     ]
+    ],
+    [
+     " look",
+     -0.039369,
+     [
+      [
+       " look",
+       -0.039369
+      ],
+      [
+       " investigate",
+       -4.072462
+      ],
+      [
+       " find",
+       -4.366796
+      ],
+      [
+       " check",
+       -5.257547
+      ],
+      [
+       " track",
+       -7.239694
+      ]
+     ]
+    ],
+    [
+     " into",
+     -0.000159,
+     [
+      [
+       " into",
+       -0.000159
+      ],
+      [
+       " a",
+       -9.418823
+      ],
+      [
+       " at",
+       -10.845049
+      ],
+      [
+       " more",
+       -11.596081
+      ],
+      [
+       " up",
+       -11.664343
+      ]
+     ]
+    ],
+    [
+     " this",
+     -6e-06,
+     [
+      [
+       " this",
+       -6e-06
+      ],
+      [
+       "this",
+       -12.644278
+      ],
+      [
+       " it",
+       -13.781183
+      ],
+      [
+       " This",
+       -14.666071
+      ],
+      [
+       " \u0647\u0630\u0627",
+       -15.187548
+      ]
+     ]
+    ],
+    [
+     " further",
+     -0.001317,
+     [
+      [
+       " further",
+       -0.001317
+      ],
+      [
+       " in",
+       -6.70667
+      ],
+      [
+       " matter",
+       -9.674314
+      ],
+      [
+       "\u8fdb\u4e00\u6b65",
+       -10.820758
+      ],
+      [
+       " more",
+       -12.246541
+      ]
+     ]
+    ],
+    [
+     ".",
+     -3.9e-05,
+     [
+      [
+       ".",
+       -3.9e-05
+      ],
+      [
+       " Let",
+       -10.267556
+      ],
+      [
+       " let",
+       -13.185338
+      ],
+      [
+       "Let",
+       -14.018178
+      ],
+      [
+       " I",
+       -14.835212
+      ]
+     ]
+    ]
+   ]
+  },
+  {
+   "label": "end",
+   "took": 0,
+   "logprobs": []
+  }
+ ]
+}

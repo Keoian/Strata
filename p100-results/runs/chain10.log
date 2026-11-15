@@ -1,0 +1,16 @@
+memlock: unlimited
+### yardstick: full tuned set with the Q8 twin, GPU experts 21:21:53
+english: 999 positions, 22.1 s
+multilingual: 999 positions, 22.1 s
+agent: 999 positions, 22.0 s
+p100-results/quality/G-stock-fp16.tsv p100-results/quality/G-tuned-q8exact-fp16.tsv differ: byte 14, line 1
+DIFFERS from G-stock
+### speed: Q8 twin vs Q8_SM60 21:26:02
+[B2] L8k    prompt 7906 (reused 0) pp   308.5 tok/s  decode 256 tok  53.78 tok/s  accepted 147/178  finish length
+L8k B: decode 54.90 pp 309.8 (n=2) | X: decode 52.45 pp 310.6 (n=2)
+chat B: decode 46.10 pp 50.9 (n=2) | X: decode 46.37 pp 49.6 (n=2)
+code B: decode 60.86 pp 47.7 (n=2) | X: decode 59.77 pp 60.7 (n=2)
+prose B: decode 45.50 pp 50.4 (n=2) | X: decode 45.44 pp 49.3 (n=2)
+tool B: decode 47.68 pp 60.7 (n=2) | X: decode 48.39 pp 59.6 (n=2)
+service: active
+### chain10 done 21:41:05

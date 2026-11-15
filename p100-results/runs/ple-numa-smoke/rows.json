@@ -1,0 +1,53 @@
+[
+ {
+  "arm": "B",
+  "rep": 1,
+  "case": "code",
+  "cap": 512,
+  "t_start": 1794013236.9628823,
+  "request_sha256": "62b789e9b616180bd4c41951455fe60c8e2d1cfa8b79b2f09eef8ccf1a4085c4",
+  "ttft_s": 1.2227634869998383,
+  "first_answer_s": 1.2227651849998438,
+  "total_s": 9.998647294999955,
+  "finish": "length",
+  "usage": {
+   "prompt_tokens": 70,
+   "completion_tokens": 512,
+   "total_tokens": 582,
+   "prompt_tokens_details": {
+    "cached_tokens": 0
+   }
+  },
+  "tool_call_chunks": 0,
+  "text": "```python\n\"\"\"\nLRU Cache implementation with O(1) get and put operations.\n\nUses a doubly linked list combined with a hash map to achieve constant time\ncomplexity for both retrieval and insertion/eviction.\n\"\"\"\n\nfrom typing import Optional, Any\n\n\nclass Node:\n    \"\"\"A node in the doubly linked list used by the LRU cache.\"\"\"\n\n    def __init__(self, key: Any = None, value: Any = None) -> None:\n        self.key = key\n        self.value = value\n        self.prev: Optional[Node] = None\n        self.next: Optional[Node] = None\n\n\nclass LRUCache:\n    \"\"\"\n    Least Recently Used (LRU) cache with O(1) get and put operations.\n\n    The cache maintains a doubly linked list to track usage order and a hash map\n    for O(1) key lookups. When the cache reaches its capacity, the least recently\n    used item is evicted.\n\n    Attributes:\n        capacity (int): Maximum number of items the cache can hold.\n        _cache (dict): Hash map from keys to nodes.\n        _head (Node): Dummy head node for the doubly linked list.\n        _tail (Node): Dummy tail node for the doubly linked list.\n    \"\"\"\n\n    def __init__(self, capacity: int) -> None:\n        \"\"\"\n        Initialize the LRU cache with a given capacity.\n\n        Args:\n            capacity: The maximum number of items the cache can hold. Must be positive.\n\n        Raises:\n            ValueError: If capacity is not a positive integer.\n        \"\"\"\n        if capacity <= 0:\n            raise ValueError(\"Capacity must be a positive integer\")\n        self.capacity = capacity\n        self._cache: dict[Any, Node] = {}\n        # Dummy head and tail nodes to simplify edge cases\n        self._head = Node()\n        self._tail = Node()\n        self._head.next = self._tail\n        self._tail.prev = self._head\n\n    def _remove_node(self, node: Node) -> None:\n        \"\"\"Remove a node from the doubly linked list.\"\"\"\n        prev_node = node.prev\n        next_node = node.next\n        if prev_node is not None and next_node is not None:\n            prev_node.next = next_node\n            next_node.prev = prev_node\n\n    def _add_to",
+  "reasoning": "",
+  "engine": {
+   "id": "f42714e99756",
+   "projection": null,
+   "time": 1794013236.9685538,
+   "duration_s": 10.0,
+   "finish": "length",
+   "prompt_tokens": 70,
+   "reused": 0,
+   "output_tokens": 512,
+   "first_engine_token_s": 1.217,
+   "prompt_total": 70,
+   "prompt_read": 70,
+   "reasoning_recoveries": 0,
+   "reasoning_repeat_coverage": 0.0,
+   "engine_generated": 512,
+   "prompt_ms": 1188.6,
+   "decode_ms": 8802.4,
+   "decode_tok_s": 58.2,
+   "hit_rate": 0.734,
+   "pcie_share": 0.0,
+   "ram_blobs": 0,
+   "file_blobs": 0,
+   "file_mb": 0,
+   "drafts_offered": 411,
+   "drafts_accepted": 349
+  },
+  "prompt_tok_s": 58.892815076560666,
+  "decode_tok_s": 58.16595473961647
+ }
+]

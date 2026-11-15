@@ -1,0 +1,5 @@
+{"base": "p100-configs/strata-bitlamas-p100-best.json",
+ "arms": {"B": {}, "L": {"env": {"STRATA_ARENA_NUMA_LAYERS": "24"}}},
+ "order": "BLLB",
+ "cases": ["code", "prose", "chat", "L8k", "L32k"],
+ "port": 8090}

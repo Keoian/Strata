@@ -1,0 +1,11 @@
+[Unit]
+Description=Record whether the P100 150 W cap and boot settings came back after boot (RUNBOOK.md section 2)
+Requires=p100-power-cap.service
+After=p100-power-cap.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/p100-boot-check
+
+[Install]
+WantedBy=multi-user.target

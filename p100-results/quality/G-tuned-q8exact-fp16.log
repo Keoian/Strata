@@ -1,0 +1,6 @@
+engine: /home/user/projects/strata/build-p100/strata --serve --pack /home/user/models/strata-packs/bitlamas-q4kxl-iq4nl --native /home/user/models/bitlamas-Qwen3.8-Flash-Next-GGUF/Q4_K_XL-IQ4NL/Qwen3.8-Flash-Next-Q4_K_XL-IQ4NL-00001-of-00004.gguf --expert-profile /home/user/projects/strata/data/expert-profile.bin --spec 4 --spec-min-p 0.5 --mtp /home/user/models/strata-mtp/rt --expert-cache auto --adapt-every 100000 --pcie-frac 0 --suffix-draft 0 --prompt-cache 0 --kv fp16 --max-context 1512 --short-read 1064 --prefill 512
+code: 999 positions, 22.6 s
+docs: 999 positions, 21.6 s
+english: 999 positions, 22.1 s
+multilingual: 999 positions, 22.1 s
+agent: 999 positions, 22.0 s

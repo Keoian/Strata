@@ -1,0 +1,3 @@
+build-p100/strata: 1011704 VMAD, 0 aliased-input VMAD
+build-p100/libstrata_kq.so: 0 VMAD, 0 aliased-input VMAD
+total aliased-input VMAD: 0

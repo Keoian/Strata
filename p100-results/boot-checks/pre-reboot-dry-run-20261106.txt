@@ -1,0 +1,13 @@
+boot check 2026-11-06T17:34:43Z, uptime: 44430.48 s, boot id [removed]
+== p100-power-cap.service: active (enabled: enabled)
+index, pci.bus_id, name, persistence_mode, power.limit [W], enforced.power.limit [W], power.default_limit [W]
+0, 00000000:04:00.0, Tesla P100-PCIE-16GB, Enabled, 150.00 W, 150.00 W, 250.00 W
+1, 00000000:81:00.0, Tesla P100-PCIE-16GB, Enabled, 150.00 W, 150.00 W, 250.00 W
+== cap 150 W on every GPU: PASS
+== /proc/cmdline: BOOT_IMAGE=/vmlinuz-7.0.0-43-generic root=/dev/mapper/ubuntu--vg-ubuntu--lv ro crashkernel=2G-4G:320M,4G-32G:512M,32G-64G:1024M,64G-128G:2048M,128G-:4096M
+iommu=pt: FAIL
+no crashkernel: FAIL
+IOMMU group type of 0000:04:00.0: identity
+IOMMU group type of 0000:81:00.0: identity
+== /mnt/scratch: /dev/sdb1 ext4
+== sshd: active

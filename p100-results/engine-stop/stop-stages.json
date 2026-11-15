@@ -1,0 +1,159 @@
+{
+ "seed": 8107,
+ "started": "2026-11-07 17:09:44",
+ "cases": {
+  "s10": {
+   "requests": [
+    {
+     "label": "A long text prompt, cancelled at 6 s",
+     "sent": 1.13,
+     "cancel_after": 6,
+     "status": 200,
+     "cancelled_at": 7.13,
+     "text": "",
+     "took": 6.0,
+     "answered": 7.13
+    },
+    {
+     "label": "B text",
+     "sent": 7.63,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 6.24,
+     "text": "OK",
+     "took": 6.34,
+     "answered": 13.97
+    }
+   ],
+   "status_after": {
+    "in_flight": 0,
+    "requests": 2,
+    "vision": {
+     "enabled": true,
+     "available": true,
+     "error": null
+    }
+   },
+   "journal": [
+    "[strata] done: 0 tokens in 12 s (no speed) (cancel, cancel=True)",
+    "[strata] done: 2 tokens in 1 s (13.9 tok/s) (stop, cancel=False), expert cache 36.5% hit",
+    "strata serve: prompt 49890 tokens = 0 reused + 0 of 49890 read in 12274 ms (0.0 tok/s), 0 generated in 0 ms (0.0 tok/s), drafts accepted 0 of 0, 0 checkpoints (cancelled)",
+    "strata verify: captured the 6-token window (upload no error, sync no error) in 14.1 ms",
+    "strata verify: captured the 6-token window (upload no error, sync no error) in 12.1 ms",
+    "strata verify: captured the 2-token window (upload no error, sync no error) in 10.6 ms",
+    "strata verify: captured the 2-token window (upload no error, sync no error) in 10.3 ms",
+    "strata verify: captured the 1-token window (upload no error, sync no error) in 10.8 ms",
+    "strata verify: captured the 1-token window (upload no error, sync no error) in 10.1 ms",
+    "strata verify: captured the 4-token window (upload no error, sync no error) in 10.8 ms",
+    "strata verify: captured the 4-token window (upload no error, sync no error) in 10.0 ms",
+    "strata serve: prompt 15 tokens = 0 reused + 15 read in 354 ms (42.4 tok/s), 2 generated in 144 ms (13.9 tok/s), drafts accepted 3 of 3, 1 checkpoints"
+   ],
+   "doc": "A long text prompt (~24K tokens, nothing cached) cancelled 6 s into its read; a text request 0.5 s later."
+  },
+  "s12": {
+   "requests": [
+    {
+     "label": "A long text prompt, cancelled at 16 s",
+     "sent": 16.63,
+     "cancel_after": 16,
+     "status": 200,
+     "cancelled_at": 32.63,
+     "text": "",
+     "took": 16.0,
+     "answered": 32.63
+    },
+    {
+     "label": "B text",
+     "sent": 33.13,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 8.3,
+     "text": "OK",
+     "took": 8.39,
+     "answered": 41.51
+    }
+   ],
+   "status_after": {
+    "in_flight": 0,
+    "requests": 4,
+    "vision": {
+     "enabled": true,
+     "available": true,
+     "error": null
+    }
+   },
+   "journal": [
+    "[strata] reading the prompt: 49,887 tokens, 10 s so far",
+    "[strata] done: 0 tokens in 25 s (no speed) (cancel, cancel=True)",
+    "[strata] done: 2 tokens in 0 s (18.2 tok/s) (stop, cancel=False), expert cache 36.5% hit",
+    "strata serve: prompt 49887 tokens = 0 reused + 8192 of 49887 read in 24475 ms (334.7 tok/s), 0 generated in 0 ms (0.0 tok/s), drafts accepted 0 of 0, 0 checkpoints (cancelled)",
+    "strata serve: prompt 15 tokens = 8 reused + 7 read in 229 ms (30.6 tok/s), 2 generated in 110 ms (18.2 tok/s), drafts accepted 3 of 3, 1 checkpoints"
+   ],
+   "doc": "A long text prompt (~50K tokens, nothing cached) cancelled 16 s into its read, when on a two-card split the first\ncard is in its second chunk and the second card in its first; a text request 0.5 s later."
+  },
+  "s13": {
+   "code": "UPAFDA",
+   "line": 619,
+   "requests": [
+    {
+     "label": "A the code prompt, cancelled at 10 s",
+     "sent": 44.15,
+     "cancel_after": 10,
+     "status": 200,
+     "cancelled_at": 54.15,
+     "text": "",
+     "took": 10.0,
+     "answered": 54.15
+    },
+    {
+     "label": "W the same prompt in full",
+     "sent": 54.15,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 61.91,
+     "text": "UPAFDA",
+     "took": 61.98,
+     "answered": 116.13
+    },
+    {
+     "label": "B text",
+     "sent": 116.13,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 0.76,
+     "text": "OK",
+     "took": 0.83,
+     "answered": 116.97
+    }
+   ],
+   "W_reads_code": true,
+   "status_after": {
+    "in_flight": 0,
+    "requests": 7,
+    "vision": {
+     "enabled": true,
+     "available": true,
+     "error": null
+    }
+   },
+   "journal": [
+    "[strata] done: 0 tokens in 13 s (no speed) (cancel, cancel=True)",
+    "[strata] reading the prompt: 28,963 tokens, 10 s so far",
+    "[strata] reading the prompt: 28,963 tokens, 20 s so far",
+    "[strata] reading the prompt: 8,192 of 28,963 tokens, 24 s so far",
+    "[strata] reading the prompt: 8,192 of 28,963 tokens, 34 s so far",
+    "[strata] reading the prompt: 16,384 of 28,963 tokens, 37 s so far",
+    "[strata] reading the prompt: 16,384 of 28,963 tokens, 47 s so far",
+    "[strata] reading the prompt: 24,576 of 28,963 tokens, 50 s so far",
+    "[strata] reading the prompt: 28,956 of 28,963 tokens, 58 s so far",
+    "[strata] answering: 1 of max 24 tokens, 4.0 tok/s, 59 s",
+    "[strata] done: 4 tokens in 59 s (39.4 tok/s) (stop, cancel=False), expert cache 45.4% hit",
+    "[strata] done: 2 tokens in 1 s (20.6 tok/s) (stop, cancel=False), expert cache 47.9% hit",
+    "strata serve: prompt 28963 tokens = 0 reused + 0 of 28963 read in 12625 ms (0.0 tok/s), 0 generated in 0 ms (0.0 tok/s), drafts accepted 0 of 0, 0 checkpoints (cancelled)",
+    "strata serve: prompt 28963 tokens = 0 reused + 28963 read in 59187 ms (489.3 tok/s), 4 generated in 102 ms (39.4 tok/s), drafts accepted 3 of 3, 2 checkpoints",
+    "strata serve: prompt 15 tokens = 8 reused + 7 read in 726 ms (9.6 tok/s), 2 generated in 97 ms (20.6 tok/s), drafts accepted 3 of 3, 1 checkpoints"
+   ],
+   "doc": "The engine after a prompt read stopped in the middle: a ~29K-token prompt with a code on one line is cancelled 10 s\nin, then sent again in full (nothing of it was kept) and must give the code; then a short text request."
+  }
+ }
+}

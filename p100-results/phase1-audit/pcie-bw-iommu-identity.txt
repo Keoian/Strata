@@ -1,0 +1,4 @@
+host mem on node 0 -> gpu 0 (Tesla P100-PCIE-16GB, pci 04:00.0) buffer 256 MiB x 20: H2D 6.17 GB/s  D2H 6.59 GB/s
+host mem on node 1 -> gpu 0 (Tesla P100-PCIE-16GB, pci 04:00.0) buffer 256 MiB x 20: H2D 6.17 GB/s  D2H 6.59 GB/s
+host mem on node 0 -> gpu 1 (Tesla P100-PCIE-16GB, pci 81:00.0) buffer 256 MiB x 20: H2D 12.40 GB/s  D2H 13.09 GB/s
+host mem on node 1 -> gpu 1 (Tesla P100-PCIE-16GB, pci 81:00.0) buffer 256 MiB x 20: H2D 12.42 GB/s  D2H 13.15 GB/s

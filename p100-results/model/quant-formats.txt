@@ -1,0 +1,28 @@
+### Q4_K_XL-IQ4NL
+
+| Role | Format | Layers | Tensors | GiB |
+|---|---|---|---:|---:|
+| routed gate | Q4_K | 0-1, 3-47 | 47 | 20.65 |
+| routed gate | Q5_K | 2 | 1 | 0.54 |
+| routed up | Q4_K | 0-1, 3-47 | 47 | 20.65 |
+| routed up | Q5_K | 2 | 1 | 0.54 |
+| routed down | IQ4_NL | 0-47 | 48 | 21.09 |
+| shared expert | Q8_0 | 0-47 | 144 | 0.23 |
+| router | F32 | 0-47 | 96 | 0.23 |
+| attention | Q8_0 | 0-47 | 120 | 2.09 |
+| SSM | Q8_0 | 0-2, 4-6, 8-10, 12-14, 16-18, 20-22, 24-26, 28-30, 32-34, 36-38, 40-42, 44-46 | 36 | 0.56 |
+| SSM | F32 | 0-2, 4-6, 8-10, 12-14, 16-18, 20-22, 24-26, 28-30, 32-34, 36-38, 40-42, 44-46 | 72 | 0.03 |
+| hyper-connections | Q8_0 | 0-47 | 192 | 0.62 |
+| hyper-connections | F32 | 0-47 | 96 | 0.01 |
+| indexer | BF16 | 3, 7, 11, 15, 19, 23, 27, 31, 35, 39, 43, 47 | 24 | 0.04 |
+| PLE key/value | Q8_0 | 1 | 2 | 0.03 |
+| PLE table | IQ4_NL | - | 1 | 26.82 |
+| token embedding | Q8_0 | - | 1 | 0.63 |
+| output head | Q8_0 | - | 3 | 0.64 |
+
+Routed experts: 63.5 GiB.
+
+| Routed gate / up / down | Layers |
+|---|---|
+| Q4_K / Q4_K / IQ4_NL | 0-1, 3-47 |
+| Q5_K / Q5_K / IQ4_NL | 2 |

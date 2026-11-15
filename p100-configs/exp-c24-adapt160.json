@@ -1,0 +1,53 @@
+{
+ "exe": "/home/user/projects/strata/build-p100/strata",
+ "args": [
+  "--pack",
+  "/home/user/models/strata-packs/bitlamas-q4kxl-iq4nl",
+  "--native",
+  "/home/user/models/bitlamas-Qwen3.8-Flash-Next-GGUF/Q4_K_XL-IQ4NL/Qwen3.8-Flash-Next-Q4_K_XL-IQ4NL-00001-of-00004.gguf",
+  "--expert-profile",
+  "/home/user/projects/strata/data/expert-profile.bin",
+  "--expert-cache",
+  "auto",
+  "--prefill",
+  "auto",
+  "--spec",
+  "4",
+  "--spec-min-p",
+  "0.5",
+  "--mtp",
+  "/home/user/models/strata-mtp/rt",
+  "--max-context",
+  "32768",
+  "--kv",
+  "int8",
+  "--pcie-frac",
+  "0",
+  "--trim-stage-weights",
+  "--adapt-every",
+  "1",
+  "--adapt-swaps",
+  "160",
+  "--adapt-decay",
+  "0.97"
+ ],
+ "cwd": "/home/user/projects/strata",
+ "tokenizer": "/home/user/models/strata-packs/bitlamas-q4kxl-iq4nl/tokenizer",
+ "model_name": "qwen3.8-flash-next-bitlamas-q4_k_xl-iq4nl",
+ "log": "/home/user/projects/strata/strata-bitlamas.log",
+ "host": "127.0.0.1",
+ "port": 8080,
+ "cuda": 12,
+ "gpu": [
+  0,
+  1
+ ],
+ "layer_split": "24",
+ "env": {
+  "STRATA_HC_Q8": "1",
+  "STRATA_ROUTE_TAIL_SKIP": "0",
+  "STRATA_ARENA_NUMA": "1",
+  "STRATA_DOWN_WS": "1",
+  "STRATA_Q8_SM60": "1"
+ }
+}

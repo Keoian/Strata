@@ -1,0 +1,2 @@
+760b63400000 default anon=16640775 dirty=16640775 active=0 N0=8057443 N1=8583332 kernelpagesize_kB=4
+761cf5e00000 default file=/home/user/models/bitlamas-Qwen3.8-Flash-Next-GGUF/Q4_K_XL-IQ4NL/Qwen3.8-Flash-Next-Q4_K_XL-IQ4NL-00002-of-00004.gguf mapped=7030608 active=0 N0=6686919 N1=343689 kernelpagesize_kB=4

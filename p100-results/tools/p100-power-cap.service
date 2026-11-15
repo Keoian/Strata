@@ -1,0 +1,14 @@
+[Unit]
+Description=Cap both Tesla P100 GPUs at 150 W (by UUID) at every boot
+Documentation=file:///usr/local/sbin/p100-power-cap
+Wants=nvidia-persistenced.service
+After=systemd-modules-load.service systemd-udev-settle.service nvidia-persistenced.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/sbin/p100-power-cap
+TimeoutStartSec=300
+
+[Install]
+WantedBy=multi-user.target

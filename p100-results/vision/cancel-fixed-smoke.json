@@ -1,0 +1,87 @@
+{
+ "seed": 7107,
+ "started": "2026-11-07 07:28:48",
+ "cases": {
+  "s2": {
+   "code": "33KAEE",
+   "requests": [
+    {
+     "label": "A picture, cancelled at 5 s",
+     "sent": 1.33,
+     "cancel_after": 5,
+     "cancelled_at": 6.33,
+     "exception": "RemoteDisconnected: Remote end closed connection without response",
+     "took": 5.0,
+     "answered": 6.33
+    },
+    {
+     "label": "B follow-up about A's picture",
+     "sent": 11.33,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 83.65,
+     "text": "33KAEE",
+     "took": 83.83,
+     "answered": 95.17
+    }
+   ],
+   "B_reads_code": true,
+   "status_after": {
+    "in_flight": 0,
+    "requests": 1,
+    "vision": {
+     "enabled": true,
+     "available": true,
+     "error": null
+    }
+   },
+   "journal": [
+    "[strata] images: a picture whose client left was read to the end (73.8 s after it left): a waiting request sends the same picture",
+    "[strata] reading the prompt: 3,657 tokens, 10 s so far",
+    "[strata] reading the prompt: 3,626 of 3,657 tokens, 14 s so far",
+    "[strata] reading the prompt: 3,656 of 3,657 tokens, 15 s so far",
+    "[strata] done: 5 tokens in 15 s (22.8 tok/s) (stop, cancel=False), expert cache 35.8% hit"
+   ],
+   "doc": "Cancel during a big picture's encode; the follow-up about it 5 s later (while the cancelled encode runs)."
+  },
+  "s8": {
+   "code": "JX9K4X",
+   "requests": [
+    {
+     "label": "A picture, not streamed, cancelled at 4 s",
+     "sent": 97.88,
+     "cancel_after": 4,
+     "cancelled_at": 101.89,
+     "exception": "RemoteDisconnected: Remote end closed connection without response",
+     "took": 4.0,
+     "answered": 101.89
+    },
+    {
+     "label": "B text",
+     "sent": 102.39,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 1.7,
+     "text": "OK",
+     "took": 1.78,
+     "answered": 104.16
+    }
+   ],
+   "status_after": {
+    "in_flight": 0,
+    "requests": 2,
+    "vision": {
+     "enabled": true,
+     "available": true,
+     "error": null
+    }
+   },
+   "journal": [
+    "[strata] images: a picture's client left and another request waits for the turn: its encode was stopped 0.5 s after the client left (the encoder starts again with the next request)",
+    "[strata] images: the image encoder was started again in 0.9 s",
+    "[strata] done: 2 tokens in 1 s (19.0 tok/s) (stop, cancel=False), expert cache 36.5% hit"
+   ],
+   "doc": "Not streamed (stream false) and cancelled during a medium picture's encode; a text request 0.5 s later."
+  }
+ }
+}

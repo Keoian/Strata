@@ -1,0 +1,6 @@
+### STRATA_DOWN_WS=0
+BENCH q4_K    /iq4_nl  decode top-10 x1 token: median 152.0 us per call (min 150.7, max 163.3), 182 GB/s of expert weights
+BENCH q4_K    /q5_1    decode top-10 x1 token: median 185.4 us per call (min 184.3, max 186.2), 166 GB/s of expert weights
+### STRATA_DOWN_WS=1
+BENCH q4_K    /iq4_nl  decode top-10 x1 token: median 131.2 us per call (min 129.3, max 131.8), 211 GB/s of expert weights
+BENCH q4_K    /q5_1    decode top-10 x1 token: median 183.5 us per call (min 183.3, max 184.0), 167 GB/s of expert weights

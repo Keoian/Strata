@@ -1,0 +1,146 @@
+== 21:31:43 stopping the service
+  [gpu before] 0, 150.00 W, 31.92 W, 1189 MHz, 37, 0x0000000000000000
+  [gpu before] 1, 150.00 W, 34.32 W, 1189 MHz, 41, 0x0000000000000000
+== 21:31:52 stock: starting
+   loaded in 201 s
+  [gpu stock] 0, 150.00 W, 32.17 W, 1189 MHz, 37, 0x0000000000000000
+  [gpu stock] 1, 150.00 W, 34.12 W, 1189 MHz, 41, 0x0000000000000000
+       M1: main agent: took 31.68 s, cache_n 0, prompt_n 9807
+       M2: main agent: took 11.76 s, cache_n 9802, prompt_n 2396
+       M3: main agent: took 13.05 s, cache_n 12193, prompt_n 2739
+       M4: main agent: took 11.15 s, cache_n 14935, prompt_n 2240
+       M5: main agent: took 11.62 s, cache_n 17178, prompt_n 2379
+       M6: main agent: took 11.16 s, cache_n 19560, prompt_n 2172
+       M7: main agent: took 13.58 s, cache_n 21735, prompt_n 3010
+       M8: main agent: took 13.06 s, cache_n 24740, prompt_n 2568
+       M9: main agent: took 11.18 s, cache_n 27311, prompt_n 2118
+       M10: main agent: took 13.65 s, cache_n 29432, prompt_n 2954
+       M11: main agent: took 12.24 s, cache_n 32389, prompt_n 2461
+       M12: main agent: took 12.97 s, cache_n 34853, prompt_n 2755
+       O1: unrelated chat: took 3.37 s, cache_n 0, prompt_n 78
+       S1: sub-agent 1 (the main agent's system prompt and tools): took 0.99 s, cache_n 9769, prompt_n 28
+       S2: sub-agent 1 (the main agent's system prompt and tools): took 12.79 s, cache_n 9792, prompt_n 2779
+       M13: main agent returns after sub-agent 1: took 42.58 s, cache_n 24740, prompt_n 15626
+       O2: unrelated chat again: took 1.74 s, cache_n 73, prompt_n 29
+       T1: sub-agent 2: took 1.2 s, cache_n 9769, prompt_n 30
+       T2: sub-agent 2: took 13.22 s, cache_n 9794, prompt_n 2832
+       M14: main agent returns after sub-agent 2: took 70.92 s, cache_n 12193, prompt_n 30848
+       S3: sub-agent 1 returns: took 12.72 s, cache_n 12566, prompt_n 2414
+       N: the main agent's two planted codes: took 19.62 s, cache_n 43044, prompt_n 2712
+   wrote /home/user/projects/strata/p100-results/split-borrow/adapt0/stock.json
+  [gpu stock] 0, 150.00 W, 50.26 W, 1328 MHz, 66, 0x0000000000000000
+  [gpu stock] 1, 150.00 W, 58.47 W, 1328 MHz, 76, 0x0000000000000000
+   engine: strata serve: conversation cache: restored 9769 tokens (checkpoint) in 86.5 ms; parked=3 bytes=2465647908
+   engine: strata serve: conversation cache: restored 24740 tokens (checkpoint) in 190.4 ms; parked=3 bytes=1799549880
+   engine: strata serve: conversation cache: restored 73 tokens (checkpoint) in 88.7 ms; parked=3 bytes=2586483804
+   engine: strata serve: conversation cache: restored 9769 tokens (checkpoint) in 185.6 ms; parked=3 bytes=2114937492
+   engine: strata serve: conversation cache: restored 12193 tokens (checkpoint) in 129.7 ms; parked=3 bytes=1771298196
+   engine: strata serve: conversation cache: restored 12566 tokens (checkpoint) in 132.9 ms; parked=3 bytes=2390908040
+   engine: strata serve: conversation cache: restored 43044 tokens (live) in 279.4 ms; parked=3 bytes=2302122944
+== 21:41:07 borrow: starting
+   loaded in 170 s
+  [gpu borrow] 0, 150.00 W, 35.05 W, 1189 MHz, 49, 0x0000000000000000
+  [gpu borrow] 1, 150.00 W, 39.39 W, 1189 MHz, 56, 0x0000000000000000
+       M1: main agent: took 32.04 s, cache_n 0, prompt_n 9807
+       M2: main agent: took 11.85 s, cache_n 9802, prompt_n 2396
+       M3: main agent: took 13.08 s, cache_n 12193, prompt_n 2739
+       M4: main agent: took 11.33 s, cache_n 14935, prompt_n 2240
+       M5: main agent: took 11.75 s, cache_n 17178, prompt_n 2379
+       M6: main agent: took 11.17 s, cache_n 19560, prompt_n 2172
+       M7: main agent: took 13.75 s, cache_n 21735, prompt_n 3010
+       M8: main agent: took 13.48 s, cache_n 24740, prompt_n 2568
+       M9: main agent: took 11.27 s, cache_n 27311, prompt_n 2118
+       M10: main agent: took 13.8 s, cache_n 29432, prompt_n 2954
+       M11: main agent: took 12.28 s, cache_n 32389, prompt_n 2461
+       M12: main agent: took 13.21 s, cache_n 34853, prompt_n 2755
+       O1: unrelated chat: took 3.54 s, cache_n 0, prompt_n 78
+       S1: sub-agent 1 (the main agent's system prompt and tools): took 1.05 s, cache_n 9769, prompt_n 28
+       S2: sub-agent 1 (the main agent's system prompt and tools): took 12.96 s, cache_n 9792, prompt_n 2779
+       M13: main agent returns after sub-agent 1: took 13.97 s, cache_n 37611, prompt_n 2755
+       O2: unrelated chat again: took 1.65 s, cache_n 73, prompt_n 29
+       T1: sub-agent 2: took 1.21 s, cache_n 9769, prompt_n 30
+       T2: sub-agent 2: took 13.41 s, cache_n 9794, prompt_n 2832
+       M14: main agent returns after sub-agent 2: took 13.62 s, cache_n 40369, prompt_n 2672
+       S3: sub-agent 1 returns: took 12.47 s, cache_n 12566, prompt_n 2414
+       N: the main agent's two planted codes: took 21.28 s, cache_n 43044, prompt_n 2712
+   wrote /home/user/projects/strata/p100-results/split-borrow/adapt0/borrow.json
+  [gpu borrow] 0, 150.00 W, 49.28 W, 1328 MHz, 64, 0x0000000000000000
+  [gpu borrow] 1, 150.00 W, 56.05 W, 1328 MHz, 72, 0x0000000000000000
+   engine: strata serve: conversation cache: borrowed 9769 tokens from a parked conversation, which stays parked, in 99.3 ms; parked=4 bytes=3296194576 borrowed=1
+   engine: strata serve: conversation cache: restored 37611 tokens (live) in 284.8 ms; parked=3 bytes=2470260644
+   engine: strata serve: conversation cache: restored 73 tokens (checkpoint) in 66.3 ms; parked=3 bytes=3122293532
+   engine: strata serve: conversation cache: borrowed 9769 tokens from a parked conversation, which stays parked, in 137.9 ms; parked=4 bytes=3481000872 borrowed=2
+   engine: strata serve: conversation cache: restored 40369 tokens (live) in 258.6 ms; parked=3 bytes=2144288500
+   engine: strata serve: conversation cache: restored 12566 tokens (checkpoint) in 132.3 ms; parked=3 bytes=2563542088
+   engine: strata serve: conversation cache: restored 43044 tokens (live) in 137.6 ms; parked=3 bytes=2355567728
+== 21:48:29 stock2: starting
+   loaded in 190 s
+  [gpu stock2] 0, 150.00 W, 34.32 W, 1189 MHz, 48, 0x0000000000000000
+  [gpu stock2] 1, 150.00 W, 38.19 W, 1189 MHz, 54, 0x0000000000000000
+       M1: main agent: took 32.01 s, cache_n 0, prompt_n 9807
+       M2: main agent: took 11.82 s, cache_n 9802, prompt_n 2396
+       M3: main agent: took 13.15 s, cache_n 12193, prompt_n 2739
+       M4: main agent: took 11.2 s, cache_n 14935, prompt_n 2240
+       M5: main agent: took 11.73 s, cache_n 17178, prompt_n 2379
+       M6: main agent: took 11.18 s, cache_n 19560, prompt_n 2172
+       M7: main agent: took 13.73 s, cache_n 21735, prompt_n 3010
+       M8: main agent: took 13.48 s, cache_n 24740, prompt_n 2568
+       M9: main agent: took 11.28 s, cache_n 27311, prompt_n 2118
+       M10: main agent: took 13.81 s, cache_n 29432, prompt_n 2954
+       M11: main agent: took 12.37 s, cache_n 32389, prompt_n 2461
+       M12: main agent: took 13.17 s, cache_n 34853, prompt_n 2755
+       O1: unrelated chat: took 3.52 s, cache_n 0, prompt_n 78
+       S1: sub-agent 1 (the main agent's system prompt and tools): took 1.0 s, cache_n 9769, prompt_n 28
+       S2: sub-agent 1 (the main agent's system prompt and tools): took 12.97 s, cache_n 9792, prompt_n 2779
+       M13: main agent returns after sub-agent 1: took 43.17 s, cache_n 24740, prompt_n 15626
+       O2: unrelated chat again: took 1.75 s, cache_n 73, prompt_n 29
+       T1: sub-agent 2: took 1.27 s, cache_n 9769, prompt_n 30
+       T2: sub-agent 2: took 13.39 s, cache_n 9794, prompt_n 2832
+       M14: main agent returns after sub-agent 2: took 80.51 s, cache_n 12193, prompt_n 30848
+       S3: sub-agent 1 returns: took 13.46 s, cache_n 12566, prompt_n 2414
+       N: the main agent's two planted codes: took 21.87 s, cache_n 43044, prompt_n 2712
+   wrote /home/user/projects/strata/p100-results/split-borrow/adapt0/stock2.json
+  [gpu stock2] 0, 150.00 W, 51.95 W, 1328 MHz, 69, 0x0000000000000000
+  [gpu stock2] 1, 150.00 W, 58.19 W, 1328 MHz, 77, 0x0000000000000000
+   engine: strata serve: conversation cache: restored 9769 tokens (checkpoint) in 103.1 ms; parked=3 bytes=2465647908
+   engine: strata serve: conversation cache: restored 24740 tokens (checkpoint) in 213.0 ms; parked=3 bytes=1799549880
+   engine: strata serve: conversation cache: restored 73 tokens (checkpoint) in 81.7 ms; parked=3 bytes=2586483804
+   engine: strata serve: conversation cache: restored 9769 tokens (checkpoint) in 259.6 ms; parked=3 bytes=2114937492
+   engine: strata serve: conversation cache: restored 12193 tokens (checkpoint) in 125.3 ms; parked=3 bytes=1771298196
+   engine: strata serve: conversation cache: restored 12566 tokens (checkpoint) in 137.2 ms; parked=3 bytes=2390908040
+   engine: strata serve: conversation cache: restored 43044 tokens (live) in 280.7 ms; parked=3 bytes=2302122944
+== 21:57:49 starting the service again
+   service loaded in 156 s
+  [gpu after] 0, 150.00 W, 36.02 W, 1189 MHz, 52, 0x0000000000000000
+  [gpu after] 1, 150.00 W, 39.87 W, 1189 MHz, 57, 0x0000000000000000
+| request | prompt tokens | stock: reused / read, s | borrow: reused / read, s | stock2: reused / read, s |
+|---|---|---|---|---|
+| M1: main agent | 9,807 | 0 / 9,807, 31.4 | 0 / 9,807, 31.8 | 0 / 9,807, 31.7 |
+| M2: main agent | 12,198 | 9,802 / 2,396, 11.6 | 9,802 / 2,396, 11.7 | 9,802 / 2,396, 11.6 |
+| M3: main agent | 14,932 | 12,193 / 2,739, 12.9 | 12,193 / 2,739, 12.9 | 12,193 / 2,739, 13.0 |
+| M4: main agent | 17,175 | 14,935 / 2,240, 11.0 | 14,935 / 2,240, 11.1 | 14,935 / 2,240, 11.0 |
+| M5: main agent | 19,557 | 17,178 / 2,379, 11.4 | 17,178 / 2,379, 11.6 | 17,178 / 2,379, 11.6 |
+| M6: main agent | 21,732 | 19,560 / 2,172, 11.0 | 19,560 / 2,172, 11.0 | 19,560 / 2,172, 11.0 |
+| M7: main agent | 24,745 | 21,735 / 3,010, 13.4 | 21,735 / 3,010, 13.6 | 21,735 / 3,010, 13.6 |
+| M8: main agent | 27,308 | 24,740 / 2,568, 12.9 | 24,740 / 2,568, 13.3 | 24,740 / 2,568, 13.3 |
+| M9: main agent | 29,429 | 27,311 / 2,118, 11.0 | 27,311 / 2,118, 11.1 | 27,311 / 2,118, 11.1 |
+| M10: main agent | 32,386 | 29,432 / 2,954, 13.5 | 29,432 / 2,954, 13.6 | 29,432 / 2,954, 13.6 |
+| M11: main agent | 34,850 | 32,389 / 2,461, 12.1 | 32,389 / 2,461, 12.1 | 32,389 / 2,461, 12.2 |
+| M12: main agent | 37,608 | 34,853 / 2,755, 12.8 | 34,853 / 2,755, 13.1 | 34,853 / 2,755, 13.0 |
+| O1: unrelated chat | 78 | 0 / 78, 3.2 | 0 / 78, 3.4 | 0 / 78, 3.4 |
+| S1: sub-agent 1 (the main agent's system prompt and tools) | 9,797 | 9,769 / 28, 0.8 | 9,769 / 28, 0.9 | 9,769 / 28, 0.8 |
+| S2: sub-agent 1 (the main agent's system prompt and tools) | 12,571 | 9,792 / 2,779, 12.6 | 9,792 / 2,779, 12.8 | 9,792 / 2,779, 12.8 |
+| M13: main agent returns after sub-agent 1 | 40,366 | 24,740 / 15,626, 42.4 | 37,611 / 2,755, 13.8 | 24,740 / 15,626, 43.0 |
+| O2: unrelated chat again | 102 | 73 / 29, 1.6 | 73 / 29, 1.5 | 73 / 29, 1.6 |
+| T1: sub-agent 2 | 9,799 | 9,769 / 30, 1.1 | 9,769 / 30, 1.1 | 9,769 / 30, 1.1 |
+| T2: sub-agent 2 | 12,626 | 9,794 / 2,832, 13.1 | 9,794 / 2,832, 13.2 | 9,794 / 2,832, 13.2 |
+| M14: main agent returns after sub-agent 2 | 43,041 | 12,193 / 30,848, 70.8 | 40,369 / 2,672, 13.5 | 12,193 / 30,848, 80.3 |
+| S3: sub-agent 1 returns | 14,980 | 12,566 / 2,414, 12.6 | 12,566 / 2,414, 12.3 | 12,566 / 2,414, 13.3 |
+| N: the main agent's two planted codes | 45,756 | 43,044 / 2,712, 14.0 | 43,044 / 2,712, 13.7 | 43,044 / 2,712, 14.9 |
+| **all requests** | | **94,975 read, 337 s** | **53,928 read, 253 s** | **94,975 read, 351 s** |
+
+stock: codes ['CDV3J3', 'A9YPVF'] in the answer [True, True], answer 'CDV3J3, A9YPVF'
+borrow: codes ['CDV3J3', 'A9YPVF'] in the answer [True, True], answer 'CDV3J3, A9YPVF'
+stock2: codes ['CDV3J3', 'A9YPVF'] in the answer [True, True], answer 'CDV3J3, A9YPVF'
+stock vs borrow: largest logprob difference over the 4-token replies 0.594647; replies with other tokens: none
+stock vs stock2: largest logprob difference over the 4-token replies 0.594647; replies with other tokens: none

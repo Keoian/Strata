@@ -1,0 +1,52 @@
+#!/bin/bash
+# p100-power-cap: apply a fixed power limit to BOTH Tesla P100s, identified by UUID.
+# Exits non-zero (and logs why) unless every listed P100 is present and verified at the limit.
+set -u
+LIMIT_W=150
+P100_UUIDS=()
+WAIT_SECS=180
+CONF=/etc/p100-power-cap.conf
+[ -r "$CONF" ] && . "$CONF"
+log() { echo "p100-power-cap: $*"; }
+err() { echo "p100-power-cap: ERROR: $*" >&2; }
+
+if [ "${#P100_UUIDS[@]}" -eq 0 ]; then err "no GPU UUIDs configured in $CONF"; exit 1; fi
+
+# 1. Wait for the driver and for every configured GPU to appear.
+deadline=$((SECONDS + WAIT_SECS))
+while :; do
+  missing=()
+  if nvidia-smi -L >/dev/null 2>&1; then
+    for u in "${P100_UUIDS[@]}"; do
+      nvidia-smi -i "$u" --query-gpu=name --format=csv,noheader >/dev/null 2>&1 || missing+=("$u")
+    done
+    [ "${#missing[@]}" -eq 0 ] && break
+  else
+    missing=(driver)
+    modprobe nvidia 2>/dev/null || true
+  fi
+  if [ "$SECONDS" -ge "$deadline" ]; then
+    err "after ${WAIT_SECS}s still missing: ${missing[*]}"; exit 1
+  fi
+  sleep 2
+done
+
+# 2. Cap each GPU separately and verify it.
+fail=0
+for u in "${P100_UUIDS[@]}"; do
+  IFS=, read -r name bus minw maxw < <(nvidia-smi -i "$u" --query-gpu=name,pci.bus_id,power.min_limit,power.max_limit --format=csv,noheader,nounits | sed 's/, */,/g')
+  if [[ "$name" != *P100* ]]; then err "$u ($bus) is '$name', not a Tesla P100; refusing to cap"; fail=1; continue; fi
+  if ! awk -v l="$LIMIT_W" -v lo="$minw" -v hi="$maxw" 'BEGIN{exit !(l>=lo && l<=hi)}'; then
+    err "$u ($bus): ${LIMIT_W} W outside supported range ${minw}-${maxw} W"; fail=1; continue
+  fi
+  nvidia-smi -i "$u" -pm 1 >/dev/null 2>&1 || log "warning: could not enable persistence mode on $u ($bus)"
+  if ! nvidia-smi -i "$u" -pl "$LIMIT_W" >/dev/null; then err "$u ($bus): nvidia-smi -pl $LIMIT_W failed"; fail=1; continue; fi
+  IFS=, read -r cur enf < <(nvidia-smi -i "$u" --query-gpu=power.limit,enforced.power.limit --format=csv,noheader,nounits | sed 's/, */,/g')
+  if awk -v c="$cur" -v e="$enf" -v l="$LIMIT_W" 'BEGIN{exit !(c+0==l && e+0==l)}'; then
+    log "OK $u ($bus, $name): power.limit=${cur} W enforced=${enf} W"
+  else
+    err "$u ($bus): verification failed, power.limit=${cur} W enforced=${enf} W (wanted ${LIMIT_W})"; fail=1
+  fi
+done
+if [ "$fail" -ne 0 ]; then err "not all P100s are capped at ${LIMIT_W} W"; exit 1; fi
+log "all ${#P100_UUIDS[@]} P100s capped at ${LIMIT_W} W"

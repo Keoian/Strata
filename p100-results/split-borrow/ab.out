@@ -1,0 +1,70 @@
+== 18:56:11 stopping the service
+  [gpu before] 0, 150.00 W, 34.81 W, 1189 MHz, 48, 0x0000000000000000
+  [gpu before] 1, 150.00 W, 37.94 W, 1189 MHz, 53, 0x0000000000000000
+== 18:56:20 borrow: starting
+   loaded in 191 s
+  [gpu borrow] 0, 150.00 W, 33.84 W, 1189 MHz, 44, 0x0000000000000000
+  [gpu borrow] 1, 150.00 W, 36.25 W, 1189 MHz, 48, 0x0000000000000000
+       M1: main agent: took 31.87 s, cache_n 0, prompt_n 9807
+       M2: main agent: took 11.8 s, cache_n 9802, prompt_n 2396
+       M3: main agent: took 12.96 s, cache_n 12193, prompt_n 2739
+       M4: main agent: took 11.15 s, cache_n 14935, prompt_n 2240
+       M5: main agent: took 11.65 s, cache_n 17178, prompt_n 2379
+       M6: main agent: took 11.12 s, cache_n 19560, prompt_n 2172
+       M7: main agent: took 14.55 s, cache_n 21727, prompt_n 3018
+       M8: main agent: took 12.28 s, cache_n 24748, prompt_n 2560
+       M9: main agent: took 11.17 s, cache_n 27311, prompt_n 2163
+       M10: main agent: took 13.75 s, cache_n 29477, prompt_n 2954
+       M11: main agent: took 12.31 s, cache_n 32434, prompt_n 2461
+       M12: main agent: took 14.21 s, cache_n 34890, prompt_n 2763
+       O1: unrelated chat: took 3.43 s, cache_n 0, prompt_n 78
+       S1: sub-agent 1 (the main agent's system prompt and tools): took 0.95 s, cache_n 9769, prompt_n 28
+       S2: sub-agent 1 (the main agent's system prompt and tools): took 13.03 s, cache_n 9792, prompt_n 2779
+       M13: main agent returns after sub-agent 1: took 13.92 s, cache_n 37656, prompt_n 2755
+       O2: unrelated chat again: took 1.57 s, cache_n 73, prompt_n 29
+       T1: sub-agent 2: took 0.89 s, cache_n 9769, prompt_n 30
+       T2: sub-agent 2: took 13.26 s, cache_n 9794, prompt_n 2832
+       M14: main agent returns after sub-agent 2: took 13.42 s, cache_n 40414, prompt_n 2672
+       S3: sub-agent 1 returns: took 12.53 s, cache_n 12566, prompt_n 2414
+       N: the main agent's two planted codes: took 17.62 s, cache_n 43089, prompt_n 2712
+   wrote /home/user/projects/strata/p100-results/split-borrow/borrow.json
+  [gpu borrow] 0, 150.00 W, 48.81 W, 1328 MHz, 63, 0x0000000000000000
+  [gpu borrow] 1, 150.00 W, 55.57 W, 1328 MHz, 72, 0x0000000000000000
+   engine: strata serve: conversation cache: borrowed 9769 tokens from a parked conversation, which stays parked, in 90.7 ms; parked=3 bytes=2634097008 borrowed=1
+   engine: strata serve: conversation cache: restored 37656 tokens (live) in 252.9 ms; parked=3 bytes=2433380632
+   engine: strata serve: conversation cache: restored 73 tokens (checkpoint) in 67.0 ms; parked=3 bytes=3085484380
+   engine: strata serve: conversation cache: borrowed 9769 tokens from a parked conversation, which stays parked, in 70.4 ms; parked=4 bytes=3444191720 borrowed=2
+   engine: strata serve: conversation cache: restored 40414 tokens (live) in 277.4 ms; parked=3 bytes=2144908600
+   engine: strata serve: conversation cache: restored 12566 tokens (checkpoint) in 149.2 ms; parked=3 bytes=2564232280
+   engine: strata serve: conversation cache: restored 43089 tokens (live) in 108.1 ms; parked=3 bytes=2356255940
+== 19:03:58 starting the service again
+   service loaded in 147 s
+  [gpu after] 0, 150.00 W, 35.78 W, 1189 MHz, 50, 0x0000000000000000
+  [gpu after] 1, 150.00 W, 39.13 W, 1189 MHz, 56, 0x0000000000000000
+| request | prompt tokens | borrow: reused / read, s |
+|---|---|---|
+| M1: main agent | 9,807 | 0 / 9,807, 31.6 |
+| M2: main agent | 12,198 | 9,802 / 2,396, 11.6 |
+| M3: main agent | 14,932 | 12,193 / 2,739, 12.8 |
+| M4: main agent | 17,175 | 14,935 / 2,240, 11.0 |
+| M5: main agent | 19,557 | 17,178 / 2,379, 11.5 |
+| M6: main agent | 21,732 | 19,560 / 2,172, 10.9 |
+| M7: main agent | 24,745 | 21,727 / 3,018, 14.4 |
+| M8: main agent | 27,308 | 24,748 / 2,560, 12.1 |
+| M9: main agent | 29,474 | 27,311 / 2,163, 11.0 |
+| M10: main agent | 32,431 | 29,477 / 2,954, 13.6 |
+| M11: main agent | 34,895 | 32,434 / 2,461, 12.2 |
+| M12: main agent | 37,653 | 34,890 / 2,763, 14.0 |
+| O1: unrelated chat | 78 | 0 / 78, 3.3 |
+| S1: sub-agent 1 (the main agent's system prompt and tools) | 9,797 | 9,769 / 28, 0.8 |
+| S2: sub-agent 1 (the main agent's system prompt and tools) | 12,571 | 9,792 / 2,779, 12.9 |
+| M13: main agent returns after sub-agent 1 | 40,411 | 37,656 / 2,755, 13.8 |
+| O2: unrelated chat again | 102 | 73 / 29, 1.4 |
+| T1: sub-agent 2 | 9,799 | 9,769 / 30, 0.8 |
+| T2: sub-agent 2 | 12,626 | 9,794 / 2,832, 13.1 |
+| M14: main agent returns after sub-agent 2 | 43,086 | 40,414 / 2,672, 13.3 |
+| S3: sub-agent 1 returns | 14,980 | 12,566 / 2,414, 12.4 |
+| N: the main agent's two planted codes | 45,801 | 43,089 / 2,712, 13.7 |
+| **all requests** | | **53,981 read, 252 s** |
+
+borrow: codes ['CDV3J3', 'A9YPVF'] in the answer [True, True], answer 'CDV3J3\nA9YPVF'

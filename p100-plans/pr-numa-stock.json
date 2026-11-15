@@ -1,0 +1,5 @@
+{"base": "p100-configs/strata-bitlamas-stock-2gpu-32k-int8.json",
+ "arms": {"A": {}, "N": {"env": {"STRATA_ARENA_NUMA": "1"}}},
+ "order": "ANNAANNA",
+ "cases": ["code", "prose", "chat", "L8k"],
+ "port": 8090}

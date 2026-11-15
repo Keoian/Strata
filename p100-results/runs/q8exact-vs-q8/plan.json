@@ -1,0 +1,18 @@
+{
+ "base": "p100-configs/strata-bitlamas-p100-best.json",
+ "arms": {
+  "B": {},
+  "X": {
+   "config_file": "p100-configs/strata-bitlamas-p100-best-q8exact.json"
+  }
+ },
+ "order": "BXXB",
+ "cases": [
+  "code",
+  "prose",
+  "chat",
+  "tool",
+  "L8k"
+ ],
+ "port": 8090
+}

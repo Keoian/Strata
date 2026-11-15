@@ -1,0 +1,152 @@
+== 06:53:18 stopping the service
+  [gpu before] 0, 150.00 W, 32.39 W, 1189 MHz, 39, 0x0000000000000000
+  [gpu before] 1, 150.00 W, 35.29 W, 1189 MHz, 43, 0x0000000000000000
+== 06:53:27 stock: starting
+   loaded in 154 s
+  [gpu stock] 0, 150.00 W, 32.63 W, 1189 MHz, 39, 0x0000000000000000
+  [gpu stock] 1, 150.00 W, 35.05 W, 1189 MHz, 43, 0x0000000000000000
+   mem loaded: available 25.0 GiB, swap used 317 MiB
+   engine: strata serve: 789 MiB of VRAM free with everything loaded
+   engine: strata serve: CUDA1: 597 MiB of VRAM free with everything loaded
+       C1: short chat: took 1.27 s, cache_n 0, prompt_n 65
+       C2: short chat: took 1.3 s, cache_n 0, prompt_n 63
+       C3: short chat: took 1.29 s, cache_n 0, prompt_n 64
+       G1: agent, first request: took 31.56 s, cache_n 0, prompt_n 9806
+       G2: agent, next turn: took 13.11 s, cache_n 9801, prompt_n 2801
+     C1: short chat: reused 0, read 65 at 61.7 tok/s, generated 8 at 40.6 tok/s
+     C2: short chat: reused 0, read 63 at 59.6 tok/s, generated 8 at 34.8 tok/s
+     C3: short chat: reused 0, read 64 at 58.4 tok/s, generated 8 at 47.1 tok/s
+     G1: agent, first request: reused 0, read 9806 at 313.7 tok/s, generated 8 at 33.8 tok/s
+     G2: agent, next turn: reused 9801, read 2801 at 218.9 tok/s, generated 8 at 29.3 tok/s
+   wrote /home/user/projects/strata/p100-results/projection/stock.json
+   mem after the session: available 23.4 GiB, swap used 317 MiB
+  [gpu stock] 0, 150.00 W, 40.62 W, 1328 MHz, 48, 0x0000000000000000
+  [gpu stock] 1, 150.00 W, 46.64 W, 1328 MHz, 56, 0x0000000000000000
+   engine: strata serve: conversation cache: parked 73 tokens in 153.9 ms; parked=1 bytes=237810728 evictions=0 snapshot_bytes=237810728 reused_kv_bytes=0
+   engine: strata serve: conversation cache: parked 73 tokens in 158.2 ms; parked=2 bytes=475621440 evictions=0 snapshot_bytes=237810712 reused_kv_bytes=0
+   engine: strata serve: conversation cache: parked 72 tokens in 151.9 ms; parked=3 bytes=713388760 evictions=0 snapshot_bytes=237767320 reused_kv_bytes=0
+   engine: strata serve: conversation cache: parked 9813 tokens in 302.8 ms; parked=4 bytes=1190486016 evictions=0 snapshot_bytes=477097256 reused_kv_bytes=0
+== 06:57:03 esp: starting
+   loaded in 154 s
+  [gpu esp] 0, 150.00 W, 32.87 W, 1189 MHz, 42, 0x0000000000000000
+  [gpu esp] 1, 150.00 W, 36.25 W, 1189 MHz, 47, 0x0000000000000000
+   mem loaded: available 24.9 GiB, swap used 317 MiB
+   engine: strata generate: control vector mode = project, dir = per-layer, layers 4..44 (41 steered)
+   engine: strata serve: 789 MiB of VRAM free with everything loaded
+   engine: strata serve: CUDA1: 597 MiB of VRAM free with everything loaded
+       C1: short chat: took 1.26 s, cache_n 0, prompt_n 65
+       C2: short chat: took 1.3 s, cache_n 0, prompt_n 63
+       C3: short chat: took 1.28 s, cache_n 0, prompt_n 64
+       G1: agent, first request: took 31.76 s, cache_n 0, prompt_n 9806
+       G2: agent, next turn: took 13.22 s, cache_n 9801, prompt_n 2801
+     C1: short chat: reused 0, read 65 at 62.3 tok/s, generated 8 at 39.7 tok/s
+     C2: short chat: reused 0, read 63 at 59.6 tok/s, generated 8 at 34.6 tok/s
+     C3: short chat: reused 0, read 64 at 58.6 tok/s, generated 8 at 44.0 tok/s
+     G1: agent, first request: reused 0, read 9806 at 311.8 tok/s, generated 8 at 33.6 tok/s
+     G2: agent, next turn: reused 9801, read 2801 at 217.0 tok/s, generated 8 at 28.9 tok/s
+   wrote /home/user/projects/strata/p100-results/projection/off.json
+       C1: short chat: took 1.61 s, cache_n 0, prompt_n 65
+       C2: short chat: took 1.3 s, cache_n 0, prompt_n 63
+       C3: short chat: took 1.25 s, cache_n 0, prompt_n 64
+       G1: agent, first request: took 31.91 s, cache_n 0, prompt_n 9806
+       G2: agent, next turn: took 13.11 s, cache_n 9801, prompt_n 2801
+     C1: short chat: reused 0, read 65 at 45.6 tok/s, generated 8 at 45.1 tok/s
+     C2: short chat: reused 0, read 63 at 59.2 tok/s, generated 8 at 35.4 tok/s
+     C3: short chat: reused 0, read 64 at 60.0 tok/s, generated 8 at 47.3 tok/s
+     G1: agent, first request: reused 0, read 9806 at 309.4 tok/s, generated 8 at 40.6 tok/s
+     G2: agent, next turn: reused 9801, read 2801 at 217.2 tok/s, generated 8 at 42.4 tok/s
+   wrote /home/user/projects/strata/p100-results/projection/on.json
+   mem after the session: available 22.2 GiB, swap used 317 MiB
+  [gpu esp] 0, 150.00 W, 42.54 W, 1328 MHz, 54, 0x0000000000000000
+  [gpu esp] 1, 150.00 W, 49.05 W, 1328 MHz, 63, 0x0000000000000000
+   engine: strata serve: conversation cache: parked 73 tokens in 153.3 ms; parked=1 bytes=237810728 evictions=0 snapshot_bytes=237810728 reused_kv_bytes=0
+   engine: strata serve: conversation cache: parked 73 tokens in 158.4 ms; parked=2 bytes=475621440 evictions=0 snapshot_bytes=237810712 reused_kv_bytes=0
+   engine: strata serve: conversation cache: parked 72 tokens in 156.6 ms; parked=3 bytes=713388760 evictions=0 snapshot_bytes=237767320 reused_kv_bytes=0
+   engine: strata serve: conversation cache: parked 9813 tokens in 301.5 ms; parked=4 bytes=1190486016 evictions=0 snapshot_bytes=477097256 reused_kv_bytes=0
+   engine: strata serve: conversation cache: dropped 1 superseded copy of this conversation; parked=3
+   engine: strata serve: conversation cache: parked 12609 tokens in 458.1 ms; parked=4 bytes=1343667144 evictions=0 snapshot_bytes=630278384 reused_kv_bytes=0
+   engine: strata serve: conversation cache: parked 73 tokens in 154.0 ms; parked=5 bytes=1581477872 evictions=0 snapshot_bytes=237810728 reused_kv_bytes=0
+   engine: strata serve: conversation cache: parked 73 tokens in 155.4 ms; parked=6 bytes=1819288584 evictions=0 snapshot_bytes=237810712 reused_kv_bytes=0
+   engine: strata serve: conversation cache: parked 72 tokens in 154.5 ms; parked=7 bytes=2057055904 evictions=0 snapshot_bytes=237767320 reused_kv_bytes=0
+   engine: strata serve: conversation cache: parked 9813 tokens in 309.9 ms; parked=8 bytes=2534153160 evictions=0 snapshot_bytes=477097256 reused_kv_bytes=0
+== 07:01:30 esplive: starting
+   loaded in 159 s
+  [gpu esplive] 0, 150.00 W, 34.08 W, 1189 MHz, 45, 0x0000000000000000
+  [gpu esplive] 1, 150.00 W, 36.71 W, 1189 MHz, 50, 0x0000000000000000
+   mem loaded: available 24.9 GiB, swap used 317 MiB
+   engine: strata generate: control vector mode = project, dir = per-layer, layers 4..44 (41 steered)
+   engine: strata serve: 789 MiB of VRAM free with everything loaded
+   engine: strata serve: CUDA1: 597 MiB of VRAM free with everything loaded
+       X1: agent X, vector off (default): took 31.71 s, cache_n 0, prompt_n 9806
+       X2: agent X next turn, off: took 13.05 s, cache_n 9801, prompt_n 2801
+       Y1: agent Y, vector ON: took 32.22 s, cache_n 0, prompt_n 9806
+       Y2: agent Y next turn, ON: took 13.62 s, cache_n 9801, prompt_n 2980
+       X3: agent X returns, off: took 12.26 s, cache_n 12597, prompt_n 2411
+       Y3: agent Y returns, ON: took 13.47 s, cache_n 12776, prompt_n 2776
+       X4: agent X returns, off (explicit false): took 12.36 s, cache_n 15012, prompt_n 2385
+       X5: agent X's same prompt with the vector ON: took 58.24 s, cache_n 0, prompt_n 17397
+       X6: agent X's same prompt, off again: took 0.86 s, cache_n 17392, prompt_n 5
+       Y4: agent Y returns, ON: took 13.75 s, cache_n 15556, prompt_n 2798
+       D1: 400-token reply, vector off: took 12.17 s, cache_n 0, prompt_n 70
+       D2: 400-token reply, vector ON: took 11.55 s, cache_n 0, prompt_n 70
+       D3: 400-token reply, vector off: took 9.65 s, cache_n 65, prompt_n 5
+       D4: 400-token reply, vector ON: took 9.69 s, cache_n 65, prompt_n 5
+     X1: agent X, vector off (default): reused 0, read 9806 at 311.8 tok/s, generated 4 at 20.9 tok/s
+     X2: agent X next turn, off: reused 9801, read 2801 at 217.7 tok/s, generated 4 at 26.4 tok/s
+     Y1: agent Y, vector ON: reused 0, read 9806 at 306.1 tok/s, generated 4 at 25.5 tok/s
+     Y2: agent Y next turn, ON: reused 9801, read 2980 at 222.0 tok/s, generated 4 at 23.9 tok/s
+     X3: agent X returns, off: reused 12597, read 2411 at 199.4 tok/s, generated 4 at 30.5 tok/s
+     Y3: agent Y returns, ON: reused 12776, read 2776 at 208.6 tok/s, generated 4 at 32.7 tok/s
+     X4: agent X returns, off (explicit false): reused 15012, read 2385 at 195.8 tok/s, generated 4 at 30.1 tok/s
+     X5: agent X's same prompt with the vector ON: reused 0, read 17397 at 299.5 tok/s, generated 4 at 33.1 tok/s
+     X6: agent X's same prompt, off again: reused 17392, read 5 at 7.0 tok/s, generated 4 at 31.1 tok/s
+     Y4: agent Y returns, ON: reused 15556, read 2798 at 205.9 tok/s, generated 4 at 33.0 tok/s
+     D1: 400-token reply, vector off: reused 0, read 70 at 25.5 tok/s, generated 400 at 42.6 tok/s
+     D2: 400-token reply, vector ON: reused 0, read 70 at 30.9 tok/s, generated 400 at 43.2 tok/s
+     D3: 400-token reply, vector off: reused 65, read 5 at 16.2 tok/s, generated 400 at 43.0 tok/s
+     D4: 400-token reply, vector ON: reused 65, read 5 at 21.0 tok/s, generated 400 at 42.4 tok/s
+   wrote /home/user/projects/strata/p100-results/projection/live.json
+   mem after the session: available 22.2 GiB, swap used 317 MiB
+  [gpu esplive] 0, 150.00 W, 50.50 W, 1328 MHz, 65, 0x0000000000000000
+  [gpu esplive] 1, 150.00 W, 56.99 W, 1328 MHz, 74, 0x0000000000000000
+   engine: strata serve: conversation cache: parked 9810 tokens in 311.6 ms; parked=1 bytes=477047696 evictions=0 snapshot_bytes=477047696 reused_kv_bytes=0
+   engine: strata serve: conversation cache: dropped 1 superseded copy of this conversation; parked=0
+   engine: strata serve: conversation cache: parked 12607 tokens in 396.3 ms; parked=1 bytes=630228832 evictions=0 snapshot_bytes=630228832 reused_kv_bytes=0
+   engine: strata serve: conversation cache: parked 9809 tokens in 302.8 ms; parked=2 bytes=1107276520 evictions=0 snapshot_bytes=477047688 reused_kv_bytes=0
+   engine: strata serve: conversation cache: dropped 1 superseded copy of this conversation; parked=0
+   engine: strata serve: conversation cache: parked 12784 tokens in 444.0 ms; parked=1 bytes=632417408 evictions=0 snapshot_bytes=632417408 reused_kv_bytes=0
+   engine: strata serve: conversation cache: restored 12597 tokens (checkpoint) in 135.3 ms; parked=1 bytes=788609764
+   engine: strata serve: conversation cache: parked 15012 tokens in 518.9 ms; parked=1 bytes=778957952 evictions=0 snapshot_bytes=778957952 reused_kv_bytes=155988864
+   engine: strata serve: conversation cache: restored 12776 tokens (checkpoint) in 136.0 ms; parked=1 bytes=937336744
+   engine: strata serve: conversation cache: parked 15556 tokens in 502.3 ms; parked=1 bytes=785622552 evictions=0 snapshot_bytes=785622552 reused_kv_bytes=158213760
+   engine: strata serve: conversation cache: restored 15012 tokens (live) in 153.0 ms; parked=1 bytes=971982064
+   engine: strata serve: conversation cache: parked 17401 tokens in 568.5 ms; parked=2 bytes=1713170400 evictions=0 snapshot_bytes=927547848 reused_kv_bytes=185904384
+   engine: strata serve: conversation cache: parked 17401 tokens in 417.7 ms; parked=2 bytes=1356811032 evictions=0 snapshot_bytes=571188480 reused_kv_bytes=0
+   engine: strata serve: conversation cache: restored 17392 tokens (checkpoint) in 183.9 ms; parked=2 bytes=1573179428
+   engine: strata serve: conversation cache: parked 17401 tokens in 523.7 ms; parked=2 bytes=1498736328 evictions=0 snapshot_bytes=927547848 reused_kv_bytes=215378304
+   engine: strata serve: conversation cache: restored 15556 tokens (live) in 190.8 ms; parked=2 bytes=1691752480
+   engine: strata serve: conversation cache: parked 18358 tokens in 579.9 ms; parked=3 bytes=2437969656 evictions=0 snapshot_bytes=939233328 reused_kv_bytes=192641280
+   engine: strata serve: conversation cache: parked 469 tokens in 194.0 ms; parked=4 bytes=2680687656 evictions=0 snapshot_bytes=242718000 reused_kv_bytes=0
+   engine: strata serve: conversation cache: parked 469 tokens in 193.8 ms; parked=4 bytes=2680687656 evictions=0 snapshot_bytes=242718000 reused_kv_bytes=0
+   engine: strata serve: conversation cache: restored 65 tokens (checkpoint) in 26.3 ms; parked=4 bytes=2686539236
+   engine: strata serve: conversation cache: parked 469 tokens in 129.9 ms; parked=4 bytes=2680687656 evictions=0 snapshot_bytes=242718000 reused_kv_bytes=792576
+   engine: strata serve: conversation cache: restored 65 tokens (checkpoint) in 31.5 ms; parked=4 bytes=2686539236
+== 07:08:27 starting the service again
+   service loaded in 154 s
+  [gpu after] 0, 150.00 W, 35.77 W, 1189 MHz, 51, 0x0000000000000000
+  [gpu after] 1, 150.00 W, 39.61 W, 1189 MHz, 57, 0x0000000000000000
+| request | prompt tokens | stock: reused / read, s | off: reused / read, s | on: reused / read, s |
+|---|---|---|---|---|
+| C1: short chat | 65 | 0 / 65, 1.3 | 0 / 65, 1.3 | 0 / 65, 1.6 |
+| C2: short chat | 63 | 0 / 63, 1.3 | 0 / 63, 1.3 | 0 / 63, 1.3 |
+| C3: short chat | 64 | 0 / 64, 1.3 | 0 / 64, 1.3 | 0 / 64, 1.2 |
+| G1: agent, first request | 9,806 | 0 / 9,806, 31.6 | 0 / 9,806, 31.8 | 0 / 9,806, 31.9 |
+| G2: agent, next turn | 12,602 | 9,801 / 2,801, 13.1 | 9,801 / 2,801, 13.2 | 9,801 / 2,801, 13.1 |
+| end | 0 | 0 / 0, 0.0 | 0 / 0, 0.0 | 0 / 0, 0.0 |
+| **all requests** | | **12,799 read, 49 s** | **12,799 read, 49 s** | **12,799 read, 49 s** |
+
+stock: codes [] in the answer None, answer ''
+off: codes [] in the answer None, answer ''
+on: codes [] in the answer None, answer ''
+stock vs off: largest logprob difference over the 4-token replies 0.000000; replies with other tokens: none
+stock vs on: largest logprob difference over the 4-token replies 0.462170; replies with other tokens: ['G1: agent, first request', 'G2: agent, next turn']

@@ -1,0 +1,31 @@
+### ABBA 32K 14:19:54
+    response = meth(req, response)
+  File "/usr/lib/python3.14/urllib/request.py", line 602, in http_response
+    response = self.parent.error(
+        'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.14/urllib/request.py", line 531, in error
+    return self._call_chain(*args)
+           ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 464, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+### HumanEval best 14:25:06
+{"n": 164, "passed": 158, "pass_at_1": 0.9634146341463414, "decode_median": 72.51738937398254, "completion_tokens": 37836}
+### HumanEval stock 14:46:33
+{"n": 164, "passed": 159, "pass_at_1": 0.9695121951219512, "decode_median": 45.474514087600774, "completion_tokens": 37593}
+### long context 15:13:43
+[B1] L120k  prompt 121863 (reused 0) pp   504.3 tok/s  decode 256 tok  49.29 tok/s  accepted 164/243  finish length
+[B2] loaded in 150 s
+[B2] chat   prompt 57 (reused 0) pp    54.2 tok/s  decode 63 tok  43.78 tok/s  accepted 34/51  finish stop
+[B2] L64k   prompt 64896 (reused 0) pp   531.5 tok/s  decode 256 tok  51.55 tok/s  accepted 166/232  finish length
+[B2] L120k  prompt 121863 (reused 0) pp   503.5 tok/s  decode 256 tok  50.31 tok/s  accepted 160/221  finish length
+[A2] loaded in 180 s
+[A2] chat   prompt 57 (reused 0) pp    34.2 tok/s  decode 66 tok  23.73 tok/s  accepted 35/71  finish stop
+[A2] L64k   prompt 64896 (reused 0) pp   535.2 tok/s  decode 256 tok  32.57 tok/s  accepted 166/234  finish length
+[A2] L120k  prompt 121863 (reused 0) pp   514.8 tok/s  decode 256 tok  36.05 tok/s  accepted 165/228  finish length
+L120k A: decode 36.31 pp 514.1 (n=2) | B: decode 49.80 pp 503.9 (n=2)
+L64k A: decode 32.73 pp 536.4 (n=2) | B: decode 51.88 pp 532.1 (n=2)
+chat A: decode 24.26 pp 34.5 (n=2) | B: decode 42.63 pp 54.2 (n=2)
+### chain3 done 15:50:38

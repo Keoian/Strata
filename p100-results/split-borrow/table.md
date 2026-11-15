@@ -1,0 +1,31 @@
+| request | prompt tokens | stock: reused / read, s | borrow: reused / read, s | stock2: reused / read, s |
+|---|---|---|---|---|
+| M1: main agent | 9,807 | 0 / 9,807, 31.4 | 0 / 9,807, 31.6 | 0 / 9,807, 32.0 |
+| M2: main agent | 12,198 | 9,802 / 2,396, 11.5 | 9,802 / 2,396, 11.6 | 9,802 / 2,396, 11.7 |
+| M3: main agent | 14,932 | 12,193 / 2,739, 12.9 | 12,193 / 2,739, 12.8 | 12,193 / 2,739, 13.0 |
+| M4: main agent | 17,175 | 14,935 / 2,240, 11.0 | 14,935 / 2,240, 11.0 | 14,935 / 2,240, 11.1 |
+| M5: main agent | 19,557 | 17,178 / 2,379, 11.5 | 17,178 / 2,379, 11.5 | 17,178 / 2,379, 11.5 |
+| M6: main agent | 21,732 | 19,560 / 2,172, 11.0 | 19,560 / 2,172, 10.9 | 19,560 / 2,172, 11.0 |
+| M7: main agent | 24,745 | 21,727 / 3,018, 14.3 | 21,727 / 3,018, 14.4 | 21,727 / 3,018, 14.4 |
+| M8: main agent | 27,308 | 24,748 / 2,560, 12.1 | 24,748 / 2,560, 12.1 | 24,748 / 2,560, 12.2 |
+| M9: main agent | 29,474 | 27,311 / 2,163, 11.0 | 27,311 / 2,163, 11.0 | 27,311 / 2,163, 11.1 |
+| M10: main agent | 32,431 | 29,477 / 2,954, 13.6 | 29,477 / 2,954, 13.6 | 29,477 / 2,954, 13.7 |
+| M11: main agent | 34,895 | 32,434 / 2,461, 12.1 | 32,434 / 2,461, 12.2 | 32,434 / 2,461, 12.2 |
+| M12: main agent | 37,653 | 34,890 / 2,763, 14.0 | 34,890 / 2,763, 14.0 | 34,890 / 2,763, 17.4 |
+| O1: unrelated chat | 78 | 0 / 78, 3.2 | 0 / 78, 3.3 | 0 / 78, 3.4 |
+| S1: sub-agent 1 (the main agent's system prompt and tools) | 9,797 | 9,769 / 28, 0.9 | 9,769 / 28, 0.8 | 9,769 / 28, 0.7 |
+| S2: sub-agent 1 (the main agent's system prompt and tools) | 12,571 | 9,792 / 2,779, 12.7 | 9,792 / 2,779, 12.9 | 9,792 / 2,779, 12.8 |
+| M13: main agent returns after sub-agent 1 | 40,411 | 21,727 / 18,684, 49.6 | 37,656 / 2,755, 13.8 | 21,727 / 18,684, 53.9 |
+| O2: unrelated chat again | 102 | 73 / 29, 1.3 | 73 / 29, 1.4 | 73 / 29, 1.6 |
+| T1: sub-agent 2 | 9,799 | 9,769 / 30, 0.7 | 9,769 / 30, 0.8 | 9,769 / 30, 1.0 |
+| T2: sub-agent 2 | 12,626 | 9,794 / 2,832, 13.2 | 9,794 / 2,832, 13.1 | 9,794 / 2,832, 14.2 |
+| M14: main agent returns after sub-agent 2 | 43,086 | 9,769 / 33,317, 104.8 | 40,414 / 2,672, 13.3 | 9,769 / 33,317, 109.7 |
+| S3: sub-agent 1 returns | 14,980 | 12,566 / 2,414, 15.3 | 12,566 / 2,414, 12.4 | 12,566 / 2,414, 14.5 |
+| N: the main agent's two planted codes | 45,801 | 43,089 / 2,712, 16.5 | 43,089 / 2,712, 13.7 | 43,089 / 2,712, 15.8 |
+| **all requests** | | **100,555 read, 385 s** | **53,981 read, 252 s** | **100,555 read, 399 s** |
+
+stock: codes ['CDV3J3', 'A9YPVF'] in the answer [True, True], answer 'CDV3J3, A9YPVF'
+borrow: codes ['CDV3J3', 'A9YPVF'] in the answer [True, True], answer 'CDV3J3\nA9YPVF'
+stock2: codes ['CDV3J3', 'A9YPVF'] in the answer [True, True], answer 'CDV3J3, A9YPVF'
+stock vs borrow: largest logprob difference over the 4-token replies 0.545668; replies with other tokens: ['T2: sub-agent 2', 'S3: sub-agent 1 returns']
+stock vs stock2: largest logprob difference over the 4-token replies 0.000000; replies with other tokens: none

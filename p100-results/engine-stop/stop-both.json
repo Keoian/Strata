@@ -1,0 +1,163 @@
+{
+ "seed": 8107,
+ "started": "2026-11-07 17:14:29",
+ "cases": {
+  "s10": {
+   "requests": [
+    {
+     "label": "A long text prompt, cancelled at 6 s",
+     "sent": 1.13,
+     "cancel_after": 6,
+     "status": 200,
+     "cancelled_at": 7.13,
+     "text": "",
+     "took": 6.0,
+     "answered": 7.13
+    },
+    {
+     "label": "B text",
+     "sent": 7.63,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 0.98,
+     "text": "OK",
+     "took": 1.07,
+     "answered": 8.7
+    }
+   ],
+   "status_after": {
+    "in_flight": 0,
+    "requests": 2,
+    "vision": {
+     "enabled": true,
+     "available": true,
+     "error": null
+    }
+   },
+   "journal": [
+    "[strata] done: 0 tokens in 7 s (no speed) (cancel, cancel=True)",
+    "[strata] done: 2 tokens in 0 s (13.8 tok/s) (stop, cancel=False), expert cache 36.5% hit",
+    "strata prefill: stopped in the chunk from token 0 before layer 13 (STOP)",
+    "strata serve: prompt 49890 tokens = 0 reused + 0 of 49890 read in 7018 ms (0.0 tok/s), 0 generated in 0 ms (0.0 tok/s), drafts accepted 0 of 0, 0 checkpoints (cancelled)",
+    "strata verify: captured the 6-token window (upload no error, sync no error) in 10.7 ms",
+    "strata verify: captured the 6-token window (upload no error, sync no error) in 12.0 ms",
+    "strata verify: captured the 2-token window (upload no error, sync no error) in 10.8 ms",
+    "strata verify: captured the 2-token window (upload no error, sync no error) in 10.4 ms",
+    "strata verify: captured the 1-token window (upload no error, sync no error) in 10.4 ms",
+    "strata verify: captured the 1-token window (upload no error, sync no error) in 10.3 ms",
+    "strata verify: captured the 4-token window (upload no error, sync no error) in 11.0 ms",
+    "strata verify: captured the 4-token window (upload no error, sync no error) in 10.4 ms",
+    "strata serve: prompt 15 tokens = 0 reused + 15 read in 345 ms (43.4 tok/s), 2 generated in 145 ms (13.8 tok/s), drafts accepted 3 of 3, 1 checkpoints"
+   ],
+   "doc": "A long text prompt (~24K tokens, nothing cached) cancelled 6 s into its read; a text request 0.5 s later."
+  },
+  "s12": {
+   "requests": [
+    {
+     "label": "A long text prompt, cancelled at 16 s",
+     "sent": 11.34,
+     "cancel_after": 16,
+     "status": 200,
+     "cancelled_at": 27.34,
+     "text": "",
+     "took": 16.0,
+     "answered": 27.34
+    },
+    {
+     "label": "B text",
+     "sent": 27.84,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 1.15,
+     "text": "OK",
+     "took": 1.22,
+     "answered": 29.07
+    }
+   ],
+   "status_after": {
+    "in_flight": 0,
+    "requests": 4,
+    "vision": {
+     "enabled": true,
+     "available": true,
+     "error": null
+    }
+   },
+   "journal": [
+    "[strata] reading the prompt: 49,887 tokens, 10 s so far",
+    "[strata] done: 0 tokens in 17 s (no speed) (cancel, cancel=True)",
+    "[strata] done: 2 tokens in 0 s (19.4 tok/s) (stop, cancel=False), expert cache 36.5% hit",
+    "strata prefill: stopped in the chunk from token 0 before layer 34 (STOP)",
+    "strata prefill: stopped in the chunk from token 8192 before layer 10 (STOP)",
+    "strata serve: prompt 49887 tokens = 0 reused + 0 of 49887 read in 17424 ms (0.0 tok/s), 0 generated in 0 ms (0.0 tok/s), drafts accepted 0 of 0, 0 checkpoints (cancelled)",
+    "strata serve: prompt 15 tokens = 8 reused + 7 read in 134 ms (52.2 tok/s), 2 generated in 103 ms (19.4 tok/s), drafts accepted 3 of 3, 1 checkpoints"
+   ],
+   "doc": "A long text prompt (~50K tokens, nothing cached) cancelled 16 s into its read, when on a two-card split the first\ncard is in its second chunk and the second card in its first; a text request 0.5 s later."
+  },
+  "s13": {
+   "code": "UPAFDA",
+   "line": 619,
+   "requests": [
+    {
+     "label": "A the code prompt, cancelled at 10 s",
+     "sent": 31.71,
+     "cancel_after": 10,
+     "status": 200,
+     "cancelled_at": 41.71,
+     "text": "",
+     "took": 10.0,
+     "answered": 41.71
+    },
+    {
+     "label": "W the same prompt in full",
+     "sent": 41.71,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 60.68,
+     "text": "UPAFDA",
+     "took": 60.75,
+     "answered": 102.46
+    },
+    {
+     "label": "B text",
+     "sent": 102.46,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 0.77,
+     "text": "OK",
+     "took": 0.84,
+     "answered": 103.3
+    }
+   ],
+   "W_reads_code": true,
+   "status_after": {
+    "in_flight": 0,
+    "requests": 7,
+    "vision": {
+     "enabled": true,
+     "available": true,
+     "error": null
+    }
+   },
+   "journal": [
+    "[strata] done: 0 tokens in 12 s (no speed) (cancel, cancel=True)",
+    "[strata] reading the prompt: 28,963 tokens, 10 s so far",
+    "[strata] reading the prompt: 28,963 tokens, 20 s so far",
+    "[strata] reading the prompt: 8,192 of 28,963 tokens, 24 s so far",
+    "[strata] reading the prompt: 8,192 of 28,963 tokens, 34 s so far",
+    "[strata] reading the prompt: 16,384 of 28,963 tokens, 37 s so far",
+    "[strata] reading the prompt: 16,384 of 28,963 tokens, 47 s so far",
+    "[strata] reading the prompt: 24,576 of 28,963 tokens, 50 s so far",
+    "[strata] reading the prompt: 28,956 of 28,963 tokens, 58 s so far",
+    "[strata] answering: 2 of max 24 tokens, 8.0 tok/s, 59 s",
+    "[strata] done: 4 tokens in 59 s (39.6 tok/s) (stop, cancel=False), expert cache 45.4% hit",
+    "[strata] done: 2 tokens in 1 s (20.4 tok/s) (stop, cancel=False), expert cache 47.9% hit",
+    "strata prefill: stopped in the chunk from token 0 before layer 22 (STOP)",
+    "strata serve: prompt 28963 tokens = 0 reused + 0 of 28963 read in 11522 ms (0.0 tok/s), 0 generated in 0 ms (0.0 tok/s), drafts accepted 0 of 0, 0 checkpoints (cancelled)",
+    "strata serve: prompt 28963 tokens = 0 reused + 28963 read in 59062 ms (490.4 tok/s), 4 generated in 101 ms (39.6 tok/s), drafts accepted 3 of 3, 2 checkpoints",
+    "strata serve: prompt 15 tokens = 8 reused + 7 read in 737 ms (9.5 tok/s), 2 generated in 98 ms (20.5 tok/s), drafts accepted 3 of 3, 1 checkpoints"
+   ],
+   "doc": "The engine after a prompt read stopped in the middle: a ~29K-token prompt with a code on one line is cancelled 10 s\nin, then sent again in full (nothing of it was kept) and must give the code; then a short text request."
+  }
+ }
+}

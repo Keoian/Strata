@@ -1,0 +1,17 @@
+{
+ "base": "p100-configs/strata-bitlamas-p100-best-256k-k8v4.json",
+ "arms": {
+  "B": {},
+  "C": {
+   "env": {
+    "STRATA_SELECT_LONG": "1"
+   }
+  }
+ },
+ "order": "BC",
+ "cases": [
+  "chat",
+  "L250k"
+ ],
+ "port": 8090
+}

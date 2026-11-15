@@ -1,0 +1,24 @@
+#!/bin/bash
+# p100-boot-check: after every boot, records whether the P100 150 W cap and the boot settings came back on their own
+# (RUNBOOK.md section 2). Output: ~user/projects/strata/p100-results/boot-checks/boot-<time>.txt
+set -u
+OUT=/home/user/projects/strata/p100-results/boot-checks
+mkdir -p "$OUT"
+F="$OUT/boot-$(date -u +%Y%m%dT%H%M%SZ).txt"
+{
+  echo "boot check $(date -u +%FT%TZ), uptime: $(cut -d' ' -f1 /proc/uptime) s, boot id $(cat /proc/sys/kernel/random/boot_id)"
+  echo "== p100-power-cap.service: $(systemctl is-active p100-power-cap.service) (enabled: $(systemctl is-enabled p100-power-cap.service))"
+  nvidia-smi --query-gpu=index,pci.bus_id,name,persistence_mode,power.limit,enforced.power.limit,power.default_limit --format=csv
+  ok=1
+  while IFS=, read -r lim enf; do
+    [ "${lim// /}" = "150.00W" ] && [ "${enf// /}" = "150.00W" ] || ok=0
+  done < <(nvidia-smi --query-gpu=power.limit,enforced.power.limit --format=csv,noheader)
+  echo "== cap 150 W on every GPU: $([ $ok = 1 ] && echo PASS || echo FAIL)"
+  echo "== /proc/cmdline: $(cat /proc/cmdline)"
+  grep -q "iommu=pt" /proc/cmdline && echo "iommu=pt: PASS" || echo "iommu=pt: FAIL"
+  grep -q "crashkernel=" /proc/cmdline && echo "no crashkernel: FAIL" || echo "no crashkernel: PASS"
+  for d in 0000:04:00.0 0000:81:00.0; do echo "IOMMU group type of $d: $(cat /sys/bus/pci/devices/$d/iommu_group/type 2>/dev/null)"; done
+  echo "== /mnt/scratch: $(findmnt -n -o SOURCE,FSTYPE /mnt/scratch)"
+  echo "== sshd: $(systemctl is-active ssh)"
+} > "$F" 2>&1
+chown -R user:user "$OUT"

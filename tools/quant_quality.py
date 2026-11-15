@@ -81,7 +81,7 @@ def mem_available_gb() -> float:
     return float("inf")
 
 
-def engine_args(cfg: dict, gpu_experts, seg_tokens: int) -> list[str]:
+def engine_args(cfg: dict, gpu_experts, seg_tokens: int, kv: str = "fp16") -> list[str]:
     base, out, i = list(cfg["args"]), [], 0
     while i < len(base):
         x = base[i]
@@ -94,6 +94,7 @@ def engine_args(cfg: dict, gpu_experts, seg_tokens: int) -> list[str]:
         out.append(x)
         i += 1
     fixed = list(FIXED)
+    fixed[fixed.index("--kv") + 1] = kv                # --kv: score a K/V format (default FP16, the yardstick's own)
     if gpu_experts:
         fixed[1] = gpu_experts if isinstance(gpu_experts, str) else "1500"
     return [cfg["exe"], "--serve", *out, *fixed, "--max-context", str(seg_tokens + 512),
@@ -139,7 +140,7 @@ def cmd_run(a) -> int:
     env["STRATA_LOGPOS_TOPK"] = str(TOPK)
     if mem_available_gb() < a.min_free_gb:
         raise SystemExit(f"only {mem_available_gb():.0f} GB available (< {a.min_free_gb}): not starting an engine")
-    args = engine_args(cfg, a.gpu_experts, st["seg_tokens"])
+    args = engine_args(cfg, a.gpu_experts, st["seg_tokens"], a.kv)
     if a.wrap:
         args = a.wrap.split() + args
     errf = open(str(out) + ".stderr.txt", "w")
@@ -375,6 +376,7 @@ def main() -> int:
                    help="--expert-cache 1500 (or the N given, e.g. auto) instead of one slot (the experts on the GPU kernels)")
     p.add_argument("--min-free-gb", type=float, default=16)
     p.add_argument("--wrap", help="a command prefix for the engine, e.g. 'systemd-run --user --scope -p MemoryMax=200G'")
+    p.add_argument("--kv", default="fp16", help="the K/V format to score (int8, k8v4, q4_0, ...; default fp16)")
     p = sub.add_parser("prompt", help="the batched prompt path's next-token logits after 20 prompts (a directory)")
     p.add_argument("--config", required=True)
     p.add_argument("--out", required=True)

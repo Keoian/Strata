@@ -1,0 +1,56 @@
+{
+ "bf16": {
+  "ready": "READY 2560",
+  "peak_rss_mib": 1599,
+  "images": {
+   "p100-results/vision/test-4k-report.png": {
+    "line": "OK 3600 80 45 80036",
+    "wall_s": 80.04,
+    "file": "p100-results/vision/compare/test-4k-report.bf16.sve"
+   },
+   "p100-results/vision/test-chart-1024.png": {
+    "line": "OK 768 32 24 7572",
+    "wall_s": 7.58,
+    "file": "p100-results/vision/compare/test-chart-1024.bf16.sve"
+   }
+  }
+ },
+ "q8": {
+  "ready": "READY 2560",
+  "peak_rss_mib": 1321,
+  "images": {
+   "p100-results/vision/test-4k-report.png": {
+    "line": "OK 3600 80 45 79329",
+    "wall_s": 79.33,
+    "file": "p100-results/vision/compare/test-4k-report.q8.sve"
+   },
+   "p100-results/vision/test-chart-1024.png": {
+    "line": "OK 768 32 24 7660",
+    "wall_s": 7.66,
+    "file": "p100-results/vision/compare/test-chart-1024.q8.sve"
+   }
+  }
+ },
+ "compare": {
+  "p100-results/vision/test-4k-report.png": {
+   "tokens": 3600,
+   "grid": [
+    80,
+    45
+   ],
+   "cos_mean": 0.9976866245269775,
+   "cos_min": 0.6199796199798584,
+   "rel_l2": 0.07277977466583252
+  },
+  "p100-results/vision/test-chart-1024.png": {
+   "tokens": 768,
+   "grid": [
+    32,
+    24
+   ],
+   "cos_mean": 0.9993681907653809,
+   "cos_min": 0.9664916396141052,
+   "rel_l2": 0.039695363491773605
+  }
+ }
+}

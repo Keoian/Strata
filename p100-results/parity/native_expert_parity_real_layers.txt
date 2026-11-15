@@ -1,0 +1,68 @@
+== CUDA_VISIBLE_DEVICES=0
+          width invariance (1 vs 3 tokens): gate/up 0, down 0 rows differ
+          q4_K gate rows, AVX2 multi-token vs ggml vec_dot: 0 of 36 token-sets differ in any bit; 4 tokens one thread 355 us vs ggml 485 us (1.37x)
+          iq4_nl AVX-2 multi-token down vs ggml down: rel 1.01e-07
+          down 3 tokens one thread: avx2 525 us (1.76 GB/s) vs ggml 656 us (1.41 GB/s)
+          v1 launches vs float reference: rel 1.171e-02; new launches: rel 1.171e-02; v1 vs new: 0 of 7680 floats differ in any bit (rel 0.00e+00)
+          gpu decode-once vs per-entry kernels: bitwise equal
+          GPU dequant vs ggml to_float: rel 0.00e+00, 0 of 4915200 values differ in any bit; fp16 of it: 0 differ (max 0 ulp); embedding rows: 0 of 640 differ
+layer 0   q4_K    /iq4_nl  blob  2764800  cpu rel 1.36e-02  gpu rel 1.17e-02  cpu-gpu 1.48e-02  ok
+          width invariance (1 vs 3 tokens): gate/up 0, down 0 rows differ
+          iq4_nl AVX-2 multi-token down vs ggml down: rel 1.04e-07
+          down 3 tokens one thread: avx2 519 us (1.77 GB/s) vs ggml 655 us (1.41 GB/s)
+          v1 launches vs float reference: rel 1.185e-02; new launches: rel 1.185e-02; v1 vs new: 0 of 7680 floats differ in any bit (rel 0.00e+00)
+          gpu decode-once vs per-entry kernels: bitwise equal
+          GPU dequant vs ggml to_float: rel 0.00e+00, 0 of 4915200 values differ in any bit; fp16 of it: 0 differ (max 0 ulp); embedding rows: 0 of 640 differ
+layer 2   q5_K    /iq4_nl  blob  3174400  cpu rel 1.26e-02  gpu rel 1.19e-02  cpu-gpu 1.52e-02  ok
+          width invariance (1 vs 3 tokens): gate/up 0, down 0 rows differ
+          q4_K gate rows, AVX2 multi-token vs ggml vec_dot: 0 of 36 token-sets differ in any bit; 4 tokens one thread 329 us vs ggml 322 us (0.98x)
+          iq4_nl AVX-2 multi-token down vs ggml down: rel 1.04e-07
+          down 3 tokens one thread: avx2 356 us (2.59 GB/s) vs ggml 447 us (2.06 GB/s)
+          v1 launches vs float reference: rel 1.104e-02; new launches: rel 1.104e-02; v1 vs new: 0 of 7680 floats differ in any bit (rel 0.00e+00)
+          gpu decode-once vs per-entry kernels: bitwise equal
+          GPU dequant vs ggml to_float: rel 0.00e+00, 0 of 4915200 values differ in any bit; fp16 of it: 0 differ (max 0 ulp); embedding rows: 0 of 640 differ
+layer 11  q4_K    /iq4_nl  blob  2764800  cpu rel 1.28e-02  gpu rel 1.10e-02  cpu-gpu 1.48e-02  ok
+          width invariance (1 vs 3 tokens): gate/up 0, down 0 rows differ
+          q4_K gate rows, AVX2 multi-token vs ggml vec_dot: 0 of 36 token-sets differ in any bit; 4 tokens one thread 239 us vs ggml 320 us (1.34x)
+          iq4_nl AVX-2 multi-token down vs ggml down: rel 1.05e-07
+          down 3 tokens one thread: avx2 355 us (2.60 GB/s) vs ggml 451 us (2.04 GB/s)
+          v1 launches vs float reference: rel 1.265e-02; new launches: rel 1.265e-02; v1 vs new: 0 of 7680 floats differ in any bit (rel 0.00e+00)
+          gpu decode-once vs per-entry kernels: bitwise equal
+          GPU dequant vs ggml to_float: rel 0.00e+00, 0 of 4915200 values differ in any bit; fp16 of it: 0 differ (max 0 ulp); embedding rows: 0 of 640 differ
+layer 47  q4_K    /iq4_nl  blob  2764800  cpu rel 1.47e-02  gpu rel 1.26e-02  cpu-gpu 1.60e-02  ok
+native_expert_parity: 0 failures
+exit 0
+== CUDA_VISIBLE_DEVICES=1
+          width invariance (1 vs 3 tokens): gate/up 0, down 0 rows differ
+          q4_K gate rows, AVX2 multi-token vs ggml vec_dot: 0 of 36 token-sets differ in any bit; 4 tokens one thread 247 us vs ggml 337 us (1.36x)
+          iq4_nl AVX-2 multi-token down vs ggml down: rel 1.01e-07
+          down 3 tokens one thread: avx2 362 us (2.55 GB/s) vs ggml 430 us (2.14 GB/s)
+          v1 launches vs float reference: rel 1.171e-02; new launches: rel 1.171e-02; v1 vs new: 0 of 7680 floats differ in any bit (rel 0.00e+00)
+          gpu decode-once vs per-entry kernels: bitwise equal
+          GPU dequant vs ggml to_float: rel 0.00e+00, 0 of 4915200 values differ in any bit; fp16 of it: 0 differ (max 0 ulp); embedding rows: 0 of 640 differ
+layer 0   q4_K    /iq4_nl  blob  2764800  cpu rel 1.36e-02  gpu rel 1.17e-02  cpu-gpu 1.48e-02  ok
+          width invariance (1 vs 3 tokens): gate/up 0, down 0 rows differ
+          iq4_nl AVX-2 multi-token down vs ggml down: rel 1.04e-07
+          down 3 tokens one thread: avx2 336 us (2.74 GB/s) vs ggml 401 us (2.30 GB/s)
+          v1 launches vs float reference: rel 1.185e-02; new launches: rel 1.185e-02; v1 vs new: 0 of 7680 floats differ in any bit (rel 0.00e+00)
+          gpu decode-once vs per-entry kernels: bitwise equal
+          GPU dequant vs ggml to_float: rel 0.00e+00, 0 of 4915200 values differ in any bit; fp16 of it: 0 differ (max 0 ulp); embedding rows: 0 of 640 differ
+layer 2   q5_K    /iq4_nl  blob  3174400  cpu rel 1.26e-02  gpu rel 1.19e-02  cpu-gpu 1.52e-02  ok
+          width invariance (1 vs 3 tokens): gate/up 0, down 0 rows differ
+          q4_K gate rows, AVX2 multi-token vs ggml vec_dot: 0 of 36 token-sets differ in any bit; 4 tokens one thread 238 us vs ggml 326 us (1.37x)
+          iq4_nl AVX-2 multi-token down vs ggml down: rel 1.04e-07
+          down 3 tokens one thread: avx2 361 us (2.56 GB/s) vs ggml 427 us (2.16 GB/s)
+          v1 launches vs float reference: rel 1.104e-02; new launches: rel 1.104e-02; v1 vs new: 0 of 7680 floats differ in any bit (rel 0.00e+00)
+          gpu decode-once vs per-entry kernels: bitwise equal
+          GPU dequant vs ggml to_float: rel 0.00e+00, 0 of 4915200 values differ in any bit; fp16 of it: 0 differ (max 0 ulp); embedding rows: 0 of 640 differ
+layer 11  q4_K    /iq4_nl  blob  2764800  cpu rel 1.28e-02  gpu rel 1.10e-02  cpu-gpu 1.48e-02  ok
+          width invariance (1 vs 3 tokens): gate/up 0, down 0 rows differ
+          q4_K gate rows, AVX2 multi-token vs ggml vec_dot: 0 of 36 token-sets differ in any bit; 4 tokens one thread 238 us vs ggml 333 us (1.40x)
+          iq4_nl AVX-2 multi-token down vs ggml down: rel 1.05e-07
+          down 3 tokens one thread: avx2 335 us (2.75 GB/s) vs ggml 402 us (2.29 GB/s)
+          v1 launches vs float reference: rel 1.265e-02; new launches: rel 1.265e-02; v1 vs new: 0 of 7680 floats differ in any bit (rel 0.00e+00)
+          gpu decode-once vs per-entry kernels: bitwise equal
+          GPU dequant vs ggml to_float: rel 0.00e+00, 0 of 4915200 values differ in any bit; fp16 of it: 0 differ (max 0 ulp); embedding rows: 0 of 640 differ
+layer 47  q4_K    /iq4_nl  blob  2764800  cpu rel 1.47e-02  gpu rel 1.26e-02  cpu-gpu 1.60e-02  ok
+native_expert_parity: 0 failures
+exit 0

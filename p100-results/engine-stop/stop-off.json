@@ -1,0 +1,159 @@
+{
+ "seed": 8107,
+ "started": "2026-11-07 17:04:30",
+ "cases": {
+  "s10": {
+   "requests": [
+    {
+     "label": "A long text prompt, cancelled at 6 s",
+     "sent": 1.12,
+     "cancel_after": 6,
+     "status": 200,
+     "cancelled_at": 7.12,
+     "text": "",
+     "took": 6.0,
+     "answered": 7.12
+    },
+    {
+     "label": "B text",
+     "sent": 7.62,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 17.75,
+     "text": "OK",
+     "took": 17.85,
+     "answered": 25.48
+    }
+   ],
+   "status_after": {
+    "in_flight": 0,
+    "requests": 2,
+    "vision": {
+     "enabled": true,
+     "available": true,
+     "error": null
+    }
+   },
+   "journal": [
+    "[strata] done: 0 tokens in 24 s (no speed) (cancel, cancel=True)",
+    "[strata] done: 2 tokens in 1 s (12.3 tok/s) (stop, cancel=False), expert cache 36.5% hit",
+    "strata serve: prompt 49890 tokens = 0 reused + 8192 of 49890 read in 23693 ms (345.8 tok/s), 0 generated in 0 ms (0.0 tok/s), drafts accepted 0 of 0, 0 checkpoints (cancelled)",
+    "strata verify: captured the 6-token window (upload no error, sync no error) in 23.8 ms",
+    "strata verify: captured the 6-token window (upload no error, sync no error) in 12.5 ms",
+    "strata verify: captured the 2-token window (upload no error, sync no error) in 12.5 ms",
+    "strata verify: captured the 2-token window (upload no error, sync no error) in 12.4 ms",
+    "strata verify: captured the 1-token window (upload no error, sync no error) in 14.1 ms",
+    "strata verify: captured the 1-token window (upload no error, sync no error) in 12.6 ms",
+    "strata verify: captured the 4-token window (upload no error, sync no error) in 14.6 ms",
+    "strata verify: captured the 4-token window (upload no error, sync no error) in 12.7 ms",
+    "strata serve: prompt 15 tokens = 0 reused + 15 read in 419 ms (35.8 tok/s), 2 generated in 163 ms (12.3 tok/s), drafts accepted 3 of 3, 1 checkpoints"
+   ],
+   "doc": "A long text prompt (~24K tokens, nothing cached) cancelled 6 s into its read; a text request 0.5 s later."
+  },
+  "s12": {
+   "requests": [
+    {
+     "label": "A long text prompt, cancelled at 16 s",
+     "sent": 28.12,
+     "cancel_after": 16,
+     "status": 200,
+     "cancelled_at": 44.12,
+     "text": "",
+     "took": 16.0,
+     "answered": 44.12
+    },
+    {
+     "label": "B text",
+     "sent": 44.62,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 19.98,
+     "text": "OK",
+     "took": 20.06,
+     "answered": 64.68
+    }
+   ],
+   "status_after": {
+    "in_flight": 0,
+    "requests": 4,
+    "vision": {
+     "enabled": true,
+     "available": true,
+     "error": null
+    }
+   },
+   "journal": [
+    "[strata] reading the prompt: 49,887 tokens, 10 s so far",
+    "[strata] done: 0 tokens in 36 s (no speed) (cancel, cancel=True)",
+    "[strata] done: 2 tokens in 0 s (19.7 tok/s) (stop, cancel=False), expert cache 36.5% hit",
+    "strata serve: prompt 49887 tokens = 0 reused + 16384 of 49887 read in 36188 ms (452.7 tok/s), 0 generated in 0 ms (0.0 tok/s), drafts accepted 0 of 0, 1 checkpoints (cancelled)",
+    "strata serve: prompt 15 tokens = 8 reused + 7 read in 206 ms (34.0 tok/s), 2 generated in 101 ms (19.7 tok/s), drafts accepted 3 of 3, 1 checkpoints"
+   ],
+   "doc": "A long text prompt (~50K tokens, nothing cached) cancelled 16 s into its read, when on a two-card split the first\ncard is in its second chunk and the second card in its first; a text request 0.5 s later."
+  },
+  "s13": {
+   "code": "UPAFDA",
+   "line": 619,
+   "requests": [
+    {
+     "label": "A the code prompt, cancelled at 10 s",
+     "sent": 67.31,
+     "cancel_after": 10,
+     "status": 200,
+     "cancelled_at": 77.31,
+     "text": "",
+     "took": 10.0,
+     "answered": 77.31
+    },
+    {
+     "label": "W the same prompt in full",
+     "sent": 77.31,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 73.84,
+     "text": "UPAFDA",
+     "took": 73.91,
+     "answered": 151.22
+    },
+    {
+     "label": "B text",
+     "sent": 151.22,
+     "cancel_after": null,
+     "status": 200,
+     "first_token": 0.76,
+     "text": "OK",
+     "took": 0.83,
+     "answered": 152.05
+    }
+   ],
+   "W_reads_code": true,
+   "status_after": {
+    "in_flight": 0,
+    "requests": 7,
+    "vision": {
+     "enabled": true,
+     "available": true,
+     "error": null
+    }
+   },
+   "journal": [
+    "[strata] done: 0 tokens in 25 s (no speed) (cancel, cancel=True)",
+    "[strata] reading the prompt: 28,963 tokens, 10 s so far",
+    "[strata] reading the prompt: 28,963 tokens, 20 s so far",
+    "[strata] reading the prompt: 8,192 of 28,963 tokens, 24 s so far",
+    "[strata] reading the prompt: 8,192 of 28,963 tokens, 34 s so far",
+    "[strata] reading the prompt: 16,384 of 28,963 tokens, 37 s so far",
+    "[strata] reading the prompt: 16,384 of 28,963 tokens, 47 s so far",
+    "[strata] reading the prompt: 24,576 of 28,963 tokens, 50 s so far",
+    "[strata] reading the prompt: 28,956 of 28,963 tokens, 58 s so far",
+    "[strata] answering: 2 of max 24 tokens, 8.0 tok/s, 59 s",
+    "[strata] done: 4 tokens in 59 s (39.6 tok/s) (stop, cancel=False), expert cache 45.4% hit",
+    "[strata] done: 2 tokens in 1 s (20.7 tok/s) (stop, cancel=False), expert cache 47.9% hit",
+    "strata serve: prompt 28963 tokens = 0 reused + 8192 of 28963 read in 24752 ms (331.0 tok/s), 0 generated in 0 ms (0.0 tok/s), drafts accepted 0 of 0, 0 checkpoints (cancelled)",
+    "strata serve: prompt 28963 tokens = 0 reused + 28963 read in 58991 ms (491.0 tok/s), 4 generated in 101 ms (39.6 tok/s), drafts accepted 3 of 3, 2 checkpoints",
+    "strata serve: prompt 15 tokens = 8 reused + 7 read in 719 ms (9.7 tok/s), 2 generated in 97 ms (20.7 tok/s), drafts accepted 3 of 3, 1 checkpoints"
+   ],
+   "doc": "The engine after a prompt read stopped in the middle: a ~29K-token prompt with a code on one line is cancelled 10 s\nin, then sent again in full (nothing of it was kept) and must give the code; then a short text request."
+  }
+ }
+}

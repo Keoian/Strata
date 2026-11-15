@@ -1,0 +1,40 @@
+loading the model (the first start takes a minute or two) ...
+[strata] layer split across GPUs [0, 1] (24)
+[strata] starting the engine: reading the model's weights ...
+[strata] loading the experts into RAM (tens of GB) and locking part of them for the GPU.
+         YOUR PC CAN BE SLOW OR STOP RESPONDING FOR 1-3 MINUTES NOW - this is normal.
+         Please wait and don't close this window; the server says when it is ready.
+[strata] still starting (35 s) - please wait ...
+[strata] still starting (55 s) - please wait ...
+[strata] still starting (75 s) - please wait ...
+[strata] still starting (95 s) - please wait ...
+[strata] still starting (115 s) - please wait ...
+[strata] experts loaded: 63.48 GiB at 0.62 GiB/s (134 s so far)
+[strata] filling the GPU's expert cache (3209 experts, 8.32 GiB of VRAM) ...
+[strata] almost ready ...
+ready: http://127.0.0.1:8091/v1  (OpenAI: /v1/chat/completions, Anthropic: /v1/messages, context 32768 tokens)
+       open http://127.0.0.1:8091/ in a browser to chat; close this window to stop the model
+[strata] answering: 18 of max 512 tokens, 46.4 tok/s, 1 s
+[strata] answering: 74 of max 512 tokens, 52.3 tok/s, 2 s
+[strata] answering: 151 of max 512 tokens, 62.2 tok/s, 3 s
+[strata] answering: 226 of max 512 tokens, 65.7 tok/s, 4 s
+[strata] answering: 298 of max 512 tokens, 66.4 tok/s, 5 s
+[strata] answering: 392 of max 512 tokens, 71.0 tok/s, 6 s
+[strata] answering: 461 of max 512 tokens, 70.5 tok/s, 7 s
+[strata] done: 512 tokens in 8 s (71.2 tok/s) (length, cancel=False), expert cache 71.7% hit
+[strata] answering: 18 of max 512 tokens, 39.5 tok/s, 1 s
+[strata] answering: 57 of max 512 tokens, 39.1 tok/s, 2 s
+[strata] answering: 104 of max 512 tokens, 42.3 tok/s, 3 s
+[strata] answering: 155 of max 512 tokens, 44.4 tok/s, 4 s
+[strata] answering: 197 of max 512 tokens, 43.8 tok/s, 5 s
+[strata] answering: 234 of max 512 tokens, 42.4 tok/s, 6 s
+[strata] answering: 280 of max 512 tokens, 42.8 tok/s, 7 s
+[strata] answering: 318 of max 512 tokens, 42.0 tok/s, 8 s
+[strata] answering: 361 of max 512 tokens, 41.9 tok/s, 9 s
+[strata] answering: 405 of max 512 tokens, 42.0 tok/s, 10 s
+[strata] answering: 452 of max 512 tokens, 42.4 tok/s, 11 s
+[strata] answering: 497 of max 512 tokens, 42.5 tok/s, 12 s
+[strata] done: 512 tokens in 13 s (42.7 tok/s) (length, cancel=False), expert cache 79.2% hit
+
+[strata] stopping (Ctrl+C again to end the engine at once) ...
+[strata] stopped

@@ -1,0 +1,127 @@
+[strata] 2026-11-06 10:51:31 engine started: /home/user/projects/strata/build-p100/strata --serve --pack /home/user/models/strata-packs/bitlamas-q4kxl-iq4nl --native /home/user/models/bitlamas-Qwen3.8-Flash-Next-GGUF/Q4_K_XL-IQ4NL/Qwen3.8-Flash-Next-Q4_K_XL-IQ4NL-00001-of-00004.gguf --expert-profile /home/user/projects/strata/data/expert-profile.bin --expert-cache auto --prefill auto --spec 4 --spec-min-p 0.5 --mtp /home/user/models/strata-mtp/rt --max-context 32768 --kv int8 --pcie-frac 0 --pipeline-windows 2 --layer-split auto
+strata: sm_60 (Pascal): 7 exact speed switches on by default (STRATA_SM60_PERF=0 turns them off; a switch you set is kept): ADAPT_NOWAIT ADAPT_LAG SIDE_MIXER FUSE_WAIT B6_MMVQ_ROWS FUSE_DECODE GR_UP75
+strata generate: memory guard: limit 125.7 GiB (source: meminfo), current 3.0 GiB, reclaimable cache credited 0.0 GiB; available 122.7 GiB (MemAvailable 122.7 GiB), floor 2560 MiB
+strata generate: layer split across 2 GPUs: CUDA0, then CUDA1 (split auto)
+strata generate: this CPU has no AVX-512: the expert kernels run on AVX-2 (multi-token for the i-quant gate/up rows)
+strata generate: native pack: /home/user/models/strata-packs/bitlamas-q4kxl-iq4nl experts (largest blob 3.17 MB), token embedding Q8_0 in mapped host memory (644 MiB, 1.2 s)
+strata generate: 1416 MiB of weights loaded from /home/user/models/strata-packs/bitlamas-q4kxl-iq4nl in 2.7 s (303 canonical tensors skipped: served natively)
+strata: STRATA_HC_Q8=1: 0.63 GiB of Q8_0 hyper-connection projections for the verify read
+strata generate: 495 native projection matrices, 3619.14 MiB of weights, in 7.3 s
+strata: the PLE table (26.8 GiB) was not locked in RAM: this program may lock only 0.0 GiB (RLIMIT_MEMLOCK). It still works, with the table's pages faulted in but reclaimable; the lock was measured up to 6% faster in decode (#4671). In a systemd service set LimitMEMLOCK=infinity, elsewhere run `ulimit -l unlimited`
+strata generate: --ple-io ram chosen by the residency policy (the table is 26.8 GiB, the expert arena still to fill 63.5 GiB and 121.6 GiB of RAM is available; STRATA_PLE_AUTO_RAM=0 keeps the direct reads, --ple-io direct forces them)
+strata generate: PLE table loaded (not locked) (--ple-io ram chosen by the residency policy) in 0.2 s
+strata generate: note: --pipeline-windows 2 on a layer split of two stages without the draft layer on the first card (STRATA_MTP_STAGE0=1 asks for it): the draft chain then shares the last card with its window and the pipeline lost to the serial loop on 2x R9700 before 0.1.44 (docs/MULTI_GPU.md); kept as asked, --pipeline-windows 0 turns it off
+strata: STRATA_HC_Q8=1: 0.63 GiB of Q8_0 hyper-connection projections for the verify read
+strata generate: layer split: CUDA1 holds its weights; 10.39 GiB free (its session follows the split search)
+strata generate: profile /home/user/projects/strata/data/expert-profile.bin: 24576 ranked pairs, built for 24576 slots
+strata generate: layer split auto: CUDA0 56 SMs at 1.33 GHz -> 0.98 ms per layer, 9.45 GiB free before its session carve
+strata generate: layer split auto: CUDA1 56 SMs at 1.33 GHz -> 0.98 ms per layer, 8.23 GiB free before its session carve
+strata generate: layer split auto: CUDA0 link 6.2 GB/s -> miss cost x1.00
+strata generate: layer split auto: CUDA1 link 12.4 GB/s -> miss cost x1.00
+strata generate: layer split auto: K=24 - predicted 54.5 ms per decode window; the caches hold 6616 of 24576 profiled pairs (~96.0% of the routed mass), best of 46 placements
+strata generate: PLE on, table 320001536 rows of /home/user/models/bitlamas-Qwen3.8-Flash-Next-GGUF/Q4_K_XL-IQ4NL/Qwen3.8-Flash-Next-Q4_K_XL-IQ4NL-00002-of-00004.gguf
+strata generate: layer split: CUDA1 holds its weights, session [24, 48) and the head; 9.47 GiB free
+strata mtp: draft layer loaded, 840 MiB of VRAM (experts 675, dense 111), files read in 1.51 s (522 MiB/s)
+strata generate: GPU 0: Tesla P100-PCIE-16GB, compute capability 6.0
+strata generate: expert arena read through the file cache (buffered (not Windows))
+strata generate: expert arena: cudaHostRegister PORTABLE ok; MAP_HUGETLB unavailable (needed 32502 2 MiB pages, vm.nr_hugepages=0); transparent huge pages requested (MADV_HUGEPAGE)
+strata generate: STRATA_ARENA_NUMA: row halves placed before the registration: slice 0 -> node 0 (31.88 GiB, bind, 100.0% of sampled pages there), slice 1 -> node 1 (31.60 GiB, bind, 100.0%), 8 threads per node, 6.5 s, 4 KiB pages (MADV_NOHUGEPAGE); after the registration and the load: slice 0 4022/4096 on node 0, 74 on another node, 0 not present, slice 1 4096/4096 on node 1, 0 on another node, 0 not present
+strata generate: loaded 63.48 GiB at 0.72 GiB/s
+strata generate: GPU host-callback thread started before host-core pinning
+strata cpu pool: NUMA pool on: 2 NUMA nodes found, one slice of the pool per node (STRATA_NUMA_POOL=0 turns it off)
+strata cpu pool: NUMA split on: slice 0 = node 0 (17 threads), slice 1 = node 1 (16 threads)
+strata generate: CPU pool tasks/phase: 99 (automatic), participating threads: 33
+strata generate: CPU pool: 32 workers by default (36 physical cores, 72 logical processors; bounded by the measured cap)
+strata generate: NUMA split on: the arena's row halves are on the pool slices' nodes (0, 1)
+strata generate: 32 pool workers on logical processors 1,18,2,19,3,20,4,21,5,22,6,23,7,24,8,25,9,26,10,27,11,28,12,29,13,30,14,31,15,32,16,33, the host thread on 0 (draining too) (--host-core first)
+strata generate: CPU workers on logical processors 1,18,2,19,3,20,4,21,5,22,6,23,7,24,8,25,9,26,10,27,11,28,12,29,13,30,14,31,15,32,16,33 (32 workers, one per physical core; host on 0)
+strata aux cpus: threads that are neither pool workers nor the host go to CPUs 36,17,34,35,53,70,71 (off at start; a request's aux_cpus=1 turns it on)
+strata generate: --pipeline-windows 2: 272 MiB of CUDA0 kept out of the expert cache (the second verifier, the GDN snapshots)
+strata generate: expert cache auto: 9.97 GiB free, 700 MiB reserved (+0 MiB for the draft head, +256 MiB for what is allocated after the cache) -> 2966 slots
+strata generate: expert cache 3382 slots, 8.77 GiB of VRAM; policy is
+strata generate: the GPU computes the experts in the cache; it rounds differently from the CPU,
+                 so a reply can differ slightly from a run without the cache (same quality:
+                 bench/results/2026-09-27-cache-parity).
+                 PROFILE, ranked by routing frequency, no eviction.
+strata generate: pre-filled 3382 of 3382 slots from the profile in 1.6 s (5908 MB/s); slot 0 verified
+strata generate: layer split, CUDA1: 8.52 GiB free of 15.89, room for experts 7.33 GiB
+strata generate: layer split: CUDA1 runs layers 24-47, expert cache 2847 slots (7.33 GiB), 2847 of its 12288 profiled pairs; slot 0 verified
+strata generate: layer split: CUDA0 runs layers 0-23
+strata generate: layer split auto: L2 probe: the split is startable on the live free figures
+strata generate: R4 hit path ON - resident experts are computed on the GPU
+strata generate: 32 expert-pool workers + the host thread
+strata generate: session is up (engine 0.1.57)
+strata generate: token graph hit path: 6229 resident experts, decided on the device
+strata serve: prompt chunk auto: 8192 tokens, a 384-slot ring
+strata serve: the prompt path borrows 1636 CUDA0 cache slots (4.25 GiB)
+strata serve:   CUDA1 prompt path borrows 1650 of its 2847 slots (4.25 GiB)
+strata hc: CUDA1: the hyper-connection read runs as staged (the norm per token and stream, the down projection's activations staged ahead by cp.async); checked bit for bit against the plain read on this card (STRATA_HC_SPLIT=1 or 0 for the earlier ones)
+strata verify: window up to 6 tokens, 82.4 MiB of device buffers
+strata serve: layer split: layers 0-23 (CUDA0), 24-47 (CUDA1), one hand-off per window
+strata verify: window up to 6 tokens, 82.4 MiB of device buffers
+strata hc: CUDA0: the hyper-connection read runs as staged (the norm per token and stream, the down projection's activations staged ahead by cp.async); checked bit for bit against the plain read on this card (STRATA_HC_SPLIT=1 or 0 for the earlier ones)
+strata verify: window up to 6 tokens, 82.4 MiB of device buffers
+strata verify: window up to 6 tokens, 82.4 MiB of device buffers
+strata mtp: draft head over 106299 tokens (275.7 MiB)
+strata serve: --pipeline-windows 2: two verifiers per stage, 2 stages overlap across windows (decode too; the GDN snapshots beside the window)
+strata serve: conversation cache sized from the free RAM: 8192 MiB for up to 4 parked conversations, so an agent's next turn reuses its prompt (--conversation-cache-mib N sets it, 0 turns it off)
+strata serve: adaptive overlap: off: not on a layer split
+strata serve: 859 MiB of VRAM free with everything loaded
+strata serve: CUDA1: 673 MiB of VRAM free with everything loaded
+strata verify: capturing the 1-token window (859 MiB of VRAM free)
+strata verify: captured the 1-token window (upload no error, sync no error) in 16.8 ms
+strata verify: capturing the 2-token window (851 MiB of VRAM free)
+strata verify: captured the 2-token window (upload no error, sync no error) in 19.9 ms
+strata verify: capturing the 3-token window (843 MiB of VRAM free)
+strata verify: captured the 3-token window (upload no error, sync no error) in 33.1 ms
+strata verify: capturing the 4-token window (833 MiB of VRAM free)
+strata verify: captured the 4-token window (upload no error, sync no error) in 13.3 ms
+strata verify: capturing the 5-token window (823 MiB of VRAM free)
+strata verify: captured the 5-token window (upload no error, sync no error) in 12.4 ms
+strata verify: capturing the 6-token window (813 MiB of VRAM free)
+strata verify: captured the 6-token window (upload no error, sync no error) in 12.4 ms
+strata verify: capturing the 1-token window (801 MiB of VRAM free)
+strata verify: captured the 1-token window (upload no error, sync no error) in 13.9 ms
+strata verify: capturing the 2-token window (791 MiB of VRAM free)
+strata verify: captured the 2-token window (upload no error, sync no error) in 10.9 ms
+strata verify: capturing the 3-token window (783 MiB of VRAM free)
+strata verify: captured the 3-token window (upload no error, sync no error) in 10.8 ms
+strata verify: capturing the 4-token window (775 MiB of VRAM free)
+strata verify: captured the 4-token window (upload no error, sync no error) in 10.8 ms
+strata verify: capturing the 5-token window (765 MiB of VRAM free)
+strata verify: captured the 5-token window (upload no error, sync no error) in 11.4 ms
+strata verify: capturing the 6-token window (755 MiB of VRAM free)
+strata verify: captured the 6-token window (upload no error, sync no error) in 11.0 ms
+strata verify: capturing the 1-token window (673 MiB of VRAM free)
+strata verify: captured the 1-token window (upload no error, sync no error) in 11.1 ms
+strata verify: capturing the 2-token window (665 MiB of VRAM free)
+strata verify: captured the 2-token window (upload no error, sync no error) in 10.7 ms
+strata verify: capturing the 3-token window (657 MiB of VRAM free)
+strata verify: captured the 3-token window (upload no error, sync no error) in 10.7 ms
+strata verify: capturing the 4-token window (649 MiB of VRAM free)
+strata verify: captured the 4-token window (upload no error, sync no error) in 11.1 ms
+strata verify: capturing the 5-token window (639 MiB of VRAM free)
+strata verify: captured the 5-token window (upload no error, sync no error) in 10.7 ms
+strata verify: capturing the 6-token window (631 MiB of VRAM free)
+strata verify: captured the 6-token window (upload no error, sync no error) in 10.8 ms
+strata verify: capturing the 1-token window (621 MiB of VRAM free)
+strata verify: captured the 1-token window (upload no error, sync no error) in 10.4 ms
+strata verify: capturing the 2-token window (613 MiB of VRAM free)
+strata verify: captured the 2-token window (upload no error, sync no error) in 14.6 ms
+strata verify: capturing the 3-token window (603 MiB of VRAM free)
+strata verify: captured the 3-token window (upload no error, sync no error) in 10.3 ms
+strata verify: capturing the 4-token window (595 MiB of VRAM free)
+strata verify: captured the 4-token window (upload no error, sync no error) in 10.3 ms
+strata verify: capturing the 5-token window (587 MiB of VRAM free)
+strata verify: captured the 5-token window (upload no error, sync no error) in 10.9 ms
+strata verify: capturing the 6-token window (577 MiB of VRAM free)
+strata verify: captured the 6-token window (upload no error, sync no error) in 10.5 ms
+strata serve: --pipeline-windows: a request with repetition penalties (penalty_last_n) decodes serially
+strata decode timing: 154 windows, avg T 3.81, 3.32 tokens/window, 63.27 ms/window = adapt wait 0.03 + verify 57.49 (GPU-reach wait 18.39 + per-layer host 9.11 [plan 0.25 actq 0.69 jobs 0.10 CPU 15.18] + stage 0.15) + commit/emit 0.68 + draft 5.06 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 8.90 (11.15 entries), VRAM hits 26.90, PCIe 0.00; 23.7 swaps/window
+strata serve: prompt 42 tokens = 0 reused + 42 read in 1295 ms (32.4 tok/s), 512 generated in 9744 ms (52.5 tok/s), drafts accepted 358 of 432, 1 checkpoints
+strata serve: decode expert cache hit rate: 70.7% (198843 hits / 281280 lookups)
+strata serve: suffix drafts: 1 windows, 2 of 3 drafts accepted
+strata serve: conversation cache: parked 553 tokens in 166.0 ms; parked=1 bytes=245360256 evictions=0 snapshot_bytes=245360256 reused_kv_bytes=0
+strata decode timing: 261 windows, avg T 2.85, 1.96 tokens/window, 53.33 ms/window = adapt wait 0.03 + verify 48.42 (GPU-reach wait 17.17 + per-layer host 5.73 [plan 0.19 actq 0.48 jobs 0.06 CPU 9.38] + stage 0.12) + commit/emit 0.67 + draft 4.19 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 5.23 (6.56 entries), VRAM hits 21.98, PCIe 0.00; 23.0 swaps/window
+strata serve: prompt 32 tokens = 0 reused + 32 read in 622 ms (51.4 tok/s), 512 generated in 13919 ms (36.8 tok/s), drafts accepted 251 of 484, 1 checkpoints
+strata serve: decode expert cache hit rate: 77.0% (275381 hits / 357600 lookups)

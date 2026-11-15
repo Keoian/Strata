@@ -1,0 +1,116 @@
+[A1] loaded in 186 s
+[A1] code   prompt 70 (reused 0) pp    38.1 tok/s  decode 512 tok  37.01 tok/s  accepted 355/444  finish length
+[A1] edit   prompt 4513 (reused 0) pp   270.7 tok/s  decode 107 tok  33.87 tok/s  accepted 82/84  finish stop
+[A1] prose  prompt 60 (reused 0) pp    32.6 tok/s  decode 512 tok  29.05 tok/s  accepted 250/458  finish length
+[A1] chat   prompt 57 (reused 0) pp    32.0 tok/s  decode 63 tok  28.18 tok/s  accepted 36/58  finish stop
+[A1] tool   prompt 320 (reused 0) pp    59.2 tok/s  decode 41 tok  24.01 tok/s  accepted 28/31  finish tool_calls
+[A1] think  prompt 80 (reused 0) pp    30.4 tok/s  decode 321 tok  31.34 tok/s  accepted 212/284  finish stop
+[A1] L8k    prompt 7906 (reused 0) pp   309.8 tok/s  decode 256 tok  33.30 tok/s  accepted 164/226  finish length
+[A1] L32k   prompt 32334 (reused 0) pp   487.4 tok/s  decode 256 tok  38.88 tok/s  accepted 167/220  finish length
+[B1] loaded in 168 s
+[B1] code   prompt 70 (reused 0) pp    58.9 tok/s  decode 512 tok  62.12 tok/s  accepted 352/437  finish length
+[B1] edit   prompt 4513 (reused 0) pp   273.5 tok/s  decode 107 tok  63.01 tok/s  accepted 82/84  finish stop
+[B1] prose  prompt 60 (reused 0) pp    51.1 tok/s  decode 512 tok  43.79 tok/s  accepted 247/484  finish length
+[B1] chat   prompt 57 (reused 0) pp    51.9 tok/s  decode 66 tok  44.41 tok/s  accepted 35/70  finish stop
+[B1] tool   prompt 320 (reused 0) pp    61.3 tok/s  decode 41 tok  44.11 tok/s  accepted 28/36  finish tool_calls
+[B1] think  prompt 80 (reused 0) pp    32.4 tok/s  decode 407 tok  58.41 tok/s  accepted 275/352  finish stop
+[B1] L8k    prompt 7906 (reused 0) pp   313.0 tok/s  decode 256 tok  52.75 tok/s  accepted 163/242  finish length
+[B1] L32k   prompt 32334 (reused 0) pp   492.1 tok/s  decode 256 tok  55.45 tok/s  accepted 162/213  finish length
+[C1] loaded in 150 s
+[C1] code   prompt 70 (reused 0) pp    61.3 tok/s  decode 512 tok  62.04 tok/s  accepted 350/428  finish length
+[C1] edit   prompt 4513 (reused 0) pp   273.8 tok/s  decode 107 tok  62.23 tok/s  accepted 81/84  finish stop
+[C1] prose  prompt 60 (reused 0) pp    51.2 tok/s  decode 512 tok  46.72 tok/s  accepted 222/348  finish length
+[C1] chat   prompt 57 (reused 0) pp    50.9 tok/s  decode 62 tok  50.92 tok/s  accepted 30/35  finish stop
+[C1] tool   prompt 320 (reused 0) pp    61.2 tok/s  decode 41 tok  46.83 tok/s  accepted 29/29  finish tool_calls
+[C1] think  prompt 80 (reused 0) pp    31.2 tok/s  decode 390 tok  57.82 tok/s  accepted 231/264  finish stop
+[C1] L8k    prompt 7906 (reused 0) pp   313.4 tok/s  decode 256 tok  56.26 tok/s  accepted 157/197  finish length
+[C1] L32k   prompt 32334 (reused 0) pp   492.7 tok/s  decode 256 tok  56.57 tok/s  accepted 160/199  finish length
+[C2] loaded in 162 s
+[C2] code   prompt 70 (reused 0) pp    58.6 tok/s  decode 512 tok  60.60 tok/s  accepted 349/416  finish length
+[C2] edit   prompt 4513 (reused 0) pp   273.6 tok/s  decode 107 tok  57.79 tok/s  accepted 80/83  finish stop
+[C2] prose  prompt 60 (reused 0) pp    48.5 tok/s  decode 512 tok  45.59 tok/s  accepted 225/354  finish length
+[C2] chat   prompt 57 (reused 0) pp    47.8 tok/s  decode 66 tok  44.94 tok/s  accepted 33/48  finish stop
+[C2] tool   prompt 320 (reused 0) pp    60.9 tok/s  decode 41 tok  44.64 tok/s  accepted 29/29  finish tool_calls
+[C2] think  prompt 80 (reused 0) pp    31.8 tok/s  decode 325 tok  55.40 tok/s  accepted 190/216  finish stop
+[C2] L8k    prompt 7906 (reused 0) pp   313.3 tok/s  decode 256 tok  54.21 tok/s  accepted 150/184  finish length
+[C2] L32k   prompt 32334 (reused 0) pp   493.0 tok/s  decode 256 tok  53.73 tok/s  accepted 158/209  finish length
+[B2] loaded in 164 s
+[B2] code   prompt 70 (reused 0) pp    59.7 tok/s  decode 512 tok  61.50 tok/s  accepted 358/438  finish length
+[B2] edit   prompt 4513 (reused 0) pp   274.5 tok/s  decode 107 tok  60.55 tok/s  accepted 82/84  finish stop
+[B2] prose  prompt 60 (reused 0) pp    49.9 tok/s  decode 512 tok  42.51 tok/s  accepted 243/479  finish length
+[B2] chat   prompt 57 (reused 0) pp    48.0 tok/s  decode 61 tok  36.95 tok/s  accepted 28/66  finish stop
+[B2] tool   prompt 320 (reused 0) pp    60.7 tok/s  decode 41 tok  44.49 tok/s  accepted 29/31  finish tool_calls
+[B2] think  prompt 80 (reused 0) pp    32.1 tok/s  decode 475 tok  58.66 tok/s  accepted 325/404  finish stop
+[B2] L8k    prompt 7906 (reused 0) pp   313.6 tok/s  decode 256 tok  56.33 tok/s  accepted 174/229  finish length
+[B2] L32k   prompt 32334 (reused 0) pp   493.5 tok/s  decode 256 tok  56.36 tok/s  accepted 171/224  finish length
+[A2] loaded in 190 s
+[A2] code   prompt 70 (reused 0) pp    38.2 tok/s  decode 512 tok  36.93 tok/s  accepted 354/447  finish length
+[A2] edit   prompt 4513 (reused 0) pp   272.3 tok/s  decode 107 tok  33.07 tok/s  accepted 80/85  finish stop
+[A2] prose  prompt 60 (reused 0) pp    31.8 tok/s  decode 512 tok  29.74 tok/s  accepted 265/463  finish length
+[A2] chat   prompt 57 (reused 0) pp    30.5 tok/s  decode 66 tok  26.51 tok/s  accepted 36/72  finish stop
+[A2] tool   prompt 320 (reused 0) pp    58.8 tok/s  decode 41 tok  23.19 tok/s  accepted 28/31  finish tool_calls
+[A2] think  prompt 80 (reused 0) pp    30.0 tok/s  decode 341 tok  31.74 tok/s  accepted 230/304  finish stop
+[A2] L8k    prompt 7906 (reused 0) pp   313.7 tok/s  decode 256 tok  33.30 tok/s  accepted 167/225  finish length
+[A2] L32k   prompt 32334 (reused 0) pp   493.6 tok/s  decode 256 tok  35.63 tok/s  accepted 161/229  finish length
+[A3] loaded in 178 s
+[A3] code   prompt 70 (reused 0) pp    30.3 tok/s  decode 512 tok  37.44 tok/s  accepted 354/444  finish length
+[A3] edit   prompt 4513 (reused 0) pp   273.8 tok/s  decode 107 tok  34.57 tok/s  accepted 82/84  finish stop
+[A3] prose  prompt 60 (reused 0) pp    33.0 tok/s  decode 512 tok  28.75 tok/s  accepted 247/471  finish length
+[A3] chat   prompt 57 (reused 0) pp    32.6 tok/s  decode 66 tok  26.67 tok/s  accepted 35/69  finish stop
+[A3] tool   prompt 320 (reused 0) pp    59.5 tok/s  decode 41 tok  23.44 tok/s  accepted 28/33  finish tool_calls
+[A3] think  prompt 80 (reused 0) pp    30.7 tok/s  decode 426 tok  33.33 tok/s  accepted 280/379  finish stop
+[A3] L8k    prompt 7906 (reused 0) pp   312.6 tok/s  decode 256 tok  32.90 tok/s  accepted 167/233  finish length
+[A3] L32k   prompt 32334 (reused 0) pp   492.6 tok/s  decode 256 tok  39.72 tok/s  accepted 171/217  finish length
+[B3] loaded in 166 s
+[B3] code   prompt 70 (reused 0) pp    57.2 tok/s  decode 512 tok  59.30 tok/s  accepted 355/429  finish length
+[B3] edit   prompt 4513 (reused 0) pp   275.1 tok/s  decode 107 tok  56.26 tok/s  accepted 82/84  finish stop
+[B3] prose  prompt 60 (reused 0) pp    46.2 tok/s  decode 512 tok  43.00 tok/s  accepted 258/482  finish length
+[B3] chat   prompt 57 (reused 0) pp    46.7 tok/s  decode 61 tok  35.61 tok/s  accepted 29/70  finish stop
+[B3] tool   prompt 320 (reused 0) pp    60.8 tok/s  decode 41 tok  40.64 tok/s  accepted 28/32  finish tool_calls
+[B3] think  prompt 80 (reused 0) pp    31.7 tok/s  decode 343 tok  54.14 tok/s  accepted 240/300  finish stop
+[B3] L8k    prompt 7906 (reused 0) pp   314.2 tok/s  decode 256 tok  52.67 tok/s  accepted 169/227  finish length
+[B3] L32k   prompt 32334 (reused 0) pp   494.2 tok/s  decode 256 tok  55.53 tok/s  accepted 173/228  finish length
+[C3] loaded in 162 s
+[C3] code   prompt 70 (reused 0) pp    59.8 tok/s  decode 512 tok  62.47 tok/s  accepted 351/420  finish length
+[C3] edit   prompt 4513 (reused 0) pp   274.7 tok/s  decode 107 tok  61.44 tok/s  accepted 81/82  finish stop
+[C3] prose  prompt 60 (reused 0) pp    49.5 tok/s  decode 512 tok  47.09 tok/s  accepted 244/401  finish length
+[C3] chat   prompt 57 (reused 0) pp    51.2 tok/s  decode 62 tok  52.08 tok/s  accepted 32/38  finish stop
+[C3] tool   prompt 320 (reused 0) pp    61.1 tok/s  decode 41 tok  47.22 tok/s  accepted 28/28  finish tool_calls
+[C3] think  prompt 80 (reused 0) pp    31.9 tok/s  decode 313 tok  54.83 tok/s  accepted 185/226  finish stop
+[C3] L8k    prompt 7906 (reused 0) pp   314.2 tok/s  decode 256 tok  58.15 tok/s  accepted 163/191  finish length
+[C3] L32k   prompt 32334 (reused 0) pp   494.3 tok/s  decode 256 tok  57.64 tok/s  accepted 163/199  finish length
+[C4] loaded in 148 s
+[C4] code   prompt 70 (reused 0) pp    60.1 tok/s  decode 512 tok  62.79 tok/s  accepted 348/407  finish length
+[C4] edit   prompt 4513 (reused 0) pp   274.4 tok/s  decode 107 tok  62.90 tok/s  accepted 80/82  finish stop
+[C4] prose  prompt 60 (reused 0) pp    50.6 tok/s  decode 512 tok  46.96 tok/s  accepted 238/392  finish length
+[C4] chat   prompt 57 (reused 0) pp    49.7 tok/s  decode 70 tok  50.98 tok/s  accepted 35/46  finish stop
+[C4] tool   prompt 320 (reused 0) pp    61.0 tok/s  decode 41 tok  46.25 tok/s  accepted 28/28  finish tool_calls
+[C4] think  prompt 80 (reused 0) pp    31.5 tok/s  decode 496 tok  58.73 tok/s  accepted 324/383  finish stop
+[C4] L8k    prompt 7906 (reused 0) pp   313.7 tok/s  decode 256 tok  56.63 tok/s  accepted 164/201  finish length
+[C4] L32k   prompt 32334 (reused 0) pp   493.1 tok/s  decode 256 tok  54.51 tok/s  accepted 158/212  finish length
+[B4] loaded in 152 s
+[B4] code   prompt 70 (reused 0) pp    59.6 tok/s  decode 512 tok  61.64 tok/s  accepted 356/437  finish length
+[B4] edit   prompt 4513 (reused 0) pp   274.2 tok/s  decode 107 tok  60.40 tok/s  accepted 82/84  finish stop
+[B4] prose  prompt 60 (reused 0) pp    50.4 tok/s  decode 512 tok  45.15 tok/s  accepted 261/463  finish length
+[B4] chat   prompt 57 (reused 0) pp    49.9 tok/s  decode 61 tok  37.11 tok/s  accepted 28/65  finish stop
+[B4] tool   prompt 320 (reused 0) pp    60.7 tok/s  decode 41 tok  48.33 tok/s  accepted 29/30  finish tool_calls
+[B4] think  prompt 80 (reused 0) pp    31.7 tok/s  decode 340 tok  55.57 tok/s  accepted 230/298  finish stop
+[B4] L8k    prompt 7906 (reused 0) pp   314.2 tok/s  decode 256 tok  57.41 tok/s  accepted 173/224  finish length
+[B4] L32k   prompt 32334 (reused 0) pp   493.6 tok/s  decode 256 tok  55.60 tok/s  accepted 169/223  finish length
+[A4] loaded in 182 s
+[A4] code   prompt 70 (reused 0) pp    38.6 tok/s  decode 512 tok  37.42 tok/s  accepted 352/444  finish length
+[A4] edit   prompt 4513 (reused 0) pp   273.6 tok/s  decode 107 tok  33.30 tok/s  accepted 80/85  finish stop
+[A4] prose  prompt 60 (reused 0) pp    32.6 tok/s  decode 512 tok  28.40 tok/s  accepted 244/497  finish length
+[A4] chat   prompt 57 (reused 0) pp    30.8 tok/s  decode 70 tok  29.85 tok/s  accepted 40/63  finish stop
+[A4] tool   prompt 320 (reused 0) pp    59.0 tok/s  decode 41 tok  23.49 tok/s  accepted 28/31  finish tool_calls
+[A4] think  prompt 80 (reused 0) pp    30.4 tok/s  decode 312 tok  31.94 tok/s  accepted 212/276  finish stop
+[A4] L8k    prompt 7906 (reused 0) pp   312.7 tok/s  decode 256 tok  33.55 tok/s  accepted 164/225  finish length
+[A4] L32k   prompt 32334 (reused 0) pp   493.1 tok/s  decode 256 tok  39.17 tok/s  accepted 167/220  finish length
+L32k A: decode 39.02 pp 492.9 (n=4) | B: decode 55.57 pp 493.6 (n=4) | C: decode 55.54 pp 493.0 (n=4)
+L8k A: decode 33.30 pp 312.7 (n=4) | B: decode 54.54 pp 313.9 (n=4) | C: decode 56.45 pp 313.6 (n=4)
+chat A: decode 27.42 pp 31.4 (n=4) | B: decode 37.03 pp 48.9 (n=4) | C: decode 50.95 pp 50.3 (n=4)
+code A: decode 37.21 pp 38.1 (n=4) | B: decode 61.57 pp 59.3 (n=4) | C: decode 62.25 pp 60.0 (n=4)
+edit A: decode 33.59 pp 272.9 (n=4) | B: decode 60.48 pp 274.4 (n=4) | C: decode 61.84 pp 274.1 (n=4)
+prose A: decode 28.90 pp 32.6 (n=4) | B: decode 43.40 pp 50.2 (n=4) | C: decode 46.84 pp 50.0 (n=4)
+think A: decode 31.84 pp 30.4 (n=4) | B: decode 56.99 pp 31.9 (n=4) | C: decode 56.61 pp 31.7 (n=4)
+tool A: decode 23.46 pp 59.1 (n=4) | B: decode 44.30 pp 60.8 (n=4) | C: decode 46.54 pp 61.0 (n=4)

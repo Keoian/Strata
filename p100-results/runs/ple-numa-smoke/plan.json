@@ -1,0 +1,11 @@
+{
+ "base": "p100-configs/strata-bitlamas-p100-best.json",
+ "arms": {
+  "B": {}
+ },
+ "order": "B",
+ "cases": [
+  "code"
+ ],
+ "port": 8090
+}

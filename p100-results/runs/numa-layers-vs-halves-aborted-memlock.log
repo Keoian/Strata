@@ -1,0 +1,8 @@
+[B1] loaded in 256 s
+[B1] code   prompt 70 (reused 0) pp    62.4 tok/s  decode 512 tok  64.44 tok/s  accepted 356/416  finish length
+[B1] prose  prompt 60 (reused 0) pp    52.0 tok/s  decode 512 tok  46.43 tok/s  accepted 223/368  finish length
+[B1] chat   prompt 57 (reused 0) pp    51.7 tok/s  decode 61 tok  43.32 tok/s  accepted 25/42  finish stop
+[B1] L8k    prompt 7906 (reused 0) pp   313.5 tok/s  decode 256 tok  53.54 tok/s  accepted 149/187  finish length
+[B1] L32k   prompt 32334 (reused 0) pp   490.9 tok/s  decode 256 tok  55.81 tok/s  accepted 159/205  finish length
+[L1] loaded in 120 s
+[L1] code   prompt 70 (reused 0) pp    47.7 tok/s  decode 512 tok  49.86 tok/s  accepted 349/414  finish length

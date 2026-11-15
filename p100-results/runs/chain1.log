@@ -1,0 +1,86 @@
+### gpu profile c24 11:27:48
+strata decode timing: 152 windows, avg T 3.84, 3.37 tokens/window, 55.43 ms/window = adapt wait 0.03 + verify 49.61 (GPU-reach wait 15.42 + per-layer host 8.71 [plan 0.24 actq 0.57 jobs 0.10 CPU 14.92] + stage 0.15) + commit/emit 0.68 + draft 5.10 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 8.51 (10.65 entries), VRAM hits 27.71, PCIe 0.00; 24.0 swaps/window
+strata serve: prompt 42 tokens = 0 reused + 42 read in 670 ms (62.7 tok/s), 512 generated in 8426 ms (60.8 tok/s), drafts accepted 362 of 431, 1 checkpoints
+strata decode timing: 269 windows, avg T 2.81, 1.90 tokens/window, 46.01 ms/window = adapt wait 0.03 + verify 41.32 (GPU-reach wait 15.04 + per-layer host 4.99 [plan 0.18 actq 0.41 jobs 0.07 CPU 8.47] + stage 0.12) + commit/emit 0.54 + draft 4.11 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 4.63 (5.86 entries), VRAM hits 22.28, PCIe 0.00; 21.6 swaps/window
+strata serve: prompt 32 tokens = 0 reused + 32 read in 728 ms (44.0 tok/s), 512 generated in 12378 ms (41.4 tok/s), drafts accepted 244 of 488, 1 checkpoints
+strata decode GPU stages (ms/window): GDN layers: q8+qkv/q-idx gemv 2.41 conv 0.14 ab 0.04 z 0.04 rec 0.48 out-proj 1.12 router+plan+bell 1.05 shared+quant 1.00 waitA 0.31 VRAM hits 5.23 waitB 0.27 PCIe grp 0.21 waitCPU 2.00 copy+combine 0.72 (gap) 0.04   hc0 norm 0.73   hc0 down 0.73   hc0 up 0.80   hc1 norm 0.04   hc1 down 0.70   hc1 up 0.80 | QSA layers: q8+kv-idx 0.05 k/v+norm-rope 0.67 kv+idx append 0.07 q+q-idx 0.01 scores+topk 0.04 kv-resolve 0.01 attention 0.30 gate 0.04 out-proj 0.38 router+plan+bell 0.35 shared+quant 0.34 waitA 0.08 VRAM hits 1.75 waitB 0.09 PCIe grp 0.07 waitCPU 0.43 copy+combine 0.23 (gap) 0.01   hc0 norm 0.01   hc0 down 0.24   hc0 up 0.27   hc1 norm 0.01   hc1 down 0.24   hc1 up 0.26 | total 24.79 ms/window over 159 windows
+strata decode GPU stages, stage 1 (ms/window): GDN layers: q8+qkv/q-idx gemv 2.41 conv 0.14 ab 0.04 z 0.04 rec 0.48 out-proj 1.12 router+plan+bell 0.95 shared+quant 1.00 waitA 0.25 VRAM hits 5.21 waitB 0.23 PCIe grp 0.21 waitCPU 1.49 copy+combine 0.47 (gap) 0.04 head 1.76   hc0 norm 0.04   hc0 down 0.75   hc0 up 0.80   hc1 norm 0.04   hc1 down 0.70   hc1 up 0.79 | QSA layers: q8+kv-idx 0.05 k/v+norm-rope 0.67 kv+idx append 0.06 q+q-idx 0.01 scores+topk 0.04 kv-resolve 0.01 attention 0.30 gate 0.04 out-proj 0.38 router+plan+bell 0.32 shared+quant 0.34 waitA 0.06 VRAM hits 1.81 waitB 0.08 PCIe grp 0.07 waitCPU 0.36 copy+combine 0.15 (gap) 0.01   hc0 norm 0.01   hc0 down 0.24   hc0 up 0.27   hc1 norm 0.01   hc1 down 0.23   hc1 up 0.26 | total 24.78 ms/window over 159 windows
+### routing trace 11:30:36
+42 ru          250 tok   6.6 s
+43 trivia      131 tok   3.6 s
+44 essay       250 tok   6.4 s
+trace bytes 62494080
+### quality 11:37:11
+=== S-stock-fp16 11:37:11
+engine: /home/user/projects/strata/build-p100/strata --serve --pack /home/user/models/strata-packs/bitlamas-q4kxl-iq4nl --native /home/user/models/bitlamas-Qwen3.8-Flash-Next-GGUF/Q4_K_XL-IQ4NL/Qwen3.8-Flash-Next-Q4_K_XL-IQ4NL-00001-of-00004.gguf --expert-profile /home/user/projects/strata/data/expert-profile.bin --spec 4 --spec-min-p 0.5 --mtp /home/user/models/strata-mtp/rt --expert-cache 1 --adapt-every 100000 --pcie-frac 0 --suffix-draft 0 --prompt-cache 0 --kv fp16 --max-context 1512 --short-read 1064 --prefill 512
+code: 999 positions, 39.4 s
+docs: 999 positions, 39.1 s
+english: 999 positions, 37.6 s
+multilingual: 999 positions, 38.8 s
+agent: 999 positions, 39.5 s
+=== S-numa-fp16 11:43:57
+engine: /home/user/projects/strata/build-p100/strata --serve --pack /home/user/models/strata-packs/bitlamas-q4kxl-iq4nl --native /home/user/models/bitlamas-Qwen3.8-Flash-Next-GGUF/Q4_K_XL-IQ4NL/Qwen3.8-Flash-Next-Q4_K_XL-IQ4NL-00001-of-00004.gguf --expert-profile /home/user/projects/strata/data/expert-profile.bin --spec 4 --spec-min-p 0.5 --mtp /home/user/models/strata-mtp/rt --expert-cache 1 --adapt-every 100000 --pcie-frac 0 --suffix-draft 0 --prompt-cache 0 --kv fp16 --max-context 1512 --short-read 1064 --prefill 512
+code: 999 positions, 26.0 s
+docs: 999 positions, 25.9 s
+english: 999 positions, 25.2 s
+multilingual: 999 positions, 25.9 s
+agent: 999 positions, 25.8 s
+=== S-q8sm60-fp16 11:48:08
+engine: /home/user/projects/strata/build-p100/strata --serve --pack /home/user/models/strata-packs/bitlamas-q4kxl-iq4nl --native /home/user/models/bitlamas-Qwen3.8-Flash-Next-GGUF/Q4_K_XL-IQ4NL/Qwen3.8-Flash-Next-Q4_K_XL-IQ4NL-00001-of-00004.gguf --expert-profile /home/user/projects/strata/data/expert-profile.bin --spec 4 --spec-min-p 0.5 --mtp /home/user/models/strata-mtp/rt --expert-cache 1 --adapt-every 100000 --pcie-frac 0 --suffix-draft 0 --prompt-cache 0 --kv fp16 --max-context 1512 --short-read 1064 --prefill 512
+code: 999 positions, 36.3 s
+docs: 999 positions, 35.9 s
+english: 999 positions, 34.3 s
+multilingual: 999 positions, 35.5 s
+agent: 999 positions, 36.1 s
+=== S-stock-int8 11:54:01
+engine: /home/user/projects/strata/build-p100/strata --serve --pack /home/user/models/strata-packs/bitlamas-q4kxl-iq4nl --native /home/user/models/bitlamas-Qwen3.8-Flash-Next-GGUF/Q4_K_XL-IQ4NL/Qwen3.8-Flash-Next-Q4_K_XL-IQ4NL-00001-of-00004.gguf --expert-profile /home/user/projects/strata/data/expert-profile.bin --spec 4 --spec-min-p 0.5 --mtp /home/user/models/strata-mtp/rt --expert-cache 1 --adapt-every 100000 --pcie-frac 0 --suffix-draft 0 --prompt-cache 0 --kv int8 --max-context 1512 --short-read 1064 --prefill 512
+code: 999 positions, 39.5 s
+docs: 999 positions, 39.1 s
+english: 999 positions, 37.5 s
+multilingual: 999 positions, 38.7 s
+agent: 999 positions, 39.4 s
+=== S-stock-k8v4 11:59:58
+engine: /home/user/projects/strata/build-p100/strata --serve --pack /home/user/models/strata-packs/bitlamas-q4kxl-iq4nl --native /home/user/models/bitlamas-Qwen3.8-Flash-Next-GGUF/Q4_K_XL-IQ4NL/Qwen3.8-Flash-Next-Q4_K_XL-IQ4NL-00001-of-00004.gguf --expert-profile /home/user/projects/strata/data/expert-profile.bin --spec 4 --spec-min-p 0.5 --mtp /home/user/models/strata-mtp/rt --expert-cache 1 --adapt-every 100000 --pcie-frac 0 --suffix-draft 0 --prompt-cache 0 --kv k8v4 --max-context 1512 --short-read 1064 --prefill 512
+code: 999 positions, 39.5 s
+docs: 999 positions, 39.0 s
+english: 999 positions, 37.4 s
+multilingual: 999 positions, 38.6 s
+agent: 999 positions, 39.3 s
+=== S-stock-q4_0 12:05:56
+engine: /home/user/projects/strata/build-p100/strata --serve --pack /home/user/models/strata-packs/bitlamas-q4kxl-iq4nl --native /home/user/models/bitlamas-Qwen3.8-Flash-Next-GGUF/Q4_K_XL-IQ4NL/Qwen3.8-Flash-Next-Q4_K_XL-IQ4NL-00001-of-00004.gguf --expert-profile /home/user/projects/strata/data/expert-profile.bin --spec 4 --spec-min-p 0.5 --mtp /home/user/models/strata-mtp/rt --expert-cache 1 --adapt-every 100000 --pcie-frac 0 --suffix-draft 0 --prompt-cache 0 --kv q4_0 --max-context 1512 --short-read 1064 --prefill 512
+code: 999 positions, 39.4 s
+docs: 999 positions, 39.0 s
+english: 999 positions, 37.4 s
+multilingual: 999 positions, 38.6 s
+agent: 999 positions, 39.4 s
+=== G-stock-fp16 12:11:52
+engine: /home/user/projects/strata/build-p100/strata --serve --pack /home/user/models/strata-packs/bitlamas-q4kxl-iq4nl --native /home/user/models/bitlamas-Qwen3.8-Flash-Next-GGUF/Q4_K_XL-IQ4NL/Qwen3.8-Flash-Next-Q4_K_XL-IQ4NL-00001-of-00004.gguf --expert-profile /home/user/projects/strata/data/expert-profile.bin --spec 4 --spec-min-p 0.5 --mtp /home/user/models/strata-mtp/rt --expert-cache auto --adapt-every 100000 --pcie-frac 0 --suffix-draft 0 --prompt-cache 0 --kv fp16 --max-context 1512 --short-read 1064 --prefill 512
+code: 999 positions, 33.5 s
+docs: 999 positions, 30.6 s
+english: 999 positions, 32.0 s
+multilingual: 999 positions, 32.6 s
+agent: 999 positions, 32.3 s
+=== G-downws-fp16 12:17:17
+engine: /home/user/projects/strata/build-p100/strata --serve --pack /home/user/models/strata-packs/bitlamas-q4kxl-iq4nl --native /home/user/models/bitlamas-Qwen3.8-Flash-Next-GGUF/Q4_K_XL-IQ4NL/Qwen3.8-Flash-Next-Q4_K_XL-IQ4NL-00001-of-00004.gguf --expert-profile /home/user/projects/strata/data/expert-profile.bin --spec 4 --spec-min-p 0.5 --mtp /home/user/models/strata-mtp/rt --expert-cache auto --adapt-every 100000 --pcie-frac 0 --suffix-draft 0 --prompt-cache 0 --kv fp16 --max-context 1512 --short-read 1064 --prefill 512
+code: 999 positions, 33.6 s
+docs: 999 positions, 30.6 s
+english: 999 positions, 32.1 s
+multilingual: 999 positions, 32.7 s
+agent: 999 positions, 32.4 s
+=== G-q8sm60-fp16 12:22:43
+engine: /home/user/projects/strata/build-p100/strata --serve --pack /home/user/models/strata-packs/bitlamas-q4kxl-iq4nl --native /home/user/models/bitlamas-Qwen3.8-Flash-Next-GGUF/Q4_K_XL-IQ4NL/Qwen3.8-Flash-Next-Q4_K_XL-IQ4NL-00001-of-00004.gguf --expert-profile /home/user/projects/strata/data/expert-profile.bin --spec 4 --spec-min-p 0.5 --mtp /home/user/models/strata-mtp/rt --expert-cache auto --adapt-every 100000 --pcie-frac 0 --suffix-draft 0 --prompt-cache 0 --kv fp16 --max-context 1512 --short-read 1064 --prefill 512
+code: 999 positions, 32.8 s
+docs: 999 positions, 31.3 s
+english: 999 positions, 31.8 s
+multilingual: 999 positions, 32.2 s
+agent: 999 positions, 32.0 s
+=== REF 12:28:08
+sched_reserve: graph splits = 1
+sched_reserve: reserve took 74.48 ms, sched copies = 1
+code: 999 positions
+docs: 999 positions
+english: 999 positions
+multilingual: 999 positions
+agent: 999 positions
+~llama_context:        CPU compute buffer size is 966.8007 MiB, matches expectation of 966.8007 MiB
+### chain1 done 12:35:50

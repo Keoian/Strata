@@ -1,0 +1,31 @@
+{
+ "base": "p100-configs/strata-bitlamas-stock-2gpu-32k-int8.json",
+ "arms": {
+  "P": {
+   "env": {
+    "STRATA_ARENA_NUMA": "1"
+   },
+   "config": {
+    "exe": "/home/user/projects/strata-pr-numa/build-pr/strata"
+   }
+  },
+  "Q": {
+   "env": {
+    "STRATA_ARENA_NUMA": "1",
+    "STRATA_ARENA_NUMA_PREPIN": "after"
+   },
+   "config": {
+    "exe": "/home/user/projects/strata-pr-numa/build-pr/strata"
+   }
+  }
+ },
+ "order": "PQQP",
+ "cases": [
+  "code",
+  "prose",
+  "L8k"
+ ],
+ "port": 8090,
+ "pre_start": "sudo -n sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'",
+ "note": "PR #5436 build (branch engine-arena-numa-placement + pin-first). P = pinned per chunk before the touch (new default), Q = STRATA_ARENA_NUMA_PREPIN=after (the PR's first revision). Stock setup config. Cold file cache before every start."
+}

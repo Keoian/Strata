@@ -1,0 +1,19 @@
+[A1] loaded in 168 s
+[A1] chat   prompt 57 (reused 0) pp    34.9 tok/s  decode 66 tok  24.78 tok/s  accepted 35/69  finish stop
+[A1] L64k   prompt 64896 (reused 0) pp   537.6 tok/s  decode 256 tok  32.89 tok/s  accepted 167/233  finish length
+[A1] L120k  prompt 121863 (reused 0) pp   513.4 tok/s  decode 256 tok  36.56 tok/s  accepted 167/230  finish length
+[B1] loaded in 156 s
+[B1] chat   prompt 57 (reused 0) pp    54.3 tok/s  decode 68 tok  41.48 tok/s  accepted 37/74  finish stop
+[B1] L64k   prompt 64896 (reused 0) pp   532.8 tok/s  decode 256 tok  52.21 tok/s  accepted 167/229  finish length
+[B1] L120k  prompt 121863 (reused 0) pp   504.3 tok/s  decode 256 tok  49.29 tok/s  accepted 164/243  finish length
+[B2] loaded in 150 s
+[B2] chat   prompt 57 (reused 0) pp    54.2 tok/s  decode 63 tok  43.78 tok/s  accepted 34/51  finish stop
+[B2] L64k   prompt 64896 (reused 0) pp   531.5 tok/s  decode 256 tok  51.55 tok/s  accepted 166/232  finish length
+[B2] L120k  prompt 121863 (reused 0) pp   503.5 tok/s  decode 256 tok  50.31 tok/s  accepted 160/221  finish length
+[A2] loaded in 180 s
+[A2] chat   prompt 57 (reused 0) pp    34.2 tok/s  decode 66 tok  23.73 tok/s  accepted 35/71  finish stop
+[A2] L64k   prompt 64896 (reused 0) pp   535.2 tok/s  decode 256 tok  32.57 tok/s  accepted 166/234  finish length
+[A2] L120k  prompt 121863 (reused 0) pp   514.8 tok/s  decode 256 tok  36.05 tok/s  accepted 165/228  finish length
+L120k A: decode 36.31 pp 514.1 (n=2) | B: decode 49.80 pp 503.9 (n=2)
+L64k A: decode 32.73 pp 536.4 (n=2) | B: decode 51.88 pp 532.1 (n=2)
+chat A: decode 24.26 pp 34.5 (n=2) | B: decode 42.63 pp 54.2 (n=2)

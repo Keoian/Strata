@@ -1,0 +1,52 @@
+{
+ "test-chart-1024.png": {
+  "answer": "```json\n[\n  {\"day\": \"Mon\", \"requests\": 120},\n  {\"day\": \"Tue\", \"requests\": 340},\n  {\"day\": \"Wed\", \"requests\": 210},\n  {\"day\": \"Thu\", \"requests\": 480},\n  {\"day\": \"Fri\", \"requests\": 290}\n]\n```",
+  "total_s": 17.4,
+  "timings": {
+   "cache_n": 0,
+   "prompt_n": 796,
+   "prompt_ms": 7545.2,
+   "prompt_per_token_ms": 9.479,
+   "prompt_per_second": 105.5,
+   "predicted_n": 89,
+   "predicted_ms": 1954.0,
+   "predicted_per_token_ms": 21.955,
+   "predicted_per_second": 45.5,
+   "draft_n": 73,
+   "draft_n_accepted": 63
+  },
+  "usage": {
+   "prompt_tokens": 796,
+   "completion_tokens": 89,
+   "total_tokens": 885,
+   "prompt_tokens_details": {
+    "cached_tokens": 0
+   }
+  }
+ },
+ "test-4k-report.png": {
+  "answer": "### Item Lines:\n- [60px] item WK3DEG qty 384\n- [60px] item DPCF54 qty 81\n- [60px] item RF5DHQ qty 655\n- [40px] item D3DQCJ qty 306\n- [40px] item 4KHVMG qty 605\n- [40px] item NZGEDP qty 518\n- [28px] item 5W77ZV qty 264\n- [28px] item MRFV9X qty 756\n- [28px] item 6UEH4L qty 785\n- [20px] item XK94CE qty 792\n- [20px] item WXY97E qty 870\n- [20px] item FT8EDV qty 672\n\n### Circle Counts:\n- **Red circles:** 5\n- **Green circles:** 7\n- **Blue circles:** 3",
+  "total_s": 97.9,
+  "timings": {
+   "cache_n": 0,
+   "prompt_n": 3638,
+   "prompt_ms": 14689.5,
+   "prompt_per_token_ms": 4.038,
+   "prompt_per_second": 247.7,
+   "predicted_n": 246,
+   "predicted_ms": 4054.4,
+   "predicted_per_token_ms": 16.481,
+   "predicted_per_second": 60.7,
+   "draft_n": 193,
+   "draft_n_accepted": 177
+  },
+  "usage": {
+   "prompt_tokens": 3638,
+   "completion_tokens": 246,
+   "total_tokens": 3884,
+   "prompt_tokens_details": {
+    "cached_tokens": 0
+   }
+  }
+ }
+}

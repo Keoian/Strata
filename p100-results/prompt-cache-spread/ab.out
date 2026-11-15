@@ -1,0 +1,198 @@
+== 15:33:46 stopping the service
+  [gpu before] 0, 250.00 W, 34.81 W, 1189 MHz, 49, 0x0000000000000000
+  [gpu before] 1, 250.00 W, 39.15 W, 1189 MHz, 55, 0x0000000000000000
+== 15:33:55 base: starting
+   loaded in 153 s
+  [gpu base] 0, 150.00 W, 33.36 W, 1189 MHz, 43, 0x0000000000000000
+  [gpu base] 1, 150.00 W, 42.27 W, 1328 MHz, 49, 0x0000000000000000
+       turn 1: took 31.71 s, cache_n 0, prompt_n 9807
+       turn 2: took 11.78 s, cache_n 9802, prompt_n 2396
+       turn 3: took 13.01 s, cache_n 12193, prompt_n 2739
+       turn 4: took 11.25 s, cache_n 14936, prompt_n 2239
+       turn 5: took 11.7 s, cache_n 17179, prompt_n 2378
+       turn 6: took 11.22 s, cache_n 19561, prompt_n 2171
+       turn 7: took 13.64 s, cache_n 21736, prompt_n 3009
+       turn 8: took 13.34 s, cache_n 24740, prompt_n 2568
+       turn 9: took 11.33 s, cache_n 27314, prompt_n 2160
+       turn 10: took 13.77 s, cache_n 29480, prompt_n 2951
+       turn 11: took 12.21 s, cache_n 32437, prompt_n 2458
+       turn 12: took 14.16 s, cache_n 34890, prompt_n 2763
+       turn 13: took 13.59 s, cache_n 37657, prompt_n 2870
+       turn 14: took 13.15 s, cache_n 40522, prompt_n 2410
+       turn 15: took 12.41 s, cache_n 42935, prompt_n 2453
+       turn 16: took 12.43 s, cache_n 45391, prompt_n 2468
+       J4: turn 12's prompt again: took 1.35 s, cache_n 37648, prompt_n 5
+       turn 17: took 13.8 s, cache_n 47862, prompt_n 2641
+       turn 18: took 13.62 s, cache_n 50506, prompt_n 2796
+       turn 19: took 12.76 s, cache_n 53305, prompt_n 2508
+       turn 20: took 14.01 s, cache_n 55816, prompt_n 2892
+       turn 21: took 12.3 s, cache_n 58714, prompt_n 2317
+       turn 22: took 13.37 s, cache_n 61034, prompt_n 2665
+       J6: turn 16's prompt again: took 36.28 s, cache_n 37657, prompt_n 10202
+       turn 23: took 13.75 s, cache_n 63702, prompt_n 2535
+       turn 24: took 12.51 s, cache_n 66241, prompt_n 2297
+       turn 25: took 13.4 s, cache_n 68541, prompt_n 2564
+       turn 26: took 14.54 s, cache_n 71109, prompt_n 2860
+       turn 27: took 14.0 s, cache_n 73972, prompt_n 2669
+       turn 28: took 13.36 s, cache_n 76644, prompt_n 2320
+       turn 29: took 14.16 s, cache_n 78970, prompt_n 2656
+       turn 30: took 14.66 s, cache_n 81621, prompt_n 2548
+       J10: turn 20's prompt again: took 42.62 s, cache_n 47862, prompt_n 10846
+       turn 31: took 15.17 s, cache_n 84173, prompt_n 2362
+       turn 32: took 14.43 s, cache_n 86530, prompt_n 2389
+       turn 33: took 16.48 s, cache_n 88914, prompt_n 2732
+       turn 34 (E9: turn 25's tool result cleared): took 123.84 s, cache_n 58714, prompt_n 32983
+       turn 35: took 18.42 s, cache_n 91701, prompt_n 2837
+       turn 36: took 15.6 s, cache_n 94541, prompt_n 2439
+       N: the two planted codes: took 20.94 s, cache_n 96983, prompt_n 2451
+   wrote /home/user/projects/strata/p100-results/prompt-cache-spread/base.json
+  [gpu base] 0, 150.00 W, 54.37 W, 1328 MHz, 73, 0x0000000000000000
+  [gpu base] 1, 150.00 W, 50.50 W, 1215 MHz, 78, 0x0000000000000000
+== 15:48:38 spread: starting
+   loaded in 154 s
+  [gpu spread] 0, 150.00 W, 37.22 W, 1189 MHz, 55, 0x0000000000000000
+  [gpu spread] 1, 150.00 W, 41.06 W, 1189 MHz, 60, 0x0000000000000000
+   engine: [strata] 2026-11-13 15:48:41 engine started: /home/user/projects/strata/build-p100/strata --serve --pack /home/user/models/strata-packs/bitlamas-q4kxl-iq4nl --native /home/user/models/bitlamas-Qwen3.8-Flash-Next-GGUF/Q4_K_XL-IQ4NL/Qwen3.8-Flash-Next-Q4_K_XL-IQ4NL-00001-of-00004.gguf --expert-profile /home/user/projects/strata/data/expert-profile.bin --expert-cache auto --prefill auto --spec 4 --spec-min-p 0.5 --mtp /home/user/models/strata-mtp/rt --max-context 262144 --kv k8v4 --pcie-frac 0 --trim-stage-weights --kv-resident 32768 --vision --prompt-cache-spread --layer-split 24
+       turn 1: took 32.2 s, cache_n 0, prompt_n 9807
+       turn 2: took 11.82 s, cache_n 9802, prompt_n 2396
+       turn 3: took 13.26 s, cache_n 12193, prompt_n 2739
+       turn 4: took 11.36 s, cache_n 14936, prompt_n 2239
+       turn 5: took 11.78 s, cache_n 17179, prompt_n 2378
+       turn 6: took 11.23 s, cache_n 19561, prompt_n 2171
+       turn 7: took 13.91 s, cache_n 21736, prompt_n 3009
+       turn 8: took 13.55 s, cache_n 24740, prompt_n 2568
+       turn 9: took 11.42 s, cache_n 27314, prompt_n 2160
+       turn 10: took 13.98 s, cache_n 29480, prompt_n 2951
+       turn 11: took 12.36 s, cache_n 32437, prompt_n 2458
+       turn 12: took 14.26 s, cache_n 34890, prompt_n 2763
+       turn 13: took 14.08 s, cache_n 37657, prompt_n 2870
+       turn 14: took 13.55 s, cache_n 40522, prompt_n 2410
+       turn 15: took 12.61 s, cache_n 42935, prompt_n 2453
+       turn 16: took 13.06 s, cache_n 45391, prompt_n 2468
+       J4: turn 12's prompt again: took 1.31 s, cache_n 37648, prompt_n 5
+       turn 17: took 14.36 s, cache_n 47862, prompt_n 2641
+       turn 18: took 14.76 s, cache_n 50506, prompt_n 2796
+       turn 19: took 13.3 s, cache_n 53305, prompt_n 2508
+       turn 20: took 15.18 s, cache_n 55816, prompt_n 2892
+       turn 21: took 13.12 s, cache_n 58714, prompt_n 2317
+       turn 22: took 14.52 s, cache_n 61034, prompt_n 2665
+       J6: turn 16's prompt again: took 14.25 s, cache_n 45383, prompt_n 2476
+       turn 23: took 15.46 s, cache_n 63702, prompt_n 2535
+       turn 24: took 13.11 s, cache_n 66240, prompt_n 2298
+       turn 25: took 14.21 s, cache_n 68541, prompt_n 2564
+       turn 26: took 15.49 s, cache_n 71108, prompt_n 2861
+       turn 27: took 15.17 s, cache_n 73972, prompt_n 2669
+       turn 28: took 13.76 s, cache_n 76644, prompt_n 2320
+       turn 29: took 15.47 s, cache_n 78967, prompt_n 2659
+       turn 30: took 14.73 s, cache_n 81629, prompt_n 2540
+       J10: turn 20's prompt again: took 46.53 s, cache_n 47862, prompt_n 10846
+       turn 31: took 15.6 s, cache_n 84175, prompt_n 2360
+       turn 32: took 15.39 s, cache_n 86530, prompt_n 2389
+       turn 33: took 16.86 s, cache_n 88914, prompt_n 2732
+       turn 34 (E9: turn 25's tool result cleared): took 108.38 s, cache_n 63694, prompt_n 28003
+       turn 35: took 18.74 s, cache_n 91692, prompt_n 2846
+       turn 36: took 15.66 s, cache_n 94542, prompt_n 2438
+       N: the two planted codes: took 22.91 s, cache_n 96983, prompt_n 2451
+   wrote /home/user/projects/strata/p100-results/prompt-cache-spread/spread.json
+  [gpu spread] 0, 150.00 W, 51.23 W, 1316 MHz, 73, 0x0000000000000000
+  [gpu spread] 1, 150.00 W, 49.54 W, 1189 MHz, 77, 0x0000000000000000
+== 16:03:08 base2: starting
+   loaded in 155 s
+  [gpu base2] 0, 150.00 W, 36.98 W, 1189 MHz, 55, 0x0000000000000000
+  [gpu base2] 1, 150.00 W, 40.82 W, 1189 MHz, 60, 0x0000000000000000
+       turn 1: took 32.23 s, cache_n 0, prompt_n 9807
+       turn 2: took 11.96 s, cache_n 9802, prompt_n 2396
+       turn 3: took 13.3 s, cache_n 12193, prompt_n 2739
+       turn 4: took 11.38 s, cache_n 14937, prompt_n 2238
+       turn 5: took 11.83 s, cache_n 17179, prompt_n 2378
+       turn 6: took 11.31 s, cache_n 19561, prompt_n 2171
+       turn 7: took 13.89 s, cache_n 21736, prompt_n 3009
+       turn 8: took 13.53 s, cache_n 24740, prompt_n 2568
+       turn 9: took 11.36 s, cache_n 27312, prompt_n 2162
+       turn 10: took 13.99 s, cache_n 29478, prompt_n 2953
+       turn 11: took 12.48 s, cache_n 32436, prompt_n 2459
+       turn 12: took 14.36 s, cache_n 34890, prompt_n 2763
+       turn 13: took 13.86 s, cache_n 37656, prompt_n 2871
+       turn 14: took 13.24 s, cache_n 40522, prompt_n 2410
+       turn 15: took 12.75 s, cache_n 42935, prompt_n 2453
+       turn 16: took 12.9 s, cache_n 45391, prompt_n 2468
+       J4: turn 12's prompt again: took 1.37 s, cache_n 37648, prompt_n 5
+       turn 17: took 14.09 s, cache_n 47862, prompt_n 2641
+       turn 18: took 14.26 s, cache_n 50506, prompt_n 2796
+       turn 19: took 13.42 s, cache_n 53305, prompt_n 2508
+       turn 20: took 15.07 s, cache_n 55816, prompt_n 2892
+       turn 21: took 13.14 s, cache_n 58714, prompt_n 2317
+       turn 22: took 15.01 s, cache_n 61034, prompt_n 2665
+       J6: turn 16's prompt again: took 41.86 s, cache_n 37656, prompt_n 10203
+       turn 23: took 15.19 s, cache_n 63702, prompt_n 2535
+       turn 24: took 13.64 s, cache_n 66240, prompt_n 2298
+       turn 25: took 14.64 s, cache_n 68541, prompt_n 2564
+       turn 26: took 16.01 s, cache_n 71108, prompt_n 2861
+       turn 27: took 15.09 s, cache_n 73972, prompt_n 2669
+       turn 28: took 14.38 s, cache_n 76644, prompt_n 2320
+       turn 29: took 15.03 s, cache_n 78967, prompt_n 2659
+       turn 30: took 14.6 s, cache_n 81629, prompt_n 2540
+       J10: turn 20's prompt again: took 47.79 s, cache_n 47862, prompt_n 10846
+       turn 31: took 15.42 s, cache_n 84172, prompt_n 2363
+       turn 32: took 15.21 s, cache_n 86530, prompt_n 2389
+       turn 33: took 15.73 s, cache_n 88922, prompt_n 2724
+       turn 34 (E9: turn 25's tool result cleared): took 132.06 s, cache_n 58714, prompt_n 32983
+       turn 35: took 18.54 s, cache_n 91701, prompt_n 2837
+       turn 36: took 15.86 s, cache_n 94541, prompt_n 2439
+       N: the two planted codes: took 23.68 s, cache_n 96975, prompt_n 2459
+   wrote /home/user/projects/strata/p100-results/prompt-cache-spread/base2.json
+  [gpu base2] 0, 150.00 W, 55.33 W, 1328 MHz, 74, 0x0000000000000000
+  [gpu base2] 1, 150.00 W, 53.88 W, 1290 MHz, 78, 0x0000000000000000
+== 16:18:32 starting the service again
+   service loaded in 154 s
+  [gpu after] 0, 150.00 W, 37.71 W, 1189 MHz, 57, 0x0000000000000000
+  [gpu after] 1, 150.00 W, 41.54 W, 1189 MHz, 62, 0x0000000000000000
+| request | prompt tokens | base: reused / read, s | spread: reused / read, s | base2: reused / read, s |
+|---|---|---|---|---|
+| turn 1 | 9,807 | 0 / 9,807, 31.5 | 0 / 9,807, 32.0 | 0 / 9,807, 32.0 |
+| turn 2 | 12,198 | 9,802 / 2,396, 11.6 | 9,802 / 2,396, 11.7 | 9,802 / 2,396, 11.8 |
+| turn 3 | 14,932 | 12,193 / 2,739, 12.8 | 12,193 / 2,739, 13.1 | 12,193 / 2,739, 13.1 |
+| turn 4 | 17,175 | 14,936 / 2,239, 11.1 | 14,936 / 2,239, 11.2 | 14,937 / 2,238, 11.2 |
+| turn 5 | 19,557 | 17,179 / 2,378, 11.5 | 17,179 / 2,378, 11.6 | 17,179 / 2,378, 11.7 |
+| turn 6 | 21,732 | 19,561 / 2,171, 11.1 | 19,561 / 2,171, 11.1 | 19,561 / 2,171, 11.1 |
+| turn 7 | 24,745 | 21,736 / 3,009, 13.5 | 21,736 / 3,009, 13.7 | 21,736 / 3,009, 13.7 |
+| turn 8 | 27,308 | 24,740 / 2,568, 13.2 | 24,740 / 2,568, 13.4 | 24,740 / 2,568, 13.3 |
+| turn 9 | 29,474 | 27,314 / 2,160, 11.1 | 27,314 / 2,160, 11.2 | 27,312 / 2,162, 11.2 |
+| turn 10 | 32,431 | 29,480 / 2,951, 13.6 | 29,480 / 2,951, 13.8 | 29,478 / 2,953, 13.8 |
+| turn 11 | 34,895 | 32,437 / 2,458, 12.1 | 32,437 / 2,458, 12.2 | 32,436 / 2,459, 12.3 |
+| turn 12 | 37,653 | 34,890 / 2,763, 14.0 | 34,890 / 2,763, 14.1 | 34,890 / 2,763, 14.2 |
+| turn 13 | 40,527 | 37,657 / 2,870, 13.4 | 37,657 / 2,870, 13.9 | 37,656 / 2,871, 13.7 |
+| turn 14 | 42,932 | 40,522 / 2,410, 13.0 | 40,522 / 2,410, 13.4 | 40,522 / 2,410, 13.1 |
+| turn 15 | 45,388 | 42,935 / 2,453, 12.3 | 42,935 / 2,453, 12.5 | 42,935 / 2,453, 12.6 |
+| turn 16 | 47,859 | 45,391 / 2,468, 12.3 | 45,391 / 2,468, 12.9 | 45,391 / 2,468, 12.8 |
+| J4: turn 12's prompt again | 37,653 | 37,648 / 5, 1.2 | 37,648 / 5, 1.2 | 37,648 / 5, 1.2 |
+| turn 17 | 50,503 | 47,862 / 2,641, 13.6 | 47,862 / 2,641, 14.2 | 47,862 / 2,641, 13.9 |
+| turn 18 | 53,302 | 50,506 / 2,796, 13.5 | 50,506 / 2,796, 14.6 | 50,506 / 2,796, 14.1 |
+| turn 19 | 55,813 | 53,305 / 2,508, 12.6 | 53,305 / 2,508, 13.2 | 53,305 / 2,508, 13.3 |
+| turn 20 | 58,708 | 55,816 / 2,892, 13.8 | 55,816 / 2,892, 15.0 | 55,816 / 2,892, 14.9 |
+| turn 21 | 61,031 | 58,714 / 2,317, 12.1 | 58,714 / 2,317, 13.0 | 58,714 / 2,317, 13.0 |
+| turn 22 | 63,699 | 61,034 / 2,665, 13.2 | 61,034 / 2,665, 14.4 | 61,034 / 2,665, 14.9 |
+| J6: turn 16's prompt again | 47,859 | 37,657 / 10,202, 36.1 | 45,383 / 2,476, 14.1 | 37,656 / 10,203, 41.7 |
+| turn 23 | 66,237 | 63,702 / 2,535, 13.6 | 63,702 / 2,535, 15.3 | 63,702 / 2,535, 15.0 |
+| turn 24 | 68,538 | 66,241 / 2,297, 12.4 | 66,240 / 2,298, 13.0 | 66,240 / 2,298, 13.5 |
+| turn 25 | 71,105 | 68,541 / 2,564, 13.2 | 68,541 / 2,564, 14.0 | 68,541 / 2,564, 14.5 |
+| turn 26 | 73,969 | 71,109 / 2,860, 14.4 | 71,108 / 2,861, 15.3 | 71,108 / 2,861, 15.8 |
+| turn 27 | 76,641 | 73,972 / 2,669, 13.8 | 73,972 / 2,669, 15.0 | 73,972 / 2,669, 14.9 |
+| turn 28 | 78,964 | 76,644 / 2,320, 13.2 | 76,644 / 2,320, 13.6 | 76,644 / 2,320, 14.2 |
+| turn 29 | 81,626 | 78,970 / 2,656, 14.0 | 78,967 / 2,659, 15.3 | 78,967 / 2,659, 14.9 |
+| turn 30 | 84,169 | 81,621 / 2,548, 14.5 | 81,629 / 2,540, 14.5 | 81,629 / 2,540, 14.5 |
+| J10: turn 20's prompt again | 58,708 | 47,862 / 10,846, 42.4 | 47,862 / 10,846, 46.3 | 47,862 / 10,846, 47.6 |
+| turn 31 | 86,535 | 84,173 / 2,362, 15.0 | 84,175 / 2,360, 15.4 | 84,172 / 2,363, 15.2 |
+| turn 32 | 88,919 | 86,530 / 2,389, 14.2 | 86,530 / 2,389, 15.2 | 86,530 / 2,389, 15.0 |
+| turn 33 | 91,646 | 88,914 / 2,732, 16.3 | 88,914 / 2,732, 16.7 | 88,922 / 2,724, 15.5 |
+| turn 34 (E9: turn 25's tool result cleared) | 91,697 | 58,714 / 32,983, 123.6 | 63,694 / 28,003, 108.2 | 58,714 / 32,983, 131.9 |
+| turn 35 | 94,538 | 91,701 / 2,837, 18.2 | 91,692 / 2,846, 18.6 | 91,701 / 2,837, 18.4 |
+| turn 36 | 96,980 | 94,541 / 2,439, 15.4 | 94,542 / 2,438, 15.5 | 94,541 / 2,439, 15.6 |
+| N: the two planted codes | 99,434 | 96,983 / 2,451, 15.1 | 96,983 / 2,451, 15.0 | 96,975 / 2,459, 16.8 |
+| **all requests** | | **153,354 read, 704 s** | **140,651 read, 688 s** | **153,358 read, 742 s** |
+
+base: codes ['CDV3J3', 'A9YPVF'] in the answer [True, True], answer 'CDV3J3, A9YPVF'
+spread: codes ['CDV3J3', 'A9YPVF'] in the answer [True, True], answer 'CDV3J3, A9YPVF'
+base2: codes ['CDV3J3', 'A9YPVF'] in the answer [True, True], answer 'CDV3J3, A9YPVF'
+base vs spread: largest logprob difference over the 4-token replies 0.386694; replies with other tokens: ['turn 29', 'turn 32', "turn 34 (E9: turn 25's tool result cleared)"]
+base vs base2: largest logprob difference over the 4-token replies 0.601787; replies with other tokens: ['turn 7', 'turn 11', 'turn 29', 'turn 32', 'turn 36']

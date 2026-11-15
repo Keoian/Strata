@@ -1,0 +1,4 @@
+build-p100/strata: 1011704 VMAD, 0 aliased-input VMAD
+total aliased-input VMAD: 0
+../strata-dp4a-check/build/strata: 1011704 VMAD, 0 aliased-input VMAD
+total aliased-input VMAD: 0

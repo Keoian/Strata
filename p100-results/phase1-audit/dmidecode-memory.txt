@@ -1,0 +1,456 @@
+# dmidecode 3.6
+Getting SMBIOS data from sysfs.
+SMBIOS 3.0.0 present.
+
+Handle 0x0059, DMI type 16, 23 bytes
+Physical Memory Array
+	Location: System Board Or Motherboard
+	Use: System Memory
+	Error Correction Type: Multi-bit ECC
+	Maximum Capacity: 384 GB
+	Error Information Handle: Not Provided
+	Number Of Devices: 6
+
+Handle 0x005B, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x0059
+	Error Information Handle: Not Provided
+	Total Width: 72 bits
+	Data Width: 72 bits
+	Size: 16 GB
+	Form Factor: DIMM
+	Set: None
+	Locator: DIMM_A1
+	Bank Locator: NODE 1
+	Type: DDR3
+	Type Detail: Synchronous
+	Speed: 1600 MT/s
+	Manufacturer: Samsung
+	Serial Number: [removed]
+	Asset Tag: [removed]
+	Part Number: M393B2G70BH0-YK0  
+	Rank: 2
+	Configured Memory Speed: 1600 MT/s
+	Minimum Voltage: Unknown
+	Maximum Voltage: Unknown
+	Configured Voltage: Unknown
+
+Handle 0x005D, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x0059
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: Unknown
+	Set: None
+	Locator: NO DIMM
+	Bank Locator: NO DIMM
+	Type: Unknown
+	Type Detail: Unknown
+
+Handle 0x005E, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x0059
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: Unknown
+	Set: None
+	Locator: NO DIMM
+	Bank Locator: NO DIMM
+	Type: Unknown
+	Type Detail: Unknown
+
+Handle 0x005F, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x0059
+	Error Information Handle: Not Provided
+	Total Width: 72 bits
+	Data Width: 72 bits
+	Size: 16 GB
+	Form Factor: DIMM
+	Set: None
+	Locator: DIMM_B1
+	Bank Locator: NODE 1
+	Type: DDR3
+	Type Detail: Synchronous
+	Speed: 1600 MT/s
+	Manufacturer: Samsung
+	Serial Number: [removed]
+	Asset Tag: [removed]
+	Part Number: M393B2G70QH0-YK0  
+	Rank: 2
+	Configured Memory Speed: 1600 MT/s
+	Minimum Voltage: Unknown
+	Maximum Voltage: Unknown
+	Configured Voltage: Unknown
+
+Handle 0x0061, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x0059
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: Unknown
+	Set: None
+	Locator: NO DIMM
+	Bank Locator: NO DIMM
+	Type: Unknown
+	Type Detail: Unknown
+
+Handle 0x0062, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x0059
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: Unknown
+	Set: None
+	Locator: NO DIMM
+	Bank Locator: NO DIMM
+	Type: Unknown
+	Type Detail: Unknown
+
+Handle 0x0063, DMI type 16, 23 bytes
+Physical Memory Array
+	Location: System Board Or Motherboard
+	Use: System Memory
+	Error Correction Type: Multi-bit ECC
+	Maximum Capacity: 384 GB
+	Error Information Handle: Not Provided
+	Number Of Devices: 6
+
+Handle 0x0065, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x0063
+	Error Information Handle: Not Provided
+	Total Width: 72 bits
+	Data Width: 72 bits
+	Size: 16 GB
+	Form Factor: DIMM
+	Set: None
+	Locator: DIMM_C1
+	Bank Locator: NODE 2
+	Type: DDR3
+	Type Detail: Synchronous
+	Speed: 1600 MT/s
+	Manufacturer: Samsung
+	Serial Number: [removed]
+	Asset Tag: [removed]
+	Part Number: M393B2G70QH0-YK0  
+	Rank: 2
+	Configured Memory Speed: 1600 MT/s
+	Minimum Voltage: Unknown
+	Maximum Voltage: Unknown
+	Configured Voltage: Unknown
+
+Handle 0x0067, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x0063
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: Unknown
+	Set: None
+	Locator: NO DIMM
+	Bank Locator: NO DIMM
+	Type: Unknown
+	Type Detail: Unknown
+
+Handle 0x0068, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x0063
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: Unknown
+	Set: None
+	Locator: NO DIMM
+	Bank Locator: NO DIMM
+	Type: Unknown
+	Type Detail: Unknown
+
+Handle 0x0069, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x0063
+	Error Information Handle: Not Provided
+	Total Width: 72 bits
+	Data Width: 72 bits
+	Size: 16 GB
+	Form Factor: DIMM
+	Set: None
+	Locator: DIMM_D1
+	Bank Locator: NODE 2
+	Type: DDR3
+	Type Detail: Synchronous
+	Speed: 1600 MT/s
+	Manufacturer: Samsung
+	Serial Number: [removed]
+	Asset Tag: [removed]
+	Part Number: M393B2G70QH0-YK0  
+	Rank: 2
+	Configured Memory Speed: 1600 MT/s
+	Minimum Voltage: Unknown
+	Maximum Voltage: Unknown
+	Configured Voltage: Unknown
+
+Handle 0x006B, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x0063
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: Unknown
+	Set: None
+	Locator: NO DIMM
+	Bank Locator: NO DIMM
+	Type: Unknown
+	Type Detail: Unknown
+
+Handle 0x006C, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x0063
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: Unknown
+	Set: None
+	Locator: NO DIMM
+	Bank Locator: NO DIMM
+	Type: Unknown
+	Type Detail: Unknown
+
+Handle 0x006D, DMI type 16, 23 bytes
+Physical Memory Array
+	Location: System Board Or Motherboard
+	Use: System Memory
+	Error Correction Type: Multi-bit ECC
+	Maximum Capacity: 384 GB
+	Error Information Handle: Not Provided
+	Number Of Devices: 6
+
+Handle 0x006F, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x006D
+	Error Information Handle: Not Provided
+	Total Width: 72 bits
+	Data Width: 72 bits
+	Size: 16 GB
+	Form Factor: DIMM
+	Set: None
+	Locator: DIMM_E1
+	Bank Locator: NODE 3
+	Type: DDR3
+	Type Detail: Synchronous
+	Speed: 1600 MT/s
+	Manufacturer: Samsung
+	Serial Number: [removed]
+	Asset Tag: [removed]
+	Part Number: M393B2G70QH0-YK0  
+	Rank: 2
+	Configured Memory Speed: 1600 MT/s
+	Minimum Voltage: Unknown
+	Maximum Voltage: Unknown
+	Configured Voltage: Unknown
+
+Handle 0x0071, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x006D
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: Unknown
+	Set: None
+	Locator: NO DIMM
+	Bank Locator: NO DIMM
+	Type: Unknown
+	Type Detail: Unknown
+
+Handle 0x0072, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x006D
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: Unknown
+	Set: None
+	Locator: NO DIMM
+	Bank Locator: NO DIMM
+	Type: Unknown
+	Type Detail: Unknown
+
+Handle 0x0073, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x006D
+	Error Information Handle: Not Provided
+	Total Width: 72 bits
+	Data Width: 72 bits
+	Size: 16 GB
+	Form Factor: DIMM
+	Set: None
+	Locator: DIMM_F1
+	Bank Locator: NODE 3
+	Type: DDR3
+	Type Detail: Synchronous
+	Speed: 1600 MT/s
+	Manufacturer: Samsung
+	Serial Number: [removed]
+	Asset Tag: [removed]
+	Part Number: M393B2G70BH0-YK0  
+	Rank: 2
+	Configured Memory Speed: 1600 MT/s
+	Minimum Voltage: Unknown
+	Maximum Voltage: Unknown
+	Configured Voltage: Unknown
+
+Handle 0x0075, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x006D
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: Unknown
+	Set: None
+	Locator: NO DIMM
+	Bank Locator: NO DIMM
+	Type: Unknown
+	Type Detail: Unknown
+
+Handle 0x0076, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x006D
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: Unknown
+	Set: None
+	Locator: NO DIMM
+	Bank Locator: NO DIMM
+	Type: Unknown
+	Type Detail: Unknown
+
+Handle 0x0077, DMI type 16, 23 bytes
+Physical Memory Array
+	Location: System Board Or Motherboard
+	Use: System Memory
+	Error Correction Type: Multi-bit ECC
+	Maximum Capacity: 384 GB
+	Error Information Handle: Not Provided
+	Number Of Devices: 6
+
+Handle 0x0079, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x0077
+	Error Information Handle: Not Provided
+	Total Width: 72 bits
+	Data Width: 72 bits
+	Size: 16 GB
+	Form Factor: DIMM
+	Set: None
+	Locator: DIMM_G1
+	Bank Locator: NODE 4
+	Type: DDR3
+	Type Detail: Synchronous
+	Speed: 1600 MT/s
+	Manufacturer: Samsung
+	Serial Number: [removed]
+	Asset Tag: [removed]
+	Part Number: M393B2G70BH0-YK0  
+	Rank: 2
+	Configured Memory Speed: 1600 MT/s
+	Minimum Voltage: Unknown
+	Maximum Voltage: Unknown
+	Configured Voltage: Unknown
+
+Handle 0x007B, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x0077
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: Unknown
+	Set: None
+	Locator: NO DIMM
+	Bank Locator: NO DIMM
+	Type: Unknown
+	Type Detail: Unknown
+
+Handle 0x007C, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x0077
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: Unknown
+	Set: None
+	Locator: NO DIMM
+	Bank Locator: NO DIMM
+	Type: Unknown
+	Type Detail: Unknown
+
+Handle 0x007D, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x0077
+	Error Information Handle: Not Provided
+	Total Width: 72 bits
+	Data Width: 72 bits
+	Size: 16 GB
+	Form Factor: DIMM
+	Set: None
+	Locator: DIMM_H1
+	Bank Locator: NODE 4
+	Type: DDR3
+	Type Detail: Synchronous
+	Speed: 1600 MT/s
+	Manufacturer: Samsung
+	Serial Number: [removed]
+	Asset Tag: [removed]
+	Part Number: M393B2G70BH0-YK0  
+	Rank: 2
+	Configured Memory Speed: 1600 MT/s
+	Minimum Voltage: Unknown
+	Maximum Voltage: Unknown
+	Configured Voltage: Unknown
+
+Handle 0x007F, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x0077
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: Unknown
+	Set: None
+	Locator: NO DIMM
+	Bank Locator: NO DIMM
+	Type: Unknown
+	Type Detail: Unknown
+
+Handle 0x0080, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x0077
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: Unknown
+	Set: None
+	Locator: NO DIMM
+	Bank Locator: NO DIMM
+	Type: Unknown
+	Type Detail: Unknown
+

@@ -1,0 +1,115 @@
+### calibrate 12:35:53
+  "workers": {
+   "32": [
+    54.39632824784327,
+    50.02540352522765
+   ],
+   "21": [
+    52.997681351440875,
+    49.731913901624054
+   ],
+   "16": [
+    51.912235876221764,
+    49.36557522465193
+   ],
+   "8": [
+    43.2125856655751,
+    42.8380187416332
+   ],
+   "17": [
+    50.84207181442644,
+    51.00414408670705
+   ]
+  },
+  "adapt": {
+   "default": [
+    53.741599247849756,
+    53.253280885177645
+   ],
+   "1/80/0.97": [
+    53.194032705364826,
+    54.95356959792107
+   ],
+   "1/160/0.97": [
+    53.07042124646864,
+    52.47733933074355
+   ]
+  },
+  "seconds": 2748,
+  "tok_s": 53.5
+ }
+}
+### round 4 13:21:48
+=== exp-c24-prof
+strata decode timing: 153 windows, avg T 3.82, 3.35 tokens/window, 54.51 ms/window = adapt wait 0.03 + verify 48.66 (GPU-reach wait 14.40 + per-layer host 10.42 [plan 0.25 actq 0.58 jobs 0.09 CPU 14.47] + stage 2.23) + commit/emit 0.71 + draft 5.09 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 7.63 (9.25 entries), VRAM hits 28.92, PCIe 0.00; 23.8 swaps/window
+strata serve: prompt 42 tokens = 0 reused + 42 read in 718 ms (58.5 tok/s), 512 generated in 8341 ms (61.4 tok/s), drafts accepted 361 of 431, 1 checkpoints
+strata decode timing: 258 windows, avg T 2.80, 1.98 tokens/window, 45.45 ms/window = adapt wait 0.03 + verify 40.72 (GPU-reach wait 13.45 + per-layer host 7.37 [plan 0.18 actq 0.40 jobs 0.06 CPU 9.12] + stage 2.08) + commit/emit 0.55 + draft 4.13 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 4.60 (5.79 entries), VRAM hits 22.23, PCIe 0.00; 20.6 swaps/window
+strata serve: prompt 32 tokens = 0 reused + 32 read in 790 ms (40.5 tok/s), 512 generated in 11726 ms (43.7 tok/s), drafts accepted 255 of 465, 1 checkpoints
+strata generate: expert cache 3736 slots, 9.68 GiB of VRAM; policy is
+strata generate: layer split: CUDA1 runs layers 24-47, expert cache 2915 slots (7.51 GiB), 2915 of its 12288 profiled pairs; slot 0 verified
+strata generate: layer split: CUDA0 runs layers 0-23
+=== exp-c24-guswiglu
+strata decode timing: 152 windows, avg T 3.84, 3.37 tokens/window, 54.22 ms/window = adapt wait 0.03 + verify 48.13 (GPU-reach wait 14.06 + per-layer host 9.72 [plan 0.26 actq 0.60 jobs 0.10 CPU 16.11] + stage 0.16) + commit/emit 0.78 + draft 5.26 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 8.51 (10.65 entries), VRAM hits 27.71, PCIe 0.00; 24.0 swaps/window
+strata serve: prompt 42 tokens = 0 reused + 42 read in 815 ms (51.5 tok/s), 512 generated in 8242 ms (62.1 tok/s), drafts accepted 362 of 431, 1 checkpoints
+strata decode timing: 262 windows, avg T 2.81, 1.95 tokens/window, 43.61 ms/window = adapt wait 0.03 + verify 38.88 (GPU-reach wait 13.35 + per-layer host 5.79 [plan 0.17 actq 0.42 jobs 0.06 CPU 9.54] + stage 0.13) + commit/emit 0.56 + draft 4.12 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 4.77 (6.05 entries), VRAM hits 22.01, PCIe 0.00; 22.3 swaps/window
+strata serve: prompt 32 tokens = 0 reused + 32 read in 753 ms (42.5 tok/s), 512 generated in 11425 ms (44.8 tok/s), drafts accepted 251 of 473, 1 checkpoints
+strata generate: expert cache 3733 slots, 9.68 GiB of VRAM; policy is
+strata generate: layer split: CUDA1 runs layers 24-47, expert cache 2915 slots (7.51 GiB), 2915 of its 12288 profiled pairs; slot 0 verified
+strata generate: layer split: CUDA0 runs layers 0-23
+=== exp-c24-qsarows
+strata decode timing: 152 windows, avg T 3.84, 3.37 tokens/window, 54.36 ms/window = adapt wait 0.03 + verify 48.46 (GPU-reach wait 14.09 + per-layer host 10.60 [plan 0.25 actq 0.57 jobs 0.09 CPU 14.83] + stage 2.03) + commit/emit 0.72 + draft 5.11 + adapt join 0.00 + other 0.03; per layer-window: CPU experts 8.51 (10.65 entries), VRAM hits 27.71, PCIe 0.00; 24.0 swaps/window
+strata serve: prompt 42 tokens = 0 reused + 42 read in 713 ms (58.9 tok/s), 512 generated in 8262 ms (62.0 tok/s), drafts accepted 362 of 431, 1 checkpoints
+strata decode timing: 268 windows, avg T 2.80, 1.91 tokens/window, 44.17 ms/window = adapt wait 0.03 + verify 39.44 (GPU-reach wait 13.49 + per-layer host 6.29 [plan 0.18 actq 0.38 jobs 0.06 CPU 8.50] + stage 1.39) + commit/emit 0.57 + draft 4.10 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 4.63 (5.86 entries), VRAM hits 22.16, PCIe 0.00; 21.5 swaps/window
+strata serve: prompt 32 tokens = 0 reused + 32 read in 795 ms (40.2 tok/s), 512 generated in 11837 ms (43.3 tok/s), drafts accepted 244 of 483, 1 checkpoints
+strata generate: expert cache 3733 slots, 9.68 GiB of VRAM; policy is
+strata generate: layer split: CUDA1 runs layers 24-47, expert cache 2915 slots (7.51 GiB), 2915 of its 12288 profiled pairs; slot 0 verified
+strata generate: layer split: CUDA0 runs layers 0-23
+=== exp-c24-attndaily
+strata decode timing: 152 windows, avg T 3.84, 3.37 tokens/window, 54.23 ms/window = adapt wait 0.03 + verify 48.51 (GPU-reach wait 13.82 + per-layer host 10.16 [plan 0.28 actq 0.60 jobs 0.10 CPU 17.30] + stage 0.17) + commit/emit 0.71 + draft 4.96 + adapt join 0.00 + other 0.03; per layer-window: CPU experts 8.51 (10.65 entries), VRAM hits 27.71, PCIe 0.00; 24.0 swaps/window
+strata serve: prompt 42 tokens = 0 reused + 42 read in 688 ms (61.1 tok/s), 512 generated in 8244 ms (62.1 tok/s), drafts accepted 362 of 431, 1 checkpoints
+strata decode timing: 268 windows, avg T 2.80, 1.91 tokens/window, 43.82 ms/window = adapt wait 0.03 + verify 39.22 (GPU-reach wait 13.30 + per-layer host 5.99 [plan 0.20 actq 0.40 jobs 0.06 CPU 9.93] + stage 0.13) + commit/emit 0.56 + draft 3.98 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 4.63 (5.86 entries), VRAM hits 22.16, PCIe 0.00; 21.5 swaps/window
+strata serve: prompt 32 tokens = 0 reused + 32 read in 784 ms (40.8 tok/s), 512 generated in 11744 ms (43.6 tok/s), drafts accepted 244 of 483, 1 checkpoints
+strata generate: expert cache 3733 slots, 9.68 GiB of VRAM; policy is
+strata generate: layer split: CUDA1 runs layers 24-47, expert cache 2915 slots (7.51 GiB), 2915 of its 12288 profiled pairs; slot 0 verified
+strata generate: layer split: CUDA0 runs layers 0-23
+=== exp-c24-tsumpfs
+strata decode timing: 154 windows, avg T 3.82, 3.32 tokens/window, 55.27 ms/window = adapt wait 0.03 + verify 49.39 (GPU-reach wait 13.39 + per-layer host 11.69 [plan 0.26 actq 0.66 jobs 0.09 CPU 19.00] + stage 0.24) + commit/emit 0.72 + draft 5.09 + adapt join 0.00 + other 0.03; per layer-window: CPU experts 8.44 (10.58 entries), VRAM hits 27.67, PCIe 0.00; 23.7 swaps/window
+strata serve: prompt 42 tokens = 0 reused + 42 read in 718 ms (58.5 tok/s), 512 generated in 8512 ms (60.2 tok/s), drafts accepted 360 of 435, 1 checkpoints
+strata decode timing: 258 windows, avg T 2.83, 1.98 tokens/window, 44.63 ms/window = adapt wait 0.03 + verify 39.87 (GPU-reach wait 13.15 + per-layer host 6.76 [plan 0.17 actq 0.45 jobs 0.06 CPU 10.37] + stage 0.57) + commit/emit 0.57 + draft 4.14 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 4.41 (5.61 entries), VRAM hits 22.69, PCIe 0.00; 21.4 swaps/window
+strata serve: prompt 32 tokens = 0 reused + 32 read in 784 ms (40.8 tok/s), 512 generated in 11515 ms (44.5 tok/s), drafts accepted 256 of 472, 1 checkpoints
+strata generate: expert cache 3733 slots, 9.68 GiB of VRAM; policy is
+strata generate: layer split: CUDA1 runs layers 24-47, expert cache 2915 slots (7.51 GiB), 2915 of its 12288 profiled pairs; slot 0 verified
+strata generate: layer split: CUDA0 runs layers 0-23
+=== exp-c24-grv3
+strata decode timing: 152 windows, avg T 3.84, 3.37 tokens/window, 53.48 ms/window = adapt wait 0.03 + verify 47.65 (GPU-reach wait 13.95 + per-layer host 9.85 [plan 0.24 actq 0.61 jobs 0.12 CPU 16.25] + stage 0.15) + commit/emit 0.68 + draft 5.11 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 8.51 (10.65 entries), VRAM hits 27.71, PCIe 0.00; 24.0 swaps/window
+strata serve: prompt 42 tokens = 0 reused + 42 read in 680 ms (61.8 tok/s), 512 generated in 8129 ms (63.0 tok/s), drafts accepted 362 of 431, 1 checkpoints
+strata decode timing: 262 windows, avg T 2.81, 1.95 tokens/window, 43.60 ms/window = adapt wait 0.03 + verify 38.86 (GPU-reach wait 13.26 + per-layer host 5.92 [plan 0.17 actq 0.42 jobs 0.08 CPU 9.62] + stage 0.17) + commit/emit 0.56 + draft 4.12 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 4.77 (6.05 entries), VRAM hits 22.01, PCIe 0.00; 22.3 swaps/window
+strata serve: prompt 32 tokens = 0 reused + 32 read in 765 ms (41.8 tok/s), 512 generated in 11422 ms (44.8 tok/s), drafts accepted 251 of 473, 1 checkpoints
+strata generate: expert cache 3733 slots, 9.68 GiB of VRAM; policy is
+strata generate: layer split: CUDA1 runs layers 24-47, expert cache 2915 slots (7.51 GiB), 2915 of its 12288 profiled pairs; slot 0 verified
+strata generate: layer split: CUDA0 runs layers 0-23
+=== exp-c24-speccost
+strata decode timing: 189 windows, avg T 2.98, 2.71 tokens/window, 44.76 ms/window = adapt wait 0.03 + verify 40.49 (GPU-reach wait 12.65 + per-layer host 7.22 [plan 0.19 actq 0.40 jobs 0.08 CPU 12.44] + stage 0.12) + commit/emit 0.69 + draft 3.54 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 6.39 (7.70 entries), VRAM hits 22.15, PCIe 0.00; 23.9 swaps/window
+strata serve: prompt 42 tokens = 0 reused + 42 read in 662 ms (63.5 tok/s), 512 generated in 8461 ms (60.5 tok/s), drafts accepted 325 of 375, 1 checkpoints
+strata decode timing: 283 windows, avg T 2.29, 1.81 tokens/window, 38.02 ms/window = adapt wait 0.03 + verify 34.59 (GPU-reach wait 12.23 + per-layer host 4.61 [plan 0.14 actq 0.28 jobs 0.05 CPU 7.94] + stage 0.10) + commit/emit 0.57 + draft 2.81 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 3.96 (4.81 entries), VRAM hits 18.06, PCIe 0.00; 19.7 swaps/window
+strata serve: prompt 32 tokens = 0 reused + 32 read in 734 ms (43.6 tok/s), 512 generated in 10759 ms (47.6 tok/s), drafts accepted 230 of 364, 1 checkpoints
+strata generate: expert cache 3733 slots, 9.68 GiB of VRAM; policy is
+strata generate: layer split: CUDA1 runs layers 24-47, expert cache 2915 slots (7.51 GiB), 2915 of its 12288 profiled pairs; slot 0 verified
+strata generate: layer split: CUDA0 runs layers 0-23
+=== exp-c24-spec3
+strata decode timing: 193 windows, avg T 2.90, 2.65 tokens/window, 42.99 ms/window = adapt wait 0.03 + verify 38.84 (GPU-reach wait 12.68 + per-layer host 6.26 [plan 0.18 actq 0.40 jobs 0.08 CPU 11.12] + stage 0.12) + commit/emit 0.65 + draft 3.45 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 6.24 (7.43 entries), VRAM hits 21.58, PCIe 0.00; 23.7 swaps/window
+strata serve: prompt 42 tokens = 0 reused + 42 read in 679 ms (61.9 tok/s), 512 generated in 8297 ms (61.7 tok/s), drafts accepted 319 of 367, 1 checkpoints
+strata decode timing: 277 windows, avg T 2.43, 1.85 tokens/window, 39.73 ms/window = adapt wait 0.03 + verify 35.91 (GPU-reach wait 12.72 + per-layer host 4.62 [plan 0.15 actq 0.31 jobs 0.05 CPU 8.23] + stage 0.10) + commit/emit 0.59 + draft 3.18 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 4.20 (5.14 entries), VRAM hits 19.19, PCIe 0.00; 20.8 swaps/window
+strata serve: prompt 32 tokens = 0 reused + 32 read in 768 ms (41.7 tok/s), 512 generated in 11006 ms (46.5 tok/s), drafts accepted 235 of 397, 1 checkpoints
+strata generate: expert cache 3733 slots, 9.68 GiB of VRAM; policy is
+strata generate: layer split: CUDA1 runs layers 24-47, expert cache 2916 slots (7.51 GiB), 2916 of its 12288 profiled pairs; slot 0 verified
+strata generate: layer split: CUDA0 runs layers 0-23
+=== exp-c24-spec5
+strata decode timing: 133 windows, avg T 4.71, 3.85 tokens/window, 62.57 ms/window = adapt wait 0.03 + verify 55.18 (GPU-reach wait 16.21 + per-layer host 10.90 [plan 0.30 actq 0.68 jobs 0.11 CPU 18.35] + stage 0.43) + commit/emit 0.70 + draft 6.63 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 10.38 (13.63 entries), VRAM hits 33.51, PCIe 0.00; 23.8 swaps/window
+strata serve: prompt 42 tokens = 0 reused + 42 read in 643 ms (65.3 tok/s), 512 generated in 8322 ms (61.5 tok/s), drafts accepted 381 of 494, 1 checkpoints
+strata decode timing: 260 windows, avg T 3.05, 1.97 tokens/window, 46.60 ms/window = adapt wait 0.03 + verify 41.32 (GPU-reach wait 14.55 + per-layer host 5.96 [plan 0.19 actq 0.41 jobs 0.06 CPU 9.04] + stage 0.74) + commit/emit 0.54 + draft 4.69 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 4.86 (6.31 entries), VRAM hits 24.19, PCIe 0.00; 21.5 swaps/window
+strata serve: prompt 32 tokens = 0 reused + 32 read in 703 ms (45.5 tok/s), 512 generated in 12116 ms (42.3 tok/s), drafts accepted 253 of 533, 1 checkpoints
+strata generate: expert cache 3733 slots, 9.68 GiB of VRAM; policy is
+strata generate: layer split: CUDA1 runs layers 24-47, expert cache 2915 slots (7.51 GiB), 2915 of its 12288 profiled pairs; slot 0 verified
+strata generate: layer split: CUDA0 runs layers 0-23
+### chain2 done 13:53:58

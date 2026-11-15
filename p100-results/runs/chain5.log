@@ -1,0 +1,8 @@
+### 256K 17:00:30
+[B1] L250k  prompt 254143 (reused 0) pp   361.8 tok/s  decode 256 tok  48.07 tok/s  accepted 166/215  finish length
+[C1] loaded in 162 s
+[C1] chat   prompt 57 (reused 0) pp    54.6 tok/s  decode 70 tok  42.29 tok/s  accepted 37/73  finish stop
+[C1] L250k  prompt 254143 (reused 0) pp   317.7 tok/s  decode 256 tok  50.78 tok/s  accepted 166/216  finish length
+L250k B: decode 48.07 pp 361.8 (n=1) | C: decode 50.78 pp 317.7 (n=1)
+chat B: decode 40.80 pp 54.0 (n=1) | C: decode 42.29 pp 54.6 (n=1)
+### chain5 done 17:31:46

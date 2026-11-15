@@ -1,0 +1,13 @@
+[60px] item WK3DEG  qty 384
+[60px] item DPCF54  qty 81
+[60px] item RF5DHQ  qty 655
+[40px] item D3DQCJ  qty 306
+[40px] item 4KHVMG  qty 605
+[40px] item NZGEDP  qty 518
+[28px] item 5W77ZV  qty 264
+[28px] item MRFV9X  qty 756
+[28px] item 6UEH4L  qty 785
+[20px] item XK94CE  qty 792
+[20px] item WXY97E  qty 870
+[20px] item FT8EDV  qty 672
+circles: {'red': 5, 'blue': 3, 'green': 7}

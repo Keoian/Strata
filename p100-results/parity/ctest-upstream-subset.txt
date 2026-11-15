@@ -1,0 +1,17 @@
+Test project /home/user/projects/strata/build-p100
+    Start   4: gguf_split_test
+1/6 Test   #4: gguf_split_test ..................   Passed    0.05 sec
+    Start  37: expert_layout_test
+2/6 Test  #37: expert_layout_test ...............   Passed    0.75 sec
+    Start  67: native_grouped_parity
+3/6 Test  #67: native_grouped_parity ............   Passed   12.22 sec
+    Start 175: iq_avx2_parity
+4/6 Test #175: iq_avx2_parity ...................   Passed    0.62 sec
+    Start 229: native_dense_parity
+5/6 Test #229: native_dense_parity ..............   Passed    6.13 sec
+    Start 272: numa_pool_test
+6/6 Test #272: numa_pool_test ...................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 6
+
+Total Test time (real) =  19.78 sec

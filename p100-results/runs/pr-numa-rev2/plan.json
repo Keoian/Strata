@@ -1,0 +1,30 @@
+{
+ "base": "p100-configs/strata-bitlamas-stock-2gpu-32k-int8.json",
+ "arms": {
+  "R": {
+   "env": {
+    "STRATA_ARENA_NUMA": "1"
+   },
+   "config": {
+    "exe": "/home/user/projects/strata-pr-numa/build-pr/strata-rev1"
+   }
+  },
+  "N": {
+   "env": {
+    "STRATA_ARENA_NUMA": "1"
+   },
+   "config": {
+    "exe": "/home/user/projects/strata-pr-numa/build-pr/strata"
+   }
+  }
+ },
+ "order": "RNNR",
+ "cases": [
+  "code",
+  "prose",
+  "L8k"
+ ],
+ "port": 8090,
+ "pre_start": "sudo -n sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'",
+ "note": "PR #5436: R = its first revision (commit 2850a55f, touch then pin), N = the new revision (PLE table half per node, pinned before the touch, room without CMA/locked memory). Stock setup config + STRATA_ARENA_NUMA=1. Cold file cache before every start."
+}

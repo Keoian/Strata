@@ -1,0 +1,140 @@
+== 21:17:39 stopping the service
+  [gpu before] 0, 150.00 W, 31.67 W, 1189 MHz, 36, 0x0000000000000000
+  [gpu before] 1, 150.00 W, 34.08 W, 1189 MHz, 40, 0x0000000000000000
+== 21:17:47 off: starting
+   loaded in 139 s
+  [gpu off] 0, 150.00 W, 31.67 W, 1189 MHz, 36, 0x0000000000000000
+  [gpu off] 1, 150.00 W, 34.30 W, 1189 MHz, 40, 0x0000000000000000
+       T1 short text (fresh engine): took 2.06 s, cache_n 0, prompt_n 23, 64 logprob rows, "Sunlight enters Earth's atmosphere and scatters in"
+       P1 the ~29K-token code prompt (fresh): took 58.63 s, cache_n 0, prompt_n 28881, 5 logprob rows, 'CDV3J3'
+       L1 ~50K-token prompt, cancelled at 6 s: cancelled at 67.83, 
+       T2 short text again (after the 6 s cancel): took 1.73 s, cache_n 16, prompt_n 7, 64 logprob rows, "Sunlight enters Earth's atmosphere and scatters in"
+       P2 the code prompt again: took 0.7 s, cache_n 28874, prompt_n 7, 5 logprob rows, 'CDV3J3'
+       L2 ~50K-token prompt, cancelled at 16 s: cancelled at 105.08, 
+       Q a new ~20K-token code prompt (after the 16 s cancel): took 45.76 s, cache_n 0, prompt_n 20195, 4 logprob rows, 'A9YPVF'
+       T3 short text again: took 2.07 s, cache_n 16, prompt_n 7, 64 logprob rows, "Sunlight enters Earth's atmosphere and scatters in"
+       G 200 tokens of code, no logprobs: took 4.19 s, cache_n 0, prompt_n 36, 0 logprob rows, '```python\ndef fibonacci(n: int) -> int:\n    """\n  '
+   wrote /tmp/scratch/exact-off.json
+  [gpu off] 0, 150.00 W, 47.12 W, 1328 MHz, 60, 0x0000000000000000
+  [gpu off] 1, 150.00 W, 52.92 W, 1328 MHz, 69, 0x0000000000000000
+== 21:23:17 both: starting
+   loaded in 149 s
+  [gpu both] 0, 150.00 W, 33.84 W, 1189 MHz, 45, 0x0000000000000000
+  [gpu both] 1, 150.00 W, 37.44 W, 1189 MHz, 51, 0x0000000000000000
+       T1 short text (fresh engine): took 2.05 s, cache_n 0, prompt_n 23, 64 logprob rows, "Sunlight enters Earth's atmosphere and scatters in"
+       P1 the ~29K-token code prompt (fresh): took 59.74 s, cache_n 0, prompt_n 28881, 5 logprob rows, 'CDV3J3'
+       L1 ~50K-token prompt, cancelled at 6 s: cancelled at 68.93, 
+       T2 short text again (after the 6 s cancel): took 1.65 s, cache_n 16, prompt_n 7, 64 logprob rows, "Sunlight enters Earth's atmosphere and scatters in"
+       P2 the code prompt again: took 0.74 s, cache_n 28874, prompt_n 7, 5 logprob rows, 'CDV3J3'
+       L2 ~50K-token prompt, cancelled at 16 s: cancelled at 89.48, 
+       Q a new ~20K-token code prompt (after the 16 s cancel): took 46.17 s, cache_n 0, prompt_n 20195, 4 logprob rows, 'A9YPVF'
+       T3 short text again: took 2.05 s, cache_n 16, prompt_n 7, 64 logprob rows, "Sunlight enters Earth's atmosphere and scatters in"
+       G 200 tokens of code, no logprobs: took 4.26 s, cache_n 0, prompt_n 36, 0 logprob rows, '```python\ndef fibonacci(n: int) -> int:\n    """\n  '
+   wrote /tmp/scratch/exact-both.json
+  [gpu both] 0, 150.00 W, 50.01 W, 1328 MHz, 65, 0x0000000000000000
+  [gpu both] 1, 150.00 W, 51.95 W, 1316 MHz, 72, 0x0000000000000004
+== 21:28:22 starting the service again
+   service loaded in 155 s
+  [gpu after] 0, 150.00 W, 34.81 W, 1189 MHz, 48, 0x0000000000000000
+  [gpu after] 1, 150.00 W, 38.16 W, 1189 MHz, 53, 0x0000000000000000
+SAME  T1 short text (fresh engine): 64 logprob rows, text =, cache_n 0/0
+SAME  P1 the ~29K-token code prompt (fresh): 5 logprob rows, text =, cache_n 0/0
+DIFF  T2 short text again (after the 6 s cancel): 64 logprob rows, text !=, cache_n 16/16, first differing row 1, largest logprob difference 0.097165
+DIFF  P2 the code prompt again: 5 logprob rows, text =, cache_n 28874/28874, first differing row 0, largest logprob difference 0.002313
+DIFF  Q a new ~20K-token code prompt (after the 16 s cancel): 4 logprob rows, text =, cache_n 0/0, first differing row 0, largest logprob difference 0.001572
+DIFF  T3 short text again: 64 logprob rows, text =, cache_n 16/16, first differing row 0, largest logprob difference 0.134972
+SAME  G 200 tokens of code, no logprobs: 0 logprob rows, text =, cache_n 0/0
+NOT identical
+== 21:34:53 stopping the service
+  [gpu before] 0, 150.00 W, 32.63 W, 1189 MHz, 40, 0x0000000000000000
+  [gpu before] 1, 150.00 W, 35.77 W, 1189 MHz, 45, 0x0000000000000000
+== 21:35:02 off: starting
+   loaded in 149 s
+  [gpu off] 0, 150.00 W, 32.15 W, 1189 MHz, 39, 0x0000000000000000
+  [gpu off] 1, 150.00 W, 35.04 W, 1189 MHz, 42, 0x0000000000000000
+       T1 short text (fresh engine): took 2.1 s, cache_n 0, prompt_n 23, 64 logprob rows, "Sunlight enters Earth's atmosphere and scatters in"
+       P1 the ~29K-token code prompt (fresh): took 58.94 s, cache_n 0, prompt_n 28881, 5 logprob rows, 'CDV3J3'
+       L1 ~50K-token prompt, cancelled at 6 s: cancelled at 68.18, 
+       T2 short text again (after the 6 s cancel): took 1.65 s, cache_n 16, prompt_n 7, 64 logprob rows, "Sunlight enters Earth's atmosphere and scatters in"
+       P2 the code prompt again: took 0.69 s, cache_n 28874, prompt_n 7, 5 logprob rows, 'CDV3J3'
+       L2 ~50K-token prompt, cancelled at 16 s: cancelled at 105.35, 
+       Q a new ~20K-token code prompt (after the 16 s cancel): took 46.0 s, cache_n 0, prompt_n 20195, 4 logprob rows, 'A9YPVF'
+       T3 short text again: took 2.16 s, cache_n 16, prompt_n 7, 64 logprob rows, "Sunlight enters Earth's atmosphere and scatters in"
+       G 200 tokens of code, no logprobs: took 4.2 s, cache_n 0, prompt_n 36, 0 logprob rows, '```python\ndef fibonacci(n: int) -> int:\n    """\n  '
+   wrote /tmp/scratch/exact-off.json
+  [gpu off] 0, 150.00 W, 48.08 W, 1328 MHz, 61, 0x0000000000000000
+  [gpu off] 1, 150.00 W, 55.06 W, 1328 MHz, 71, 0x0000000000000000
+== 21:40:43 off-static: starting
+== 21:42:58 stopping the service
+  [gpu before] 0, 150.00 W, 28.04 W, 405 MHz, 46, 0x0000000000000001
+  [gpu before] 1, 150.00 W, 30.70 W, 405 MHz, 52, 0x0000000000000001
+== 21:42:58 off-static: starting
+   loaded in 145 s
+  [gpu off-static] 0, 150.00 W, 33.12 W, 1189 MHz, 42, 0x0000000000000000
+  [gpu off-static] 1, 150.00 W, 35.77 W, 1189 MHz, 47, 0x0000000000000000
+       T1 short text (fresh engine): took 2.22 s, cache_n 0, prompt_n 23, 64 logprob rows, "Sunlight enters Earth's atmosphere and scatters in"
+       P1 the ~29K-token code prompt (fresh): took 59.27 s, cache_n 0, prompt_n 28881, 5 logprob rows, 'CDV3J3'
+       L1 ~50K-token prompt, cancelled at 6 s: cancelled at 68.65, 
+       T2 short text again (after the 6 s cancel): took 1.91 s, cache_n 16, prompt_n 7, 64 logprob rows, "Sunlight enters Earth's atmosphere and scatters in"
+       P2 the code prompt again: took 0.7 s, cache_n 28874, prompt_n 7, 5 logprob rows, 'CDV3J3'
+       L2 ~50K-token prompt, cancelled at 16 s: cancelled at 107.08, 
+       Q a new ~20K-token code prompt (after the 16 s cancel): took 46.37 s, cache_n 0, prompt_n 20195, 4 logprob rows, 'A9YPVF'
+       T3 short text again: took 2.4 s, cache_n 16, prompt_n 7, 64 logprob rows, "Sunlight enters Earth's atmosphere and scatters in"
+       G 200 tokens of code, no logprobs: took 4.67 s, cache_n 0, prompt_n 36, 0 logprob rows, '```python\ndef fibonacci(n: int) -> int:\n    """\n  '
+   wrote /tmp/scratch/exact-off-static.json
+  [gpu off-static] 0, 150.00 W, 48.57 W, 1328 MHz, 63, 0x0000000000000000
+  [gpu off-static] 1, 150.00 W, 56.29 W, 1328 MHz, 73, 0x0000000000000000
+== 21:48:37 both-static: starting
+   loaded in 149 s
+  [gpu both-static] 0, 150.00 W, 34.56 W, 1189 MHz, 48, 0x0000000000000000
+  [gpu both-static] 1, 150.00 W, 38.40 W, 1189 MHz, 54, 0x0000000000000000
+       T1 short text (fresh engine): took 2.13 s, cache_n 0, prompt_n 23, 64 logprob rows, "Sunlight enters Earth's atmosphere and scatters in"
+       P1 the ~29K-token code prompt (fresh): took 60.05 s, cache_n 0, prompt_n 28881, 5 logprob rows, 'CDV3J3'
+       L1 ~50K-token prompt, cancelled at 6 s: cancelled at 69.33, 
+       T2 short text again (after the 6 s cancel): took 1.84 s, cache_n 16, prompt_n 7, 64 logprob rows, "Sunlight enters Earth's atmosphere and scatters in"
+       P2 the code prompt again: took 0.71 s, cache_n 28874, prompt_n 7, 5 logprob rows, 'CDV3J3'
+       L2 ~50K-token prompt, cancelled at 16 s: cancelled at 90.02, 
+       Q a new ~20K-token code prompt (after the 16 s cancel): took 46.42 s, cache_n 0, prompt_n 20195, 4 logprob rows, 'A9YPVF'
+       T3 short text again: took 2.28 s, cache_n 16, prompt_n 7, 64 logprob rows, "Sunlight enters Earth's atmosphere and scatters in"
+       G 200 tokens of code, no logprobs: took 4.66 s, cache_n 0, prompt_n 36, 0 logprob rows, '```python\ndef fibonacci(n: int) -> int:\n    """\n  '
+   wrote /tmp/scratch/exact-both-static.json
+  [gpu both-static] 0, 150.00 W, 50.50 W, 1328 MHz, 66, 0x0000000000000000
+  [gpu both-static] 1, 150.00 W, 56.29 W, 1328 MHz, 73, 0x0000000000000000
+== 21:53:43 off-static2: starting
+   loaded in 150 s
+  [gpu off-static2] 0, 150.00 W, 35.05 W, 1189 MHz, 50, 0x0000000000000000
+  [gpu off-static2] 1, 150.00 W, 38.40 W, 1189 MHz, 54, 0x0000000000000000
+       T1 short text (fresh engine): took 2.16 s, cache_n 0, prompt_n 23, 64 logprob rows, "Sunlight enters Earth's atmosphere and scatters in"
+       P1 the ~29K-token code prompt (fresh): took 60.08 s, cache_n 0, prompt_n 28881, 5 logprob rows, 'CDV3J3'
+       L1 ~50K-token prompt, cancelled at 6 s: cancelled at 69.38, 
+       T2 short text again (after the 6 s cancel): took 1.9 s, cache_n 16, prompt_n 7, 64 logprob rows, "Sunlight enters Earth's atmosphere and scatters in"
+       P2 the code prompt again: took 0.72 s, cache_n 28874, prompt_n 7, 5 logprob rows, 'CDV3J3'
+       L2 ~50K-token prompt, cancelled at 16 s: cancelled at 107.85, 
+       Q a new ~20K-token code prompt (after the 16 s cancel): took 48.82 s, cache_n 0, prompt_n 20195, 4 logprob rows, 'A9YPVF'
+       T3 short text again: took 2.28 s, cache_n 16, prompt_n 7, 64 logprob rows, "Sunlight enters Earth's atmosphere and scatters in"
+       G 200 tokens of code, no logprobs: took 4.47 s, cache_n 0, prompt_n 36, 0 logprob rows, '```python\ndef fibonacci(n: int) -> int:\n    """\n  '
+   wrote /tmp/scratch/exact-off-static2.json
+  [gpu off-static2] 0, 150.00 W, 50.74 W, 1328 MHz, 67, 0x0000000000000000
+  [gpu off-static2] 1, 150.00 W, 59.15 W, 1328 MHz, 77, 0x0000000000000000
+== 21:59:31 starting the service again
+   service loaded in 154 s
+  [gpu after] 0, 150.00 W, 35.53 W, 1189 MHz, 50, 0x0000000000000000
+  [gpu after] 1, 150.00 W, 39.37 W, 1189 MHz, 56, 0x0000000000000000
+== off-static vs both-static
+SAME  T1 short text (fresh engine): 64 logprob rows, text =, cache_n 0/0
+SAME  P1 the ~29K-token code prompt (fresh): 5 logprob rows, text =, cache_n 0/0
+DIFF  T2 short text again (after the 6 s cancel): 64 logprob rows, text =, cache_n 16/16, first differing row 1, largest logprob difference 0.221225
+SAME  P2 the code prompt again: 5 logprob rows, text =, cache_n 28874/28874
+SAME  Q a new ~20K-token code prompt (after the 16 s cancel): 4 logprob rows, text =, cache_n 0/0
+DIFF  T3 short text again: 64 logprob rows, text !=, cache_n 16/16, first differing row 7, largest logprob difference 0.323802
+SAME  G 200 tokens of code, no logprobs: 0 logprob rows, text =, cache_n 0/0
+NOT identical
+== off-static vs off-static2
+DIFF  T1 short text (fresh engine): 64 logprob rows, text =, cache_n 0/0, first differing row 59, largest logprob difference 0.006884
+SAME  P1 the ~29K-token code prompt (fresh): 5 logprob rows, text =, cache_n 0/0
+DIFF  T2 short text again (after the 6 s cancel): 64 logprob rows, text =, cache_n 16/16, first differing row 3, largest logprob difference 0.221251
+SAME  P2 the code prompt again: 5 logprob rows, text =, cache_n 28874/28874
+SAME  Q a new ~20K-token code prompt (after the 16 s cancel): 4 logprob rows, text =, cache_n 0/0
+DIFF  T3 short text again: 64 logprob rows, text !=, cache_n 16/16, first differing row 3, largest logprob difference 0.363950
+SAME  G 200 tokens of code, no logprobs: 0 logprob rows, text =, cache_n 0/0
+NOT identical

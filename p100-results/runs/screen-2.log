@@ -1,0 +1,24 @@
+=== exp-combo
+strata decode timing: 152 windows, avg T 3.81, 3.37 tokens/window, 54.73 ms/window = adapt wait 0.03 + verify 48.98 (GPU-reach wait 10.73 + per-layer host 8.67 [plan 0.24 actq 0.58 jobs 0.12 CPU 19.19] + stage 0.15) + commit/emit 0.67 + draft 5.03 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 10.58 (13.25 entries), VRAM hits 24.85, PCIe 0.00; 24.0 swaps/window
+strata serve: prompt 42 tokens = 0 reused + 42 read in 711 ms (59.1 tok/s), 512 generated in 8319 ms (61.5 tok/s), drafts accepted 362 of 427, 1 checkpoints
+strata decode timing: 264 windows, avg T 2.80, 1.94 tokens/window, 43.66 ms/window = adapt wait 0.03 + verify 39.00 (GPU-reach wait 10.27 + per-layer host 4.97 [plan 0.17 actq 0.41 jobs 0.08 CPU 10.97] + stage 0.12) + commit/emit 0.54 + draft 4.07 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 6.00 (7.48 entries), VRAM hits 20.51, PCIe 0.00; 23.5 swaps/window
+strata serve: prompt 32 tokens = 0 reused + 32 read in 768 ms (41.7 tok/s), 512 generated in 11526 ms (44.4 tok/s), drafts accepted 248 of 475, 1 checkpoints
+strata generate: expert cache 2357 slots, 6.12 GiB of VRAM; policy is
+strata generate: layer split: CUDA1 runs layers 19-47, expert cache 2590 slots (6.67 GiB), 2590 of its 14848 profiled pairs; slot 0 verified
+strata generate: layer split: CUDA0 runs layers 0-18
+=== exp-combo-split24
+strata decode timing: 152 windows, avg T 3.84, 3.37 tokens/window, 52.63 ms/window = adapt wait 0.03 + verify 46.76 (GPU-reach wait 14.09 + per-layer host 8.85 [plan 0.24 actq 0.57 jobs 0.09 CPU 15.18] + stage 0.15) + commit/emit 0.70 + draft 5.12 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 8.51 (10.65 entries), VRAM hits 27.71, PCIe 0.00; 24.0 swaps/window
+strata serve: prompt 42 tokens = 0 reused + 42 read in 658 ms (63.8 tok/s), 512 generated in 8000 ms (64.0 tok/s), drafts accepted 362 of 431, 1 checkpoints
+strata decode timing: 268 windows, avg T 2.80, 1.91 tokens/window, 43.06 ms/window = adapt wait 0.03 + verify 38.35 (GPU-reach wait 13.53 + per-layer host 5.05 [plan 0.17 actq 0.38 jobs 0.06 CPU 8.77] + stage 0.12) + commit/emit 0.56 + draft 4.10 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 4.63 (5.86 entries), VRAM hits 22.16, PCIe 0.00; 21.5 swaps/window
+strata serve: prompt 32 tokens = 0 reused + 32 read in 747 ms (42.8 tok/s), 512 generated in 11539 ms (44.4 tok/s), drafts accepted 244 of 483, 1 checkpoints
+strata generate: expert cache 3733 slots, 9.68 GiB of VRAM; policy is
+strata generate: layer split: CUDA1 runs layers 24-47, expert cache 2915 slots (7.51 GiB), 2915 of its 12288 profiled pairs; slot 0 verified
+strata generate: layer split: CUDA0 runs layers 0-23
+=== exp-combo-split22
+strata decode timing: 152 windows, avg T 3.82, 3.37 tokens/window, 53.03 ms/window = adapt wait 0.03 + verify 47.17 (GPU-reach wait 13.30 + per-layer host 7.67 [plan 0.24 actq 0.55 jobs 0.09 CPU 15.56] + stage 0.15) + commit/emit 0.70 + draft 5.10 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 8.60 (10.73 entries), VRAM hits 27.49, PCIe 0.00; 24.0 swaps/window
+strata serve: prompt 42 tokens = 0 reused + 42 read in 677 ms (62.0 tok/s), 512 generated in 8060 ms (63.5 tok/s), drafts accepted 360 of 429, 1 checkpoints
+strata decode timing: 267 windows, avg T 2.72, 1.92 tokens/window, 42.25 ms/window = adapt wait 0.03 + verify 37.67 (GPU-reach wait 12.64 + per-layer host 3.95 [plan 0.17 actq 0.35 jobs 0.05 CPU 8.21] + stage 0.12) + commit/emit 0.52 + draft 4.01 + adapt join 0.00 + other 0.02; per layer-window: CPU experts 4.33 (5.45 entries), VRAM hits 21.70, PCIe 0.00; 20.3 swaps/window
+strata serve: prompt 32 tokens = 0 reused + 32 read in 746 ms (42.9 tok/s), 512 generated in 11279 ms (45.4 tok/s), drafts accepted 247 of 458, 1 checkpoints
+strata generate: expert cache 3862 slots, 10.02 GiB of VRAM; policy is
+strata generate: layer split: CUDA1 runs layers 22-47, expert cache 2783 slots (7.17 GiB), 2783 of its 13312 profiled pairs; slot 0 verified
+strata generate: layer split: CUDA0 runs layers 0-21

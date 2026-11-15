@@ -1,0 +1,22 @@
+{
+ "base": "p100-configs/strata-bitlamas-p100-best.json",
+ "arms": {
+  "A": {
+   "config": {
+    "exe": "/home/user/projects/strata/build-p100/strata-before-ple"
+   }
+  },
+  "B": {}
+ },
+ "order": "ABBA",
+ "cases": [
+  "code",
+  "prose",
+  "chat",
+  "tool",
+  "L8k"
+ ],
+ "port": 8090,
+ "pre_start": "sudo -n sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'",
+ "note": "A = the engine before 2026-11-07 (PLE table faulted in by unbound threads, arena touched then pre-pinned, room counts locked file pages); B = PLE halves per node + arena pinned before the touch + room without CMA/locked memory. Cold file cache before every start (as after a boot)."
+}

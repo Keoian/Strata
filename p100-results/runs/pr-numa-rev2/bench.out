@@ -1,0 +1,23 @@
+[R1] pre_start: exit 0
+[R1] loaded in 260 s
+[R1] code   prompt 70 (reused 0) pp    42.8 tok/s  decode 512 tok  39.61 tok/s  accepted 354/446  finish length
+[R1] prose  prompt 60 (reused 0) pp    37.4 tok/s  decode 512 tok  31.82 tok/s  accepted 259/476  finish length
+[R1] L8k    prompt 7906 (reused 0) pp   313.5 tok/s  decode 256 tok  32.85 tok/s  accepted 168/229  finish length
+[N1] pre_start: exit 0
+[N1] loaded in 244 s
+[N1] code   prompt 70 (reused 0) pp    40.2 tok/s  decode 512 tok  39.90 tok/s  accepted 357/436  finish length
+[N1] prose  prompt 60 (reused 0) pp    37.6 tok/s  decode 479 tok  29.94 tok/s  accepted 227/458  finish stop
+[N1] L8k    prompt 7906 (reused 0) pp   312.7 tok/s  decode 256 tok  34.11 tok/s  accepted 164/219  finish length
+[N2] pre_start: exit 0
+[N2] loaded in 244 s
+[N2] code   prompt 70 (reused 0) pp    40.7 tok/s  decode 512 tok  39.74 tok/s  accepted 352/444  finish length
+[N2] prose  prompt 60 (reused 0) pp    35.8 tok/s  decode 512 tok  31.41 tok/s  accepted 252/462  finish length
+[N2] L8k    prompt 7906 (reused 0) pp   312.5 tok/s  decode 256 tok  32.66 tok/s  accepted 169/233  finish length
+[R2] pre_start: exit 0
+[R2] loaded in 252 s
+[R2] code   prompt 70 (reused 0) pp    43.2 tok/s  decode 512 tok  40.85 tok/s  accepted 357/438  finish length
+[R2] prose  prompt 60 (reused 0) pp    37.7 tok/s  decode 505 tok  31.72 tok/s  accepted 246/466  finish stop
+[R2] L8k    prompt 7906 (reused 0) pp   311.1 tok/s  decode 256 tok  34.54 tok/s  accepted 170/222  finish length
+L8k N: decode 33.38 pp 312.6 (n=2) | R: decode 33.69 pp 312.3 (n=2)
+code N: decode 39.82 pp 40.5 (n=2) | R: decode 40.23 pp 43.0 (n=2)
+prose N: decode 30.67 pp 36.7 (n=2) | R: decode 31.77 pp 37.5 (n=2)

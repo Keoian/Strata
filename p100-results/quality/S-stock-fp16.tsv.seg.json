@@ -1,0 +1,70 @@
+{
+ "segments": [
+  {
+   "name": "code",
+   "first_line": 0,
+   "end_line": 999
+  },
+  {
+   "name": "docs",
+   "first_line": 999,
+   "end_line": 1998
+  },
+  {
+   "name": "english",
+   "first_line": 1998,
+   "end_line": 2997
+  },
+  {
+   "name": "multilingual",
+   "first_line": 2997,
+   "end_line": 3996
+  },
+  {
+   "name": "agent",
+   "first_line": 3996,
+   "end_line": 4995
+  }
+ ],
+ "config": "/home/user/projects/strata/p100-configs/strata-bitlamas-stock-1gpu-32k-int8.json",
+ "args": [
+  "/home/user/projects/strata/build-p100/strata",
+  "--serve",
+  "--pack",
+  "/home/user/models/strata-packs/bitlamas-q4kxl-iq4nl",
+  "--native",
+  "/home/user/models/bitlamas-Qwen3.8-Flash-Next-GGUF/Q4_K_XL-IQ4NL/Qwen3.8-Flash-Next-Q4_K_XL-IQ4NL-00001-of-00004.gguf",
+  "--expert-profile",
+  "/home/user/projects/strata/data/expert-profile.bin",
+  "--spec",
+  "4",
+  "--spec-min-p",
+  "0.5",
+  "--mtp",
+  "/home/user/models/strata-mtp/rt",
+  "--expert-cache",
+  "1",
+  "--adapt-every",
+  "100000",
+  "--pcie-frac",
+  "0",
+  "--suffix-draft",
+  "0",
+  "--prompt-cache",
+  "0",
+  "--kv",
+  "fp16",
+  "--max-context",
+  "1512",
+  "--short-read",
+  "1064",
+  "--prefill",
+  "512"
+ ],
+ "env": [],
+ "expert_cache_lines": [
+  "strata generate: expert cache 1 slots, 0.00 GiB of VRAM; policy is",
+  "strata serve: decode expert cache hit rate: 0.0% (0 hits / 480 lookups)",
+  "strata serve: decode expert cache hit rate: 0.0% (0 hits / 480 lookups)"
+ ]
+}

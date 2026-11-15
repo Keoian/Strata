@@ -1,0 +1,56 @@
+loading the model (the first start takes a minute or two) ...
+[strata] layer split across GPUs [0, 1] (auto)
+[strata] starting the engine: reading the model's weights ...
+[strata] loading the experts into RAM (tens of GB) and locking part of them for the GPU.
+         YOUR PC CAN BE SLOW OR STOP RESPONDING FOR 1-3 MINUTES NOW - this is normal.
+         Please wait and don't close this window; the server says when it is ready.
+[strata] still starting (27 s) - please wait ...
+[strata] still starting (47 s) - please wait ...
+[strata] still starting (67 s) - please wait ...
+[strata] still starting (87 s) - please wait ...
+[strata] still starting (107 s) - please wait ...
+[strata] still starting (127 s) - please wait ...
+[strata] still starting (147 s) - please wait ...
+[strata] experts loaded: 63.48 GiB at 0.50 GiB/s (160 s so far)
+[strata] filling the GPU's expert cache (3484 experts, 9.03 GiB of VRAM) ...
+[strata] almost ready ...
+ready: http://127.0.0.1:8090/v1  (OpenAI: /v1/chat/completions, Anthropic: /v1/messages, context 32768 tokens)
+       open http://127.0.0.1:8090/ in a browser to chat; close this window to stop the model
+[strata] done: 2 tokens in 1 s (8.4 tok/s) (stop, cancel=False), expert cache 40.9% hit (+9.3% of the routed experts over PCIe)
+[strata] reading the prompt: 50 of 57 tokens, 1 s so far
+[strata] answering: 15 of max 256 tokens, 19.4 tok/s, 2 s
+[strata] answering: 44 of max 256 tokens, 24.4 tok/s, 4 s
+[strata] done: 66 tokens in 4 s (25.1 tok/s) (stop, cancel=False), expert cache 59.5% hit (+5.9% of the routed experts over PCIe)
+[strata] reading the prompt: 63 of 70 tokens, 2 s so far
+[strata] answering: 27 of max 512 tokens, 33.4 tok/s, 3 s
+[strata] answering: 57 of max 512 tokens, 31.0 tok/s, 4 s
+[strata] answering: 93 of max 512 tokens, 32.1 tok/s, 5 s
+[strata] answering: 131 of max 512 tokens, 33.2 tok/s, 6 s
+[strata] answering: 173 of max 512 tokens, 34.7 tok/s, 7 s
+[strata] answering: 205 of max 512 tokens, 34.2 tok/s, 8 s
+[strata] answering: 250 of max 512 tokens, 35.4 tok/s, 9 s
+[strata] answering: 290 of max 512 tokens, 35.6 tok/s, 10 s
+[strata] answering: 336 of max 512 tokens, 36.6 tok/s, 11 s
+[strata] answering: 378 of max 512 tokens, 37.2 tok/s, 12 s
+[strata] answering: 416 of max 512 tokens, 37.2 tok/s, 13 s
+[strata] answering: 459 of max 512 tokens, 37.5 tok/s, 14 s
+[strata] answering: 505 of max 512 tokens, 37.9 tok/s, 15 s
+[strata] done: 512 tokens in 15 s (38.1 tok/s) (length, cancel=False), expert cache 74.7% hit (+3.8% of the routed experts over PCIe)
+[strata] reading the prompt: 313 of 320 tokens, 5 s so far
+[strata] writing a tool call: get_weather: 21 of max 128 tokens, 26.4 tok/s, 6 s
+[strata] done: 41 tokens in 7 s (28.7 tok/s) (stop, cancel=False), expert cache 41.9% hit (+9.9% of the routed experts over PCIe)
+[strata] thinking limited to 512 of max_tokens 1024 so the answer has room ("answer_room": false in the config turns this off)
+[strata] reading the prompt: 75 of 80 tokens, 2 s so far
+[strata] thinking: 22 of budget 512 (max 1024) tokens, 29.4 tok/s, 3 s
+[strata] thinking: 56 of budget 512 (max 1024) tokens, 30.2 tok/s, 5 s
+[strata] thinking: 88 of budget 512 (max 1024) tokens, 30.1 tok/s, 6 s
+[strata] thinking: 122 of budget 512 (max 1024) tokens, 30.5 tok/s, 7 s
+[strata] thinking: 163 of budget 512 (max 1024) tokens, 32.1 tok/s, 8 s
+[strata] answering: 204 of max 1024 tokens, 33.4 tok/s, 9 s
+[strata] answering: 238 of max 1024 tokens, 33.3 tok/s, 10 s
+[strata] answering: 282 of max 1024 tokens, 34.3 tok/s, 11 s
+[strata] answering: 325 of max 1024 tokens, 35.0 tok/s, 12 s
+[strata] done: 346 tokens in 13 s (34.7 tok/s) (stop, cancel=False), expert cache 69.7% hit (+4.9% of the routed experts over PCIe)
+
+[strata] stopping (Ctrl+C again to end the engine at once) ...
+[strata] stopped

@@ -1,0 +1,23 @@
+[P1] pre_start: exit 0
+[P1] loaded in 248 s
+[P1] code   prompt 70 (reused 0) pp    42.4 tok/s  decode 512 tok  39.54 tok/s  accepted 353/445  finish length
+Traceback (most recent call last):
+  File "/home/user/projects/strata/p100-results/tools/p100_bench.py", line 315, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/user/projects/strata/p100-results/tools/p100_bench.py", line 303, in main
+    rows += run_block(letter, plan["arms"][letter], base, plan["cases"], seen[letter], out, plan.get("port", 8090),
+            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                      plan.get("request_extra"), plan.get("pre_start"))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/strata/p100-results/tools/p100_bench.py", line 241, in run_block
+    r = stream(url, body)
+  File "/home/user/projects/strata/p100-results/tools/p100_bench.py", line 122, in stream
+    for line in r:
+                ^
+  File "/usr/lib/python3.14/http/client.py", line 711, in readline
+    result = self.fp.readline(limit)
+  File "/usr/lib/python3.14/socket.py", line 725, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+KeyboardInterrupt

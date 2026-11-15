@@ -1,0 +1,16 @@
+{
+ "base": "p100-configs/strata-bitlamas-stock-2gpu-128k-int8.json",
+ "arms": {
+  "A": {},
+  "B": {
+   "config_file": "p100-configs/strata-bitlamas-p100-best-128k-k8v4.json"
+  }
+ },
+ "order": "ABBA",
+ "cases": [
+  "chat",
+  "L64k",
+  "L120k"
+ ],
+ "port": 8090
+}

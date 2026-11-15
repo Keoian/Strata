@@ -1,0 +1,77 @@
+{
+ "service": "strata",
+ "model": "qwen3.8-flash-next-bitlamas-q4_k_xl-iq4nl",
+ "loaded": true,
+ "auto_load": true,
+ "structured_output": {
+  "formats": [
+   "json_object",
+   "json_schema"
+  ],
+  "method": "prompt_and_validate",
+  "constrained_decoding": false,
+  "stream_buffered": true
+ },
+ "engine": "0.1.57",
+ "started": 1793983872,
+ "uptime_s": 159,
+ "cache_max_tokens": 32768,
+ "context": {
+  "native": 32768,
+  "max_positions": 32768
+ },
+ "concurrency": {
+  "serving": 1,
+  "requested": 1
+ },
+ "dialects": [
+  "/v1/chat/completions",
+  "/v1/messages",
+  "/v1/responses"
+ ],
+ "vision": {
+  "enabled": false,
+  "available": false,
+  "error": null
+ },
+ "image_generation": {
+  "enabled": false
+ },
+ "activity": {
+  "requests": 9,
+  "in_flight": 0,
+  "last_request_at": 1793984031
+ },
+ "last_timings": {
+  "cache_n": 0,
+  "prompt_n": 32334,
+  "prompt_ms": 65500.9,
+  "prompt_per_token_ms": 2.026,
+  "prompt_per_second": 493.6,
+  "predicted_n": 256,
+  "predicted_ms": 4604.0,
+  "predicted_per_token_ms": 17.984,
+  "predicted_per_second": 55.6,
+  "draft_n": 223,
+  "draft_n_accepted": 169,
+  "at": 1793984031
+ },
+ "vram": {
+  "elastic": false
+ },
+ "machine": {
+  "at": 1793984031,
+  "gpu": {
+   "name": "Tesla P100-PCIE-16GB + Tesla P100-PCIE-16GB",
+   "used_mib": 31666.0,
+   "total_mib": 32768.0,
+   "util_pct": 53.0,
+   "temp_c": 61,
+   "power_w": 169.266
+  },
+  "ram": {
+   "used_gib": 98.6,
+   "total_gib": 125.7
+  }
+ }
+}

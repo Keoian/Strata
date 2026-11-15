@@ -1,0 +1,20 @@
+== qsa_pattn_parity
+qsa_pattn_parity on device 0 (Tesla P100-PCIE-16GB, 6.0): the checked entry and the production path are compared too
+qsa_pattn_parity: 468 cases, 0 differ, 29724792 nonzero output values in all -> PASS
+exit 0
+== qsa_select_long_parity
+qsa_select_long_parity: set STRATA_SCORES_DX=1 and STRATA_TOPK_MULTI=1 (the kernels are otherwise default only on compute capability 6.x)
+exit 2
+== prefill_mmq_kquant_test
+prefill MMQ K-quant screen failed: Q4_K gate/up-0: not covered by this build
+exit 1
+qsa_select_long_parity on device 0 (Tesla P100-PCIE-16GB, 6.0), STRATA_TOPK_MULTI_N=(per capacity)
+qsa_select_long_parity: 172 cases, 0 differ -> PASS
+Q5_1 down-2            rows  5 experts 2  ref_rms 1.706  rel_l2 0.00225  max/rms 0.0102  zero row 0
+Q8_0 down-2            rows  5 experts 2  ref_rms 1.776  rel_l2 0.00045  max/rms 0.0015  zero row 0
+Q4_K gate/up-3         rows 17 experts 1  ref_rms 1.816  rel_l2 0.00167  max/rms 0.0068  zero row 0
+Q5_K gate/up-3         rows 17 experts 1  ref_rms 1.815  rel_l2 0.00219  max/rms 0.0063  zero row 0
+Q6_K gate/up-3         rows 17 experts 1  ref_rms 1.799  rel_l2 0.00105  max/rms 0.0040  zero row 0
+Q5_1 down-3            rows 17 experts 1  ref_rms 1.93  rel_l2 0.00230  max/rms 0.0106  zero row 0
+Q8_0 down-3            rows 17 experts 1  ref_rms 1.943  rel_l2 0.00053  max/rms 0.0017  zero row 0
+prefill MMQ K-quant screen passed

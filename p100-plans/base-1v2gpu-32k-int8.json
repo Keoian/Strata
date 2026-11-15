@@ -1,0 +1,5 @@
+{"base": "p100-configs/strata-bitlamas-stock-2gpu-32k-int8.json",
+ "arms": {"A": {}, "B": {"config": {"gpu": [1]}}},
+ "order": "ABBA",
+ "cases": ["code", "edit", "prose", "chat", "tool", "think", "L8k", "L32k"],
+ "port": 8090}
